@@ -19,8 +19,7 @@
 		63F18DE716BDCD1E00A1EEE9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F18DE616BDCD1E00A1EEE9 /* Default-568h@2x.png */; };
 		63F18DEA16BDCD1E00A1EEE9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F18DE816BDCD1E00A1EEE9 /* MainStoryboard.storyboard */; };
 		63F18DED16BDCD1E00A1EEE9 /* CoderNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63F18DEB16BDCD1E00A1EEE9 /* CoderNews.xcdatamodeld */; };
-		63F18DF016BDCD1E00A1EEE9 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F18DEF16BDCD1E00A1EEE9 /* MasterViewController.m */; };
-		63F18DF316BDCD1E00A1EEE9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F18DF216BDCD1E00A1EEE9 /* DetailViewController.m */; };
+		63F18DFE16BDD13A00A1EEE9 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F18DFD16BDD13A00A1EEE9 /* MasterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +39,8 @@
 		63F18DE616BDCD1E00A1EEE9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		63F18DE916BDCD1E00A1EEE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		63F18DEC16BDCD1E00A1EEE9 /* CoderNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoderNews.xcdatamodel; sourceTree = "<group>"; };
-		63F18DEE16BDCD1E00A1EEE9 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		63F18DEF16BDCD1E00A1EEE9 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		63F18DF116BDCD1E00A1EEE9 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		63F18DF216BDCD1E00A1EEE9 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		63F18DFC16BDD13A00A1EEE9 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		63F18DFD16BDD13A00A1EEE9 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,11 +91,9 @@
 			children = (
 				63F18DDF16BDCD1E00A1EEE9 /* AppDelegate.h */,
 				63F18DE016BDCD1E00A1EEE9 /* AppDelegate.m */,
+				63F18DFC16BDD13A00A1EEE9 /* MasterViewController.h */,
+				63F18DFD16BDD13A00A1EEE9 /* MasterViewController.m */,
 				63F18DE816BDCD1E00A1EEE9 /* MainStoryboard.storyboard */,
-				63F18DEE16BDCD1E00A1EEE9 /* MasterViewController.h */,
-				63F18DEF16BDCD1E00A1EEE9 /* MasterViewController.m */,
-				63F18DF116BDCD1E00A1EEE9 /* DetailViewController.h */,
-				63F18DF216BDCD1E00A1EEE9 /* DetailViewController.m */,
 				63F18DEB16BDCD1E00A1EEE9 /* CoderNews.xcdatamodeld */,
 				63F18DD716BDCD1E00A1EEE9 /* Supporting Files */,
 			);
@@ -188,8 +183,7 @@
 				63F18DDD16BDCD1E00A1EEE9 /* main.m in Sources */,
 				63F18DE116BDCD1E00A1EEE9 /* AppDelegate.m in Sources */,
 				63F18DED16BDCD1E00A1EEE9 /* CoderNews.xcdatamodeld in Sources */,
-				63F18DF016BDCD1E00A1EEE9 /* MasterViewController.m in Sources */,
-				63F18DF316BDCD1E00A1EEE9 /* DetailViewController.m in Sources */,
+				63F18DFE16BDD13A00A1EEE9 /* MasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +306,7 @@
 				63F18DF816BDCD1E00A1EEE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
