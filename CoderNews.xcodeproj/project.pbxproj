@@ -97,6 +97,8 @@
 			children = (
 				63F18DDF16BDCD1E00A1EEE9 /* AppDelegate.h */,
 				63F18DE016BDCD1E00A1EEE9 /* AppDelegate.m */,
+				6363A24316BE0EA000D121E2 /* CoreDataManager.h */,
+				6363A24416BE0EA000D121E2 /* CoreDataManager.m */,
 				63F18DFC16BDD13A00A1EEE9 /* MasterViewController.h */,
 				63F18DFD16BDD13A00A1EEE9 /* MasterViewController.m */,
 				63F18DE816BDCD1E00A1EEE9 /* MainStoryboard.storyboard */,
@@ -104,8 +106,6 @@
 				6363A23716BDE92D00D121E2 /* StoryInfo.h */,
 				6363A23816BDE92D00D121E2 /* StoryInfo.m */,
 				63F18DD716BDCD1E00A1EEE9 /* Supporting Files */,
-				6363A24316BE0EA000D121E2 /* CoreDataManager.h */,
-				6363A24416BE0EA000D121E2 /* CoreDataManager.m */,
 			);
 			path = CoderNews;
 			sourceTree = "<group>";

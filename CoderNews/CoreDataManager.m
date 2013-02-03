@@ -22,6 +22,37 @@ static CoreDataManager *_sharedInstance;
     return _sharedInstance;
 }
 
+#pragma mark - CRUD
+
+- (NSFetchedResultsController *)fetchStoryInfosById {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // fix this. sort on an id.
+    NSSortDescriptor* sort = [[NSSortDescriptor alloc] initWithKey:@"source" ascending:NO];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+    
+    [fetchRequest setFetchBatchSize:20];
+    NSFetchedResultsController *theFetechedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
+    
+    return theFetechedResultsController;
+}
+
+- (BOOL) persistStoryWithTitle:(NSString *)title url:(NSString *)url source:(NSString *)source {
+    StoryInfo* si = [NSEntityDescription insertNewObjectForEntityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext];
+    si.title = title;
+    si.source = source;
+    si.url = url;
+    si.visited = [NSNumber numberWithBool:NO];
+    NSError* error;
+    if(![self.managedObjectContext save:&error]) {
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.

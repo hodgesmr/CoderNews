@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "StoryInfo.h"
 
 @interface CoreDataManager : NSObject
 
@@ -16,6 +17,8 @@
 
 
 - (NSURL *)applicationDocumentsDirectory;
+- (NSFetchedResultsController *)fetchStoryInfosById;
+- (BOOL) persistStoryWithTitle:(NSString *)title url:(NSString *)url source:(NSString *)source;
 +(CoreDataManager *)sharedManager;
 
 @end

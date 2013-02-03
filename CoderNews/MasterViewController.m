@@ -7,6 +7,7 @@
 //
 
 #import "StoryInfo.h" // this will go away
+#import "CoreDataManager.h"
 #import "MasterViewController.h"
 
 @interface MasterViewController ()
@@ -15,29 +16,7 @@
 
 @implementation MasterViewController
 
-@synthesize managedObjectContext;
 @synthesize fetchedResultsController = _fetchedResultsController;
-
-- (NSFetchedResultsController *)fetchedResultsController {
-    if(_fetchedResultsController != nil) {
-        return _fetchedResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // fix this. sort on something better.
-    NSSortDescriptor* sort = [[NSSortDescriptor alloc] initWithKey:@"source" ascending:NO];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
-    
-    [fetchRequest setFetchBatchSize:20];
-    NSFetchedResultsController *theFetechedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
-    self.fetchedResultsController = theFetechedResultsController;
-    _fetchedResultsController.delegate = self;
-    
-    return _fetchedResultsController;
-}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -52,6 +31,7 @@
 {
     [super viewDidLoad];
 
+    self.fetchedResultsController = [[CoreDataManager sharedManager] fetchStoryInfosById];
     NSError* error;
     if(![[self fetchedResultsController] performFetch:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -62,6 +42,7 @@
 
 - (void) viewDidUnload {
     self.fetchedResultsController = nil; // Not sure if I want this or not...
+    self.fetchedResultsController.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning
