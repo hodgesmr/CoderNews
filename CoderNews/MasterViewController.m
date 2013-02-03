@@ -63,7 +63,7 @@
         ContentViewController *contentViewController = (ContentViewController *)segue.destinationViewController;
         StoryInfo* si = [self.fetchedResultsController objectAtIndexPath:currentlySelected];
         contentViewController.storyTitle = si.title;
-        contentViewController.storyUrl = si.title;
+        contentViewController.storyUrl = si.url;
     }
 }
 
