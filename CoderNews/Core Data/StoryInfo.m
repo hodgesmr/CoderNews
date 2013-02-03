@@ -2,7 +2,7 @@
 //  StoryInfo.m
 //  CoderNews
 //
-//  Created by hodgesmr on 2/2/13.
+//  Created by hodgesmr on 2/3/13.
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
@@ -11,11 +11,11 @@
 
 @implementation StoryInfo
 
+@dynamic date;
 @dynamic source;
 @dynamic title;
 @dynamic uid;
 @dynamic url;
 @dynamic visited;
-@dynamic date;
 
 @end

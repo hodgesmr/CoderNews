@@ -46,9 +46,7 @@ static CoreDataManager *_sharedInstance;
     si.url = url;
     si.visited = [NSNumber numberWithBool:NO];
     si.date = [NSDate date];
-    NSDecimalNumber* uidDecimal = [NSDecimalNumber decimalNumberWithString:[self getLastUid]];
-    uidDecimal = [uidDecimal decimalNumberByAdding:[NSDecimalNumber decimalNumberWithString:@"1"]];
-    si.uid = [uidDecimal stringValue];
+    si.uid = [NSNumber numberWithLongLong:[[self getLastUid] longLongValue] + 1];
     NSError* error;
     if(![self.managedObjectContext save:&error]) {
         return NO;
@@ -56,7 +54,7 @@ static CoreDataManager *_sharedInstance;
     return YES;
 }
 
-- (NSString *) getLastUid {
+- (NSNumber *) getLastUid {
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc]init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];

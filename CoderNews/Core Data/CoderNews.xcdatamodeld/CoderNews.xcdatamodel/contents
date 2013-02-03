@@ -4,7 +4,7 @@
         <attribute name="date" attributeType="Date" syncable="YES"/>
         <attribute name="source" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <attribute name="uid" attributeType="String" defaultValueString="0" syncable="YES"/>
+        <attribute name="uid" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
         <attribute name="visited" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
     </entity>
