@@ -12,32 +12,39 @@
 static NSString* const proggitUrl = @"http://www.reddit.com/r/programming/.json";
 //static NSString* const hackerNewsUrl = @"http://hndroidapi.appspot.com/news/format/json/page/?appid=Coder%20News";
 
-@implementation JSONManager
+static JSONManager *_sharedJSONManagerInsance;
 
-+ (JSONManager *)sharedJSONManager {
-    
-    NSMutableArray* operations = [NSMutableArray arrayWithCapacity:2];
-    [operations addObject:[self operationToFetchJSON:proggitUrl]];
-    //[operations addObject:[self operationToFetchJSON:hackerNewsUrl]];
-    
-    static JSONManager *sharedJSONManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedJSONManager = [[JSONManager alloc] initWithBaseURL:[NSURL URLWithString:proggitUrl]];
-        [sharedJSONManager enqueueBatchOfHTTPRequestOperations:operations
-                                                 progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations) {
-                                                     NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
-                                                 }
-                                               completionBlock:^(NSArray *operations) {
-                                                   NSLog(@"All operations finished");
-                                                   [[NSNotificationCenter defaultCenter] postNotificationName:@"Compare Everything" object:nil];
-                                               }];
-    });
-    
-    return sharedJSONManager;
+@implementation JSONManager
+@synthesize operations;
+
++ (JSONManager *) sharedJSONManager {
+    if (!_sharedJSONManagerInsance) {
+        _sharedJSONManagerInsance = [JSONManager new];
+        _sharedJSONManagerInsance = [[JSONManager alloc] initWithBaseURL:[NSURL URLWithString:proggitUrl]];
+        [_sharedJSONManagerInsance loadOperations];
+        
+    }
+    return _sharedJSONManagerInsance;
 }
 
-+(AFHTTPRequestOperation *)operationToFetchJSON:(NSString*)requestUrl {
+- (void) loadOperations {
+    self.operations = [NSMutableArray arrayWithCapacity:2];
+    [self.operations addObject:[self fetchJSON:proggitUrl]];
+    //[operations addObject:[self operationToFetchJSON:hackerNewsUrl]];
+}
+
+- (void) enqueueOperations {
+    [self enqueueBatchOfHTTPRequestOperations:operations
+                                progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations) {
+                                    NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
+                                }
+                              completionBlock:^(NSArray *operations) {
+                                  NSLog(@"All operations finished");
+                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"Compare Everything" object:nil];
+                              }];
+}
+
+- (AFHTTPRequestOperation *)fetchJSON:(NSString*)requestUrl {
     
     NSURL* jsonUrl = [NSURL URLWithString:requestUrl];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:jsonUrl];
@@ -47,9 +54,5 @@ static NSString* const proggitUrl = @"http://www.reddit.com/r/programming/.json"
     
     return operation;
 }
-
-
-
-
 
 @end
