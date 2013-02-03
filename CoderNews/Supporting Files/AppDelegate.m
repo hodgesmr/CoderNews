@@ -21,7 +21,7 @@
     
     
     // Test JSON
-    [[JSONManager sharedJSONManager] enqueueOperations];
+    [[JSONManager sharedJSONManager] executeOperations];
     return YES;
 }
 

@@ -11,7 +11,8 @@
 @interface JSONManager : AFHTTPClient
 
 @property (nonatomic, weak) NSMutableArray* operations;
+@property (nonatomic, strong) NSMutableArray* fetchedStories;
 
 + (JSONManager *)sharedJSONManager;
-- (void) enqueueOperations;
+- (void) executeOperations;
 @end
