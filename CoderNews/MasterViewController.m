@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
-#import "StoryInfo.h" // this will go away
 #import "CoreDataManager.h"
 #import "MasterViewController.h"
 
