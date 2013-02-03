@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
 #import "MasterViewController.h"
+#import "StoryInfo.h"
 
 @implementation AppDelegate
 
@@ -18,24 +18,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    // Test insert
     NSManagedObjectContext* context = [self managedObjectContext];
-    NSManagedObject* storyInfo = [NSEntityDescription insertNewObjectForEntityForName:@"StoryInfo" inManagedObjectContext:context];
-    [storyInfo setValue:@"Awesome Story Title" forKey:@"title"];
-    [storyInfo setValue:@"http://google.com" forKey:@"url"];
-    [storyInfo setValue:@"hackernews" forKey:@"source"];
-    [storyInfo setValue:[NSNumber numberWithBool:NO] forKey:@"visited"];
+    StoryInfo* storyInfo = [NSEntityDescription insertNewObjectForEntityForName:@"StoryInfo" inManagedObjectContext:context];
+    storyInfo.title = @"An awesome title";
+    storyInfo.url = @"http://google.com";
+    storyInfo.source = @"hackernews";
+    storyInfo.visited = [NSNumber numberWithBool:NO];
     NSError* error;
     if(![context save:&error]) {
         NSLog(@"Whoops, couldn't save : %@", [error localizedDescription]);
     }
-    
+    // Test read
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray* fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    for(NSManagedObject* info in fetchedObjects) {
-        NSLog(@"Title: %@ Url: %@ Source: %@ Visited: %s",[info valueForKey:@"title"],[info valueForKey:@"url"],[info valueForKey:@"source"],([info valueForKey:@"visited"] ? "true" : "false"));
+    for(StoryInfo* info in fetchedObjects) {
+        NSLog(@"Title: %@ Url: %@ Source: %@ Visited: %s",info.title ,info.url,info.source,(info.visited ? "true" : "false"));
     }
     
     // Override point for customization after application launch.
