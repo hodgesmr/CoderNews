@@ -80,6 +80,43 @@ static CoreDataManager *_sharedInstance;
     return count;
 }
 
+-(void)clearCoreData {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error = nil;
+    NSArray *objects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (!error) {
+        for (NSManagedObject *object in objects) {
+            [self.managedObjectContext deleteObject:object];
+        }
+    }
+    else {
+        [self deletePersistentStore];
+    }
+    error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        [self deletePersistentStore];
+    }
+}
+
+
+
+-(void)deletePersistentStore {
+    // Wipe the database file directly
+    NSError *error = nil;
+    NSPersistentStore *store = [self.persistentStoreCoordinator.persistentStores lastObject];
+    NSError *fileError = nil;
+    NSURL *storeURL = store.URL;
+    [self.persistentStoreCoordinator removePersistentStore:store error:&fileError];
+    fileError = nil;
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&fileError];
+    // Create an empty database file to replace it
+    if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+        // do something with the error
+    }
+}
+
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.
