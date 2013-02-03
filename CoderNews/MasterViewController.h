@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSArray* storyInfos; // this will go away
+@property (nonatomic, retain) NSFetchedResultsController* fetchedResultsController;
 
 
 @end
