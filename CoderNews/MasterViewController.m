@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
+#import "StoryInfo.h" // this will go away
 #import "MasterViewController.h"
 
 @interface MasterViewController ()
@@ -15,6 +16,7 @@
 @implementation MasterViewController
 
 @synthesize managedObjectContext;
+@synthesize storyInfos; // this will go away
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,11 +31,12 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    self.storyInfos = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    self.title = @"Coder News";
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,25 +49,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [storyInfos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    
+    StoryInfo* info = [storyInfos objectAtIndex:indexPath.row];
+    cell.textLabel.text = info.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", info.source, info.url];
     return cell;
 }
 

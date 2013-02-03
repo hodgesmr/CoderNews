@@ -11,5 +11,7 @@
 @interface MasterViewController : UITableViewController
 
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSArray* storyInfos; // this will go away
+
 
 @end
