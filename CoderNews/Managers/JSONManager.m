@@ -49,7 +49,7 @@ static JSONManager *_sharedJSONManagerInsance;
     NSURL* jsonUrl = [NSURL URLWithString:requestUrl];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:jsonUrl];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"IP Address: %@", [JSON stringValue]);
+        NSLog(@"JSON: %@", [[JSON valueForKeyPath:@"data"] valueForKey:@"children"]);
     } failure:nil];
     
     return operation;

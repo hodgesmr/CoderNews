@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
+#import "JSONManager.h"
 #import "NewsListViewController.h"
 #import "StoryInfo.h"
 
@@ -18,6 +19,9 @@
     // Test insert
     [[CoreDataManager sharedManager] persistStoryWithTitle:@"Test Title" url:@"http://example.com" source:@"hackernews"];
     
+    
+    // Test JSON
+    [[JSONManager sharedJSONManager] enqueueOperations];
     return YES;
 }
 
