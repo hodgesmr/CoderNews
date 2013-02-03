@@ -29,6 +29,16 @@ static JSONManager *_sharedJSONManagerInsance;
     return _sharedJSONManagerInsance;
 }
 
+- (void) shuffleResults {
+    NSUInteger count = [self.fetchedStories count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        // Select a random element between i and end of array to swap with.
+        NSInteger nElements = count - i;
+        NSInteger n = (arc4random() % nElements) + i;
+        [self.fetchedStories exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+}
+
 - (void) loadOperations {
     _sharedJSONManagerInsance.operations = [NSMutableArray arrayWithCapacity:2];
     [_sharedJSONManagerInsance.operations addObject:[self fetchJSON:proggitUrl]];
@@ -42,6 +52,8 @@ static JSONManager *_sharedJSONManagerInsance;
                                     NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
                                 }
                               completionBlock:^(NSArray *operations) {
+                                  // I don't like the hn and proggit results being groupe together, so shuffle
+                                  [self shuffleResults];
                                   NSLog(@"All operations finished");
                               }];
 }
