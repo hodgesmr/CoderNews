@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="StoryInfo" representedClassName="StoryInfo" syncable="YES">
+        <attribute name="date" attributeType="Date" syncable="YES"/>
         <attribute name="source" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="uid" attributeType="String" defaultValueString="0" syncable="YES"/>
@@ -8,6 +9,6 @@
         <attribute name="visited" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="StoryInfo" positionX="-63" positionY="-27" width="128" height="118"/>
+        <element name="StoryInfo" positionX="-63" positionY="-27" width="128" height="133"/>
     </elements>
 </model>

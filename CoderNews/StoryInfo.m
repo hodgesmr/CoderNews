@@ -16,5 +16,6 @@
 @dynamic uid;
 @dynamic url;
 @dynamic visited;
+@dynamic date;
 
 @end

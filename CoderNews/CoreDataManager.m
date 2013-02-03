@@ -45,6 +45,7 @@ static CoreDataManager *_sharedInstance;
     si.source = source;
     si.url = url;
     si.visited = [NSNumber numberWithBool:NO];
+    si.date = [NSDate date];
     NSDecimalNumber* uidDecimal = [NSDecimalNumber decimalNumberWithString:[self getLastUid]];
     uidDecimal = [uidDecimal decimalNumberByAdding:[NSDecimalNumber decimalNumberWithString:@"1"]];
     si.uid = [uidDecimal stringValue];

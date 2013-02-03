@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSNumber * visited;
+@property (nonatomic, retain) NSDate * date;
 
 @end
