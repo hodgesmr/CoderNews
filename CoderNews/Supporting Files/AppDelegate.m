@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
-#import "MasterViewController.h"
+#import "NewsListViewController.h"
 #import "StoryInfo.h"
 
 @implementation AppDelegate

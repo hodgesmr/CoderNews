@@ -8,13 +8,13 @@
 
 #import "ContentViewController.h"
 #import "CoreDataManager.h"
-#import "MasterViewController.h"
+#import "NewsListViewController.h"
 
-@interface MasterViewController ()
+@interface NewsListViewController ()
 
 @end
 
-@implementation MasterViewController {
+@implementation NewsListViewController {
     NSIndexPath* currentlySelected;
 }
 
