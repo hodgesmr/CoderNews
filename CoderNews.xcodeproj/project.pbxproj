@@ -10,6 +10,7 @@
 		631AD03D16BEBB2A00D0036A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 631AD03C16BEBB2A00D0036A /* InfoPlist.strings */; };
 		631AD03E16BEBB7B00D0036A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F73FB616BEBA9A00FCB221 /* AppDelegate.m */; };
 		631AD04216BEBF2600D0036A /* StoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 631AD04116BEBF2600D0036A /* StoryInfo.m */; };
+		631AD04B16BEC81B00D0036A /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631AD04A16BEC81B00D0036A /* AboutViewController.m */; };
 		63F18DCF16BDCD1E00A1EEE9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F18DCE16BDCD1E00A1EEE9 /* UIKit.framework */; };
 		63F18DD116BDCD1E00A1EEE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F18DD016BDCD1E00A1EEE9 /* Foundation.framework */; };
 		63F18DD316BDCD1E00A1EEE9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F18DD216BDCD1E00A1EEE9 /* CoreGraphics.framework */; };
@@ -29,6 +30,8 @@
 		631AD03C16BEBB2A00D0036A /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		631AD04016BEBF2600D0036A /* StoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryInfo.h; sourceTree = "<group>"; };
 		631AD04116BEBF2600D0036A /* StoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryInfo.m; sourceTree = "<group>"; };
+		631AD04916BEC81B00D0036A /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		631AD04A16BEC81B00D0036A /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		63F18DCB16BDCD1E00A1EEE9 /* CoderNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoderNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F18DCE16BDCD1E00A1EEE9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63F18DD016BDCD1E00A1EEE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				63F73FB716BEBAE300FCB221 /* MainStoryboard.storyboard */,
+				631AD04916BEC81B00D0036A /* AboutViewController.h */,
+				631AD04A16BEC81B00D0036A /* AboutViewController.m */,
 				63F73FAD16BEB93B00FCB221 /* ContentViewController.h */,
 				63F73FAE16BEB93B00FCB221 /* ContentViewController.m */,
 				63F73FAF16BEB93B00FCB221 /* NewsListViewController.h */,
@@ -226,6 +231,7 @@
 				63F73FA616BEB7CB00FCB221 /* CoderNews.xcdatamodeld in Sources */,
 				63F18DDD16BDCD1E00A1EEE9 /* main.m in Sources */,
 				631AD04216BEBF2600D0036A /* StoryInfo.m in Sources */,
+				631AD04B16BEC81B00D0036A /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
