@@ -18,6 +18,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
+    NSManagedObject* storyInfo = [NSEntityDescription insertNewObjectForEntityForName:@"StoryInfo" inManagedObjectContext:context];
+    [storyInfo setValue:@"Awesome Story Title" forKey:@"title"];
+    [storyInfo setValue:@"http://google.com" forKey:@"url"];
+    [storyInfo setValue:@"hackernews" forKey:@"source"];
+    [storyInfo setValue:[NSNumber numberWithBool:NO] forKey:@"visited"];
+    NSError* error;
+    if(![context save:&error]) {
+        NSLog(@"Whoops, couldn't save : %@", [error localizedDescription]);
+    }
+    
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray* fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for(NSManagedObject* info in fetchedObjects) {
+        NSLog(@"Title: %@ Url: %@ Source: %@ Visited: %s",[info valueForKey:@"title"],[info valueForKey:@"url"],[info valueForKey:@"source"],([info valueForKey:@"visited"] ? "true" : "false"));
+    }
+    
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
