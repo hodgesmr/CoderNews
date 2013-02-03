@@ -13,6 +13,7 @@
 
 @dynamic source;
 @dynamic title;
+@dynamic uid;
 @dynamic url;
 @dynamic visited;
 

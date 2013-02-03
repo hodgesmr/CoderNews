@@ -3,10 +3,11 @@
     <entity name="StoryInfo" representedClassName="StoryInfo" syncable="YES">
         <attribute name="source" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="uid" attributeType="String" defaultValueString="0" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
         <attribute name="visited" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="StoryInfo" positionX="-63" positionY="-27" width="128" height="103"/>
+        <element name="StoryInfo" positionX="-63" positionY="-27" width="128" height="118"/>
     </elements>
 </model>

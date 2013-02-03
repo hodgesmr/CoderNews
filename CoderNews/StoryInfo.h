@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) NSString * source;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSNumber * visited;
 
