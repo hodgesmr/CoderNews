@@ -24,18 +24,19 @@ static JSONManager *_sharedJSONManagerInsance;
         _sharedJSONManagerInsance = [JSONManager new];
         _sharedJSONManagerInsance = [[JSONManager alloc] initWithBaseURL:[NSURL URLWithString:proggitUrl]];
         [_sharedJSONManagerInsance loadOperations];
+        
     }
     return _sharedJSONManagerInsance;
 }
 
 - (void) loadOperations {
-    self.operations = [NSMutableArray arrayWithCapacity:2];
-    [self.operations addObject:[self fetchJSON:proggitUrl]];
-    [operations addObject:[self fetchJSON:hackerNewsUrl]];
+    _sharedJSONManagerInsance.operations = [NSMutableArray arrayWithCapacity:2];
+    [_sharedJSONManagerInsance.operations addObject:[self fetchJSON:proggitUrl]];
+    [_sharedJSONManagerInsance.operations addObject:[self fetchJSON:hackerNewsUrl]];
 }
 
 - (void) executeOperations {
-    self.fetchedStories = [[NSMutableArray alloc] init];
+    _sharedJSONManagerInsance.fetchedStories = [[NSMutableArray alloc] init];
     [self enqueueBatchOfHTTPRequestOperations:operations
                                 progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations) {
                                     NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
@@ -53,20 +54,23 @@ static JSONManager *_sharedJSONManagerInsance;
         if([requestUrl isEqualToString:proggitUrl]) {
             
             NSArray* arr = [[JSON valueForKeyPath:@"data"] valueForKey:@"children"];
-            for (NSDictionary *items in arr) {
+            for (NSDictionary *item in arr) {
                 FetchedStory* fs = [[FetchedStory alloc] init];
-                fs.title = [[items valueForKey:@"data"]valueForKey:@"title"];
-                fs.url = [[items valueForKey:@"data"]valueForKey:@"url"];
+                fs.title = [[item valueForKey:@"data"]valueForKey:@"title"];
+                fs.url = [[item valueForKey:@"data"]valueForKey:@"url"];
                 fs.source = @"proggit";
                 [fetchedStories addObject:fs];
-                NSLog(@"%@", [[items valueForKey:@"data"]valueForKey:@"title"]);
             }
-            
-            NSLog(@"%@ %@", requestUrl, [[JSON valueForKeyPath:@"data"] valueForKey:@"children"]);
-            
         }
         else if([requestUrl isEqualToString:hackerNewsUrl]) {
-            NSLog(@"%@ %@", requestUrl, [JSON valueForKeyPath:@"items"]);
+            NSArray* arr = [JSON valueForKeyPath:@"items"];
+            for (NSDictionary *item in arr) {
+                FetchedStory* fs = [[FetchedStory alloc] init];
+                fs.title = [item valueForKey:@"title"];
+                fs.url = [item valueForKey:@"url"];
+                fs.source = @"hackernews";
+                [fetchedStories addObject:fs];
+            }
         }
     } failure:nil];
     
