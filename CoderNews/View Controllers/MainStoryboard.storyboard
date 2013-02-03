@@ -60,8 +60,15 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="36"/>
+                    <navigationItem key="navigationItem" title="Master" id="36">
+                        <barButtonItem key="leftBarButtonItem" title="Info" id="8OI-Fr-1Nn">
+                            <connections>
+                                <action selector="infoTap:" destination="12" id="sdx-G6-ysb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="infoButton" destination="8OI-Fr-1Nn" id="D0A-qX-22J"/>
                         <segue destination="PmC-zE-Nmg" kind="push" identifier="contentSegue" id="as9-r1-4iP"/>
                         <segue destination="1yI-R5-s2N" kind="modal" identifier="aboutSegue" id="9LD-SA-WLd"/>
                     </connections>
@@ -110,7 +117,11 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9U-rS-Y1Q">
                                 <items>
                                     <navigationItem title="About" id="iDz-nH-0gr">
-                                        <barButtonItem key="leftBarButtonItem" title="News" id="6gE-wc-Qyt"/>
+                                        <barButtonItem key="leftBarButtonItem" title="News" id="6gE-wc-Qyt">
+                                            <connections>
+                                                <action selector="newsTap:" destination="1yI-R5-s2N" id="KPQ-iu-HoE"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -134,6 +145,10 @@
     <classes>
         <class className="AboutViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="newsTap:"/>
+                <relationship kind="outlet" name="newsButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="ContentViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
@@ -146,6 +161,10 @@
         </class>
         <class className="NewsListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="infoTap:"/>
+                <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

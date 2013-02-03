@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
+#import "AboutViewController.h"
 #import "ContentViewController.h"
 #import "CoreDataManager.h"
 #import "NewsListViewController.h"
@@ -18,7 +19,8 @@
     NSIndexPath* currentlySelected;
 }
 
-@synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize fetchedResultsController;
+@synthesize infoButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -59,12 +61,16 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier isEqualToString:@"contentSegue"]) {
+    if([segue.identifier isEqualToString:@"contentSegue"]) {
         ContentViewController *contentViewController = (ContentViewController *)segue.destinationViewController;
         StoryInfo* si = [self.fetchedResultsController objectAtIndexPath:currentlySelected];
         contentViewController.storyTitle = si.title;
         contentViewController.storyUrl = si.url;
     }
+}
+
+- (IBAction)infoTap:(id)sender {
+    [self performSegueWithIdentifier:@"aboutSegue" sender:self];
 }
 
 #pragma mark - Table view data source

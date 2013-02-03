@@ -2,7 +2,7 @@
 //  AboutViewController.m
 //  CoderNews
 //
-//  Created by hodgesmr on 2/3/13.
+//  Created by Matt Hodges on 2/3/13.
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
@@ -35,4 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)newsTap:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
