@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6363A23916BDE92D00D121E2 /* StoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6363A23816BDE92D00D121E2 /* StoryInfo.m */; };
+		6363A24516BE0EA000D121E2 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6363A24416BE0EA000D121E2 /* CoreDataManager.m */; };
 		63F18DCF16BDCD1E00A1EEE9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F18DCE16BDCD1E00A1EEE9 /* UIKit.framework */; };
 		63F18DD116BDCD1E00A1EEE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F18DD016BDCD1E00A1EEE9 /* Foundation.framework */; };
 		63F18DD316BDCD1E00A1EEE9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F18DD216BDCD1E00A1EEE9 /* CoreGraphics.framework */; };
@@ -26,6 +27,8 @@
 /* Begin PBXFileReference section */
 		6363A23716BDE92D00D121E2 /* StoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryInfo.h; sourceTree = "<group>"; };
 		6363A23816BDE92D00D121E2 /* StoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryInfo.m; sourceTree = "<group>"; };
+		6363A24316BE0EA000D121E2 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		6363A24416BE0EA000D121E2 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		63F18DCB16BDCD1E00A1EEE9 /* CoderNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoderNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F18DCE16BDCD1E00A1EEE9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63F18DD016BDCD1E00A1EEE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,6 +104,8 @@
 				6363A23716BDE92D00D121E2 /* StoryInfo.h */,
 				6363A23816BDE92D00D121E2 /* StoryInfo.m */,
 				63F18DD716BDCD1E00A1EEE9 /* Supporting Files */,
+				6363A24316BE0EA000D121E2 /* CoreDataManager.h */,
+				6363A24416BE0EA000D121E2 /* CoreDataManager.m */,
 			);
 			path = CoderNews;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				63F18DED16BDCD1E00A1EEE9 /* CoderNews.xcdatamodeld in Sources */,
 				63F18DFE16BDD13A00A1EEE9 /* MasterViewController.m in Sources */,
 				6363A23916BDE92D00D121E2 /* StoryInfo.m in Sources */,
+				6363A24516BE0EA000D121E2 /* CoreDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
