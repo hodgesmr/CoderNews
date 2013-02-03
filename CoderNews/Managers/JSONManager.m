@@ -10,7 +10,7 @@
 #import "AFJSONRequestOperation.h"
 
 static NSString* const proggitUrl = @"http://www.reddit.com/r/programming/.json";
-//static NSString* const hackerNewsUrl = @"http://hndroidapi.appspot.com/news/format/json/page/?appid=Coder%20News";
+static NSString* const hackerNewsUrl = @"http://hndroidapi.appspot.com/news/format/json/page/?appid=Coder%20News";
 
 static JSONManager *_sharedJSONManagerInsance;
 
@@ -30,7 +30,7 @@ static JSONManager *_sharedJSONManagerInsance;
 - (void) loadOperations {
     self.operations = [NSMutableArray arrayWithCapacity:2];
     [self.operations addObject:[self fetchJSON:proggitUrl]];
-    //[operations addObject:[self operationToFetchJSON:hackerNewsUrl]];
+    [operations addObject:[self fetchJSON:hackerNewsUrl]];
 }
 
 - (void) enqueueOperations {
@@ -49,7 +49,12 @@ static JSONManager *_sharedJSONManagerInsance;
     NSURL* jsonUrl = [NSURL URLWithString:requestUrl];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:jsonUrl];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        NSLog(@"JSON: %@", [[JSON valueForKeyPath:@"data"] valueForKey:@"children"]);
+        if([requestUrl isEqualToString:proggitUrl]) {
+            NSLog(@"%@ %@", requestUrl, [[JSON valueForKeyPath:@"data"] valueForKey:@"children"]);
+        }
+        else if([requestUrl isEqualToString:hackerNewsUrl]) {
+            NSLog(@"%@ %@", requestUrl, [JSON valueForKeyPath:@"items"]);
+        }
     } failure:nil];
     
     return operation;
