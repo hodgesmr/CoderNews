@@ -20,7 +20,7 @@
 }
 
 @synthesize fetchedResultsController;
-@synthesize infoButton;
+@synthesize aboutButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -69,7 +69,7 @@
     }
 }
 
-- (IBAction)infoTap:(id)sender {
+- (IBAction)aboutTap:(id)sender {
     [self performSegueWithIdentifier:@"aboutSegue" sender:self];
 }
 

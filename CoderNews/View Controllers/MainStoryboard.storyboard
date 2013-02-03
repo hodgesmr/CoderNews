@@ -61,14 +61,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="36">
-                        <barButtonItem key="leftBarButtonItem" title="Info" id="8OI-Fr-1Nn">
+                        <barButtonItem key="leftBarButtonItem" title="About" id="8OI-Fr-1Nn">
                             <connections>
-                                <action selector="infoTap:" destination="12" id="sdx-G6-ysb"/>
+                                <action selector="aboutTap:" destination="12" id="qxq-eg-Gbv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="infoButton" destination="8OI-Fr-1Nn" id="D0A-qX-22J"/>
                         <segue destination="PmC-zE-Nmg" kind="push" identifier="contentSegue" id="as9-r1-4iP"/>
                         <segue destination="1yI-R5-s2N" kind="modal" identifier="aboutSegue" id="9LD-SA-WLd"/>
                     </connections>
@@ -162,8 +161,8 @@
         <class className="NewsListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsListViewController.h"/>
             <relationships>
-                <relationship kind="action" name="infoTap:"/>
-                <relationship kind="outlet" name="infoButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="aboutTap:"/>
+                <relationship kind="outlet" name="aboutButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
     </classes>

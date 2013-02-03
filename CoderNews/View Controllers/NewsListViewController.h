@@ -11,7 +11,7 @@
 @interface NewsListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, retain) NSFetchedResultsController* fetchedResultsController;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *infoButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *aboutButton;
 
-- (IBAction)infoTap:(id)sender;
+- (IBAction)aboutTap:(id)sender;
 @end
