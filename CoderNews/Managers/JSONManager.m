@@ -7,6 +7,7 @@
 //
 
 #import "AFJSONRequestOperation.h"
+#import "CoreDataManager.h"
 #import "JSONManager.h"
 #import "FetchedStory.h"
 
@@ -52,8 +53,11 @@ static JSONManager *_sharedJSONManagerInsance;
                                     NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
                                 }
                               completionBlock:^(NSArray *operations) {
-                                  // I don't like the hn and proggit results being groupe together, so shuffle
+                                  // I don't like the hn and proggit results being grouped together, so shuffle
                                   [self shuffleResults];
+                                  for(FetchedStory* fs in _sharedJSONManagerInsance.fetchedStories) {
+                                      [[CoreDataManager sharedManager] persistStoryWithTitle:fs.title url:fs.url source:fs.source];
+                                  }
                                   NSLog(@"All operations finished");
                               }];
 }

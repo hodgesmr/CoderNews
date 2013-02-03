@@ -89,7 +89,7 @@
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = info.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", info.date, info.uid];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", info.uid, info.source];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

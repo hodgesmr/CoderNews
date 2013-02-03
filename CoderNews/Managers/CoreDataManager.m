@@ -40,6 +40,9 @@ static CoreDataManager *_sharedInstance;
 }
 
 - (BOOL) persistStoryWithTitle:(NSString *)title url:(NSString *)url source:(NSString *)source {
+    if([self storyExistsWithUrl:url]) {
+        return YES;
+    }
     StoryInfo* si = [NSEntityDescription insertNewObjectForEntityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext];
     si.title = title;
     si.source = source;
@@ -49,9 +52,9 @@ static CoreDataManager *_sharedInstance;
     si.uid = [NSNumber numberWithLongLong:[[self getLastUid] longLongValue] + 1];
     NSError* error;
     if(![self.managedObjectContext save:&error]) {
-        return NO;
+        return YES;
     }
-    return YES;
+    return NO;
 }
 
 - (NSNumber *) getLastUid {
@@ -80,6 +83,20 @@ static CoreDataManager *_sharedInstance;
     return count;
 }
 
+- (BOOL) storyExistsWithUrl:(NSString *)url {
+    NSFetchRequest *allStories = [[NSFetchRequest alloc] init];
+    [allStories setEntity:[NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext]];
+    
+    NSError* error = nil;
+    NSArray* stories = [self.managedObjectContext executeFetchRequest:allStories error:&error];
+    for (StoryInfo* story in stories) {
+        if([story.url isEqualToString:url]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 -(void)clearCoreData {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext];
@@ -99,8 +116,6 @@ static CoreDataManager *_sharedInstance;
         [self deletePersistentStore];
     }
 }
-
-
 
 -(void)deletePersistentStore {
     // Wipe the database file directly

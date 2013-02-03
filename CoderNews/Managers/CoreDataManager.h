@@ -19,6 +19,8 @@
 - (NSURL *)applicationDocumentsDirectory;
 - (NSFetchedResultsController *)fetchStoryInfosById;
 - (BOOL) persistStoryWithTitle:(NSString *)title url:(NSString *)url source:(NSString *)source;
+- (void) clearCoreData;
+- (BOOL) storyExistsWithUrl:(NSString *)url;
 +(CoreDataManager *)sharedManager;
 
 @end

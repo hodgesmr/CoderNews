@@ -16,11 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Test insert
-    [[CoreDataManager sharedManager] persistStoryWithTitle:@"Test Title" url:@"http://example.com" source:@"hackernews"];
-    
-    
-    // Test JSON
+    // Test Fetch
     [[JSONManager sharedJSONManager] executeOperations];
     return YES;
 }
