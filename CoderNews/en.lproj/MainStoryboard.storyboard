@@ -24,7 +24,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -60,20 +60,47 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="36"/>
+                    <connections>
+                        <segue destination="PmC-zE-Nmg" kind="push" identifier="contentSegue" id="as9-r1-4iP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="459" y="64"/>
         </scene>
+        <!--Content View Controller-->
+        <scene sceneID="cBu-OR-FOq">
+            <objects>
+                <viewController id="PmC-zE-Nmg" customClass="ContentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="91p-ko-47E">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOB-pG-dRC">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rOB-pG-dRC" firstAttribute="top" secondItem="91p-ko-47E" secondAttribute="top" type="default" id="M9c-OM-hlg"/>
+                            <constraint firstItem="rOB-pG-dRC" firstAttribute="trailing" secondItem="91p-ko-47E" secondAttribute="trailing" type="default" id="OKy-0b-oUz"/>
+                            <constraint firstItem="rOB-pG-dRC" firstAttribute="bottom" secondItem="91p-ko-47E" secondAttribute="bottom" type="default" id="ggr-yw-ccO"/>
+                            <constraint firstItem="rOB-pG-dRC" firstAttribute="leading" secondItem="91p-ko-47E" secondAttribute="leading" type="default" id="reT-Jr-ORb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kVa-Gr-8XR"/>
+                    <connections>
+                        <outlet property="webView" destination="rOB-pG-dRC" id="qkL-QO-Hqd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c5S-4R-6ZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928" y="64"/>
+        </scene>
     </scenes>
-    <classes>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

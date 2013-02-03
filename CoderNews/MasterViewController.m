@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
+#import "ContentViewController.h"
 #import "CoreDataManager.h"
 #import "MasterViewController.h"
 
@@ -13,7 +14,9 @@
 
 @end
 
-@implementation MasterViewController
+@implementation MasterViewController {
+    NSIndexPath* currentlySelected;
+}
 
 @synthesize fetchedResultsController = _fetchedResultsController;
 
@@ -39,6 +42,10 @@
     self.title = @"Coder News";
 }
 
+- (void) viewDidDisappear:(BOOL)animated {
+    currentlySelected = nil;
+}
+
 - (void) viewDidUnload {
     self.fetchedResultsController = nil; // Not sure if I want this or not...
     self.fetchedResultsController.delegate = nil;
@@ -48,6 +55,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"contentSegue"]) {
+        ContentViewController *contentViewController = (ContentViewController *)segue.destinationViewController;
+        StoryInfo* si = [self.fetchedResultsController objectAtIndexPath:currentlySelected];
+        contentViewController.storyTitle = si.title;
+        contentViewController.storyUrl = si.title;
+    }
 }
 
 #pragma mark - Table view data source
@@ -85,13 +102,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    currentlySelected = indexPath;
+    [self performSegueWithIdentifier:@"contentSegue" sender:self];
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {

@@ -22,6 +22,7 @@
 		63F18DED16BDCD1E00A1EEE9 /* CoderNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63F18DEB16BDCD1E00A1EEE9 /* CoderNews.xcdatamodeld */; };
 		63F18DFE16BDD13A00A1EEE9 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F18DFD16BDD13A00A1EEE9 /* MasterViewController.m */; };
 		63F73F8F16BE21CA00FCB221 /* StoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F73F8E16BE21CA00FCB221 /* StoryInfo.m */; };
+		63F73F9516BE24FC00FCB221 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F73F9416BE24FC00FCB221 /* ContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		63F18DFD16BDD13A00A1EEE9 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		63F73F8D16BE21CA00FCB221 /* StoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryInfo.h; sourceTree = "<group>"; };
 		63F73F8E16BE21CA00FCB221 /* StoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryInfo.m; sourceTree = "<group>"; };
+		63F73F9316BE24FC00FCB221 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentViewController.h; path = ../ContentViewController.h; sourceTree = "<group>"; };
+		63F73F9416BE24FC00FCB221 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContentViewController.m; path = ../ContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 			children = (
 				63F18DDF16BDCD1E00A1EEE9 /* AppDelegate.h */,
 				63F18DE016BDCD1E00A1EEE9 /* AppDelegate.m */,
+				63F73F9316BE24FC00FCB221 /* ContentViewController.h */,
+				63F73F9416BE24FC00FCB221 /* ContentViewController.m */,
 				6363A24316BE0EA000D121E2 /* CoreDataManager.h */,
 				6363A24416BE0EA000D121E2 /* CoreDataManager.m */,
 				63F18DFC16BDD13A00A1EEE9 /* MasterViewController.h */,
@@ -196,6 +201,7 @@
 				63F18DFE16BDD13A00A1EEE9 /* MasterViewController.m in Sources */,
 				6363A24516BE0EA000D121E2 /* CoreDataManager.m in Sources */,
 				63F73F8F16BE21CA00FCB221 /* StoryInfo.m in Sources */,
+				63F73F9516BE24FC00FCB221 /* ContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
