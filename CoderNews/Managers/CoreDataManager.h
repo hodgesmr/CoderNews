@@ -21,6 +21,7 @@
 - (BOOL) persistStoryWithTitle:(NSString *)title url:(NSString *)url source:(NSString *)source;
 - (void) clearCoreData;
 - (BOOL) storyExistsWithUrl:(NSString *)url;
+- (void) setUrlVisited:(NSString*)url;
 +(CoreDataManager *)sharedManager;
 
 @end

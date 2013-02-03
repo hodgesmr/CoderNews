@@ -84,17 +84,31 @@ static CoreDataManager *_sharedInstance;
 }
 
 - (BOOL) storyExistsWithUrl:(NSString *)url {
-    NSFetchRequest *allStories = [[NSFetchRequest alloc] init];
-    [allStories setEntity:[NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext]];
-    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"url == %@", url];
+    [request setPredicate:predicate];
     NSError* error = nil;
-    NSArray* stories = [self.managedObjectContext executeFetchRequest:allStories error:&error];
-    for (StoryInfo* story in stories) {
-        if([story.url isEqualToString:url]) {
-            return YES;
-        }
+    NSArray* result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if(result != nil && [result count] && error == nil) {
+        return YES;
     }
     return NO;
+}
+
+- (void) setUrlVisited:(NSString*)url {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"url == %@", url];
+    [request setPredicate:predicate];
+    NSError* error = nil;
+    NSArray* result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if(result != nil && [result count] && error == nil) {
+        StoryInfo* si = [result objectAtIndex:0];
+        si.visited = [NSNumber numberWithBool:YES];
+        error = nil;
+        [self.managedObjectContext save:&error];
+    }
 }
 
 -(void)clearCoreData {

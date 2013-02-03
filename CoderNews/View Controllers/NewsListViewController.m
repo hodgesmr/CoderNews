@@ -66,6 +66,7 @@
         StoryInfo* si = [self.fetchedResultsController objectAtIndexPath:currentlySelected];
         contentViewController.storyTitle = si.title;
         contentViewController.storyUrl = si.url;
+        [[CoreDataManager sharedManager] setUrlVisited:si.url];
     }
 }
 
@@ -89,7 +90,7 @@
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = info.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", info.uid, info.source];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", info.uid, info.visited];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
