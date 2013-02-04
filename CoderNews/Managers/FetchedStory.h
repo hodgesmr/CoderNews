@@ -10,9 +10,9 @@
 
 @interface FetchedStory : NSObject
 
-@property (nonatomic, weak) NSString* title;
-@property (nonatomic, weak) NSString* url;
-@property (nonatomic, weak) NSString* source;
-@property (nonatomic, weak) NSDecimalNumber* score;
+@property (nonatomic, strong) NSString* title;
+@property (nonatomic, strong) NSString* url;
+@property (nonatomic, strong) NSString* source;
+@property (nonatomic, strong) NSDecimalNumber* score;
 
 @end

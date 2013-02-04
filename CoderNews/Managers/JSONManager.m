@@ -41,39 +41,41 @@ static JSONManager *_sharedJSONManagerInsance;
 }
 
 - (void) pruneUnwantedStories {
-    NSMutableArray* deathIndexes = [[NSMutableArray alloc] init];
+    NSMutableIndexSet* deathIndexes = [[NSMutableIndexSet alloc] init];
     // I don't want the following:
     for(int i=0; i<[self.fetchedStories count]; i++) {
         FetchedStory* fs = [self.fetchedStories objectAtIndex:i];
         // HN score below 20
         if([fs.source isEqualToString:@"hackernews"] && [fs.score doubleValue] < 20) {
-            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+            [deathIndexes addIndex:i];
         }
         // Proggit score below 10
         else if([fs.source isEqualToString:@"proggit"] && [fs.score doubleValue] < 10) {
-            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+            [deathIndexes addIndex:i];
         }
         // 'Show HN' posts
         else if([[fs.title lowercaseString] rangeOfString:@"show hn"].location != NSNotFound) {
-            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+            [deathIndexes addIndex:i];
         }
         // 'Ask HN' posts
         else if([[fs.title lowercaseString] rangeOfString:@"ask hn"].location != NSNotFound) {
-            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+            [deathIndexes addIndex:i];
         }
         // 'Poll:' posts
         else if([[fs.title lowercaseString] rangeOfString:@"poll:"].location != NSNotFound) {
-            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+            [deathIndexes addIndex:i];
         }
         // urls that don't start with http
         else if(![[[fs.url substringToIndex:4] lowercaseString] isEqualToString:@"http"]) {
-            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+            [deathIndexes addIndex:i];
+        }
+        // we already have the story
+        else if([[CoreDataManager sharedManager] storyExistsWithUrl:fs.url]) {
+            [deathIndexes addIndex:i];
         }
     }
     
-    for(NSNumber* n in deathIndexes) {
-        [self.fetchedStories removeObjectAtIndex:[n intValue]];
-    }
+    [self.fetchedStories removeObjectsAtIndexes:deathIndexes];
 }
 
 - (void) loadOperations {
@@ -113,7 +115,7 @@ static JSONManager *_sharedJSONManagerInsance;
                 fs.url = [[item valueForKey:@"data"]valueForKey:@"url"];
                 fs.score = [[item valueForKey:@"data"]valueForKey:@"score"];
                 fs.source = @"proggit";
-                [fetchedStories addObject:fs];
+                [self.fetchedStories addObject:fs];
             }
         }
         else if([requestUrl isEqualToString:hackerNewsUrl]) {
@@ -123,11 +125,13 @@ static JSONManager *_sharedJSONManagerInsance;
                 fs.title = [item valueForKey:@"title"];
                 fs.url = [item valueForKey:@"url"];
                 NSString* scoreString = [item valueForKey:@"score"];
-                NSRange spaceRange = [scoreString rangeOfString:@" "];
-                scoreString = [scoreString substringToIndex:spaceRange.location];
-                fs.score = [NSDecimalNumber decimalNumberWithString:scoreString];
-                fs.source = @"hackernews";
-                [fetchedStories addObject:fs];
+                if(scoreString != nil && [scoreString length]!=0) {
+                    NSRange spaceRange = [scoreString rangeOfString:@" "];
+                    scoreString = [scoreString substringToIndex:spaceRange.location];
+                    fs.score = [NSDecimalNumber decimalNumberWithString:scoreString];
+                    fs.source = @"hackernews";
+                    [self.fetchedStories addObject:fs];
+                }
             }
         }
     } failure:nil];
