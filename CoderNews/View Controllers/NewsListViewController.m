@@ -17,6 +17,7 @@
 
 @implementation NewsListViewController {
     NSIndexPath* currentlySelected;
+    UIRefreshControl* refreshControl;
 }
 
 @synthesize fetchedResultsController;
@@ -41,7 +42,21 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         exit(-1); // do I really want to do this?
     }
+    
     self.title = @"Coder News";
+    //add refresh control to the table view
+    refreshControl = [[UIRefreshControl alloc] init];
+    
+    [refreshControl addTarget:self
+                       action:@selector(refreshInvoked:forState:)
+             forControlEvents:UIControlEventValueChanged];
+    
+    NSString* fetchMessage = @"Pull to refresh";
+    
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:fetchMessage
+                                                                     attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:11.0]}];
+    
+    [self.tableView addSubview: refreshControl];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
@@ -57,6 +72,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) refreshInvoked:(id)sender forState:(UIControlState)state {
+    [self refreshFeed];
+}
+
+-(void) refreshFeed {
+    [self.tableView reloadData];
+    
+    // Stop refresh control
+    [refreshControl endRefreshing];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
