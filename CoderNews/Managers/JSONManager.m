@@ -41,13 +41,39 @@ static JSONManager *_sharedJSONManagerInsance;
 }
 
 - (void) pruneUnwantedStories {
+    NSMutableArray* deathIndexes = [[NSMutableArray alloc] init];
     // I don't want the following:
-    // HN score below 20
-    // Proggit score below 10
-    // 'Show HN' posts
-    // 'Ask HN' posts
-    // 'Poll:' posts
-    // urls that don't start with http
+    for(int i=0; i<[self.fetchedStories count]; i++) {
+        FetchedStory* fs = [self.fetchedStories objectAtIndex:i];
+        // HN score below 20
+        if([fs.source isEqualToString:@"hackernews"] && [fs.score doubleValue] < 20) {
+            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+        }
+        // Proggit score below 10
+        else if([fs.source isEqualToString:@"proggit"] && [fs.score doubleValue] < 10) {
+            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+        }
+        // 'Show HN' posts
+        else if([[fs.title lowercaseString] rangeOfString:@"show hn"].location != NSNotFound) {
+            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+        }
+        // 'Ask HN' posts
+        else if([[fs.title lowercaseString] rangeOfString:@"ask hn"].location != NSNotFound) {
+            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+        }
+        // 'Poll:' posts
+        else if([[fs.title lowercaseString] rangeOfString:@"poll:"].location != NSNotFound) {
+            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+        }
+        // urls that don't start with http
+        else if(![[[fs.url substringToIndex:4] lowercaseString] isEqualToString:@"http"]) {
+            [deathIndexes addObject:[NSNumber numberWithInt:i]];
+        }
+    }
+    
+    for(NSNumber* n in deathIndexes) {
+        [self.fetchedStories removeObjectAtIndex:[n intValue]];
+    }
 }
 
 - (void) loadOperations {
@@ -65,6 +91,7 @@ static JSONManager *_sharedJSONManagerInsance;
                               completionBlock:^(NSArray *operations) {
                                   // I don't like the hn and proggit results being grouped together, so shuffle
                                   [self shuffleResults];
+                                  [self pruneUnwantedStories];
                                   for(FetchedStory* fs in _sharedJSONManagerInsance.fetchedStories) {
                                       [[CoreDataManager sharedManager] persistStoryWithTitle:fs.title url:fs.url source:fs.source];
                                   }
