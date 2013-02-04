@@ -13,5 +13,6 @@
 @property (nonatomic, weak) NSString* title;
 @property (nonatomic, weak) NSString* url;
 @property (nonatomic, weak) NSString* source;
+@property (nonatomic, weak) NSDecimalNumber* score;
 
 @end

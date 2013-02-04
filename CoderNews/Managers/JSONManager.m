@@ -40,6 +40,16 @@ static JSONManager *_sharedJSONManagerInsance;
     }
 }
 
+- (void) pruneUnwantedStories {
+    // I don't want the following:
+    // HN score below 20
+    // Proggit score below 10
+    // 'Show HN' posts
+    // 'Ask HN' posts
+    // 'Poll:' posts
+    // urls that don't start with http
+}
+
 - (void) loadOperations {
     _sharedJSONManagerInsance.operations = [NSMutableArray arrayWithCapacity:2];
     [_sharedJSONManagerInsance.operations addObject:[self fetchJSON:proggitUrl]];
@@ -74,6 +84,7 @@ static JSONManager *_sharedJSONManagerInsance;
                 FetchedStory* fs = [[FetchedStory alloc] init];
                 fs.title = [[item valueForKey:@"data"]valueForKey:@"title"];
                 fs.url = [[item valueForKey:@"data"]valueForKey:@"url"];
+                fs.score = [[item valueForKey:@"data"]valueForKey:@"score"];
                 fs.source = @"proggit";
                 [fetchedStories addObject:fs];
             }
@@ -84,6 +95,10 @@ static JSONManager *_sharedJSONManagerInsance;
                 FetchedStory* fs = [[FetchedStory alloc] init];
                 fs.title = [item valueForKey:@"title"];
                 fs.url = [item valueForKey:@"url"];
+                NSString* scoreString = [item valueForKey:@"score"];
+                NSRange spaceRange = [scoreString rangeOfString:@" "];
+                scoreString = [scoreString substringToIndex:spaceRange.location];
+                fs.score = [NSDecimalNumber decimalNumberWithString:scoreString];
                 fs.source = @"hackernews";
                 [fetchedStories addObject:fs];
             }

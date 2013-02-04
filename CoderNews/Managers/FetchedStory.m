@@ -13,5 +13,6 @@
 @synthesize title;
 @synthesize source;
 @synthesize url;
+@synthesize score;
 
 @end
