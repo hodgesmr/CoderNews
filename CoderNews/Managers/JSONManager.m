@@ -73,6 +73,14 @@ static JSONManager *_sharedJSONManagerInsance;
         else if([[CoreDataManager sharedManager] storyExistsWithUrl:fs.url]) {
             [deathIndexes addIndex:i];
         }
+        // The HN API that I'm using doesn't do a good job of handling UTF-8 characters
+        // that have been HTML encoded. Because of this, we're getting some garbage back.
+        // I haven't come up with a good way to deal with this yet, so for now I'm just
+        // going to throw out all stories that have a semi-colon. Yes, we're going to lose
+        // some stories, but I don't care.
+        else if([fs.title rangeOfString:@";"].location != NSNotFound) {
+            [deathIndexes addIndex:i];
+        }
     }
     
     [self.fetchedStories removeObjectsAtIndexes:deathIndexes];
