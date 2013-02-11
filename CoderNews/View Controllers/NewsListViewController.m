@@ -113,8 +113,9 @@
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = info.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", info.uid, info.source];
+    NSAttributedString* as = [[NSAttributedString alloc] initWithString:info.title];
+    cell.textLabel.attributedText = as;
+    cell.textLabel.numberOfLines = 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,6 +129,22 @@
     
     return cell;
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //Calculate the expected size based on the font and linebreak mode of the label
+    // FLT_MAX here simply means no constraint in height
+    CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
+    
+    CGSize expectedLabelSize = [info.title sizeWithFont:cell.textLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
+    
+    return expectedLabelSize.height + 26; // woop, hard code
+}
+
 
 #pragma mark - Table view delegate
 
