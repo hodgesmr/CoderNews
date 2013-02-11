@@ -26,13 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.fetchedResultsController = [[CoreDataManager sharedManager] fetchStoryInfosById];
-    NSError* error;
-    if(![[self fetchedResultsController] performFetch:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        exit(-1); // do I really want to do this?
-    }
     
     self.title = @"Coder News";
     //add refresh control to the table view
@@ -48,10 +41,17 @@
                                                                      attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:11.0]}];
     
     [self.tableView addSubview: refreshControl];
+    [[CoreDataManager sharedManager] fetchNewDataFromNetwork];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [[CoreDataManager sharedManager] fetchNewDataFromNetwork];
+    self.fetchedResultsController = [[CoreDataManager sharedManager] fetchStoryInfosById];
+    NSError* error;
+    if(![[self fetchedResultsController] performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1); // do I really want to do this?
+    }
+    
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
@@ -139,7 +139,7 @@
     [self.tableView beginUpdates];
 }
 
-
+#pragma mark - fetchedResultsController
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     
     UITableView *tableView = self.tableView;
