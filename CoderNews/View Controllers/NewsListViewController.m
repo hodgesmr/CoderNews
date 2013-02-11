@@ -41,17 +41,11 @@
                                                                      attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:11.0]}];
     
     [self.tableView addSubview: refreshControl];
-    [[CoreDataManager sharedManager] fetchNewDataFromNetwork];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     self.fetchedResultsController = [[CoreDataManager sharedManager] fetchStoryInfosById];
-    NSError* error;
-    if(![[self fetchedResultsController] performFetch:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        exit(-1); // do I really want to do this?
-    }
-    
+    [self refreshFeed];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
@@ -74,6 +68,12 @@
 }
 
 -(void) refreshFeed {
+    [[CoreDataManager sharedManager] fetchNewDataFromNetwork];
+    NSError* error;
+    if(![[self fetchedResultsController] performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        exit(-1); // do I really want to do this?
+    }
     [self.tableView reloadData];
     
     // Stop refresh control

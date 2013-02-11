@@ -23,9 +23,7 @@ static JSONManager *_sharedJSONManagerInsance;
 + (JSONManager *) sharedJSONManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedJSONManagerInsance = [JSONManager new];
         _sharedJSONManagerInsance = [[JSONManager alloc] initWithBaseURL:[NSURL URLWithString:proggitUrl]];
-        [_sharedJSONManagerInsance loadOperations];
     });
     return _sharedJSONManagerInsance;
 }
@@ -93,6 +91,7 @@ static JSONManager *_sharedJSONManagerInsance;
 }
 
 - (void) executeOperations {
+    [_sharedJSONManagerInsance loadOperations];
     _sharedJSONManagerInsance.fetchedStories = [[NSMutableArray alloc] init];
     [self enqueueBatchOfHTTPRequestOperations:operations
                                 progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations) {
@@ -105,6 +104,7 @@ static JSONManager *_sharedJSONManagerInsance;
                                   for(FetchedStory* fs in _sharedJSONManagerInsance.fetchedStories) {
                                       [[CoreDataManager sharedManager] persistStoryWithTitle:fs.title url:fs.url source:fs.source];
                                   }
+                                  _sharedJSONManagerInsance.operations = nil;
                                   NSLog(@"All operations finished");
                               }];
 }
