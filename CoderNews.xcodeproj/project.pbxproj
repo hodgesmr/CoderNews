@@ -136,6 +136,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		6389F74C16C8790400FAEBBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				631AD07216BF103000D0036A /* FetchedStory.h */,
+				631AD07316BF103000D0036A /* FetchedStory.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		63F18DC216BDCD1D00A1EEE9 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +178,7 @@
 		63F18DD616BDCD1E00A1EEE9 /* CoderNews */ = {
 			isa = PBXGroup;
 			children = (
+				6389F74C16C8790400FAEBBB /* Model */,
 				631AD04E16BEDF9F00D0036A /* AFNetworking */,
 				63F73FAC16BEB90900FCB221 /* View Controllers */,
 				63F73FA816BEB7E500FCB221 /* Managers */,
@@ -211,8 +221,6 @@
 				63F73FAA16BEB80800FCB221 /* CoreDataManager.m */,
 				631AD06F16BEE58A00D0036A /* JSONManager.h */,
 				631AD07016BEE58A00D0036A /* JSONManager.m */,
-				631AD07216BF103000D0036A /* FetchedStory.h */,
-				631AD07316BF103000D0036A /* FetchedStory.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
