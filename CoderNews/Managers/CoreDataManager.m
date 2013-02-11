@@ -17,8 +17,10 @@
 static CoreDataManager *_sharedInstance;
 
 + (CoreDataManager *) sharedManager {
-    if (!_sharedInstance)
-        _sharedInstance = [CoreDataManager new];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedInstance = [[CoreDataManager alloc] init];
+    });
     return _sharedInstance;
 }
 

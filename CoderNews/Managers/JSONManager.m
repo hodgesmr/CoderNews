@@ -21,12 +21,12 @@ static JSONManager *_sharedJSONManagerInsance;
 @synthesize fetchedStories;
 
 + (JSONManager *) sharedJSONManager {
-    if (!_sharedJSONManagerInsance) {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         _sharedJSONManagerInsance = [JSONManager new];
         _sharedJSONManagerInsance = [[JSONManager alloc] initWithBaseURL:[NSURL URLWithString:proggitUrl]];
         [_sharedJSONManagerInsance loadOperations];
-        
-    }
+    });
     return _sharedJSONManagerInsance;
 }
 
