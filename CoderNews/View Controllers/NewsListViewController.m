@@ -23,15 +23,6 @@
 @synthesize fetchedResultsController;
 @synthesize aboutButton;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -57,6 +48,10 @@
                                                                      attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:11.0]}];
     
     [self.tableView addSubview: refreshControl];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [[CoreDataManager sharedManager] fetchNewDataFromNetwork];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {

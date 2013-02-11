@@ -7,6 +7,7 @@
 //
 
 #import "CoreDataManager.h"
+#import "JSONManager.h"
 
 @implementation CoreDataManager
 
@@ -57,6 +58,10 @@ static CoreDataManager *_sharedInstance;
         return YES;
     }
     return NO;
+}
+
+- (void) fetchNewDataFromNetwork {
+    [[JSONManager sharedJSONManager] executeOperations];
 }
 
 - (NSNumber *) getLastUid {

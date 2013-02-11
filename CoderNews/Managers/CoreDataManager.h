@@ -22,6 +22,7 @@
 - (void) clearCoreData;
 - (BOOL) storyExistsWithUrl:(NSString *)url;
 - (void) setUrlVisited:(NSString*)url;
-+(CoreDataManager *)sharedManager;
+- (void) fetchNewDataFromNetwork;
++ (CoreDataManager *)sharedManager;
 
 @end

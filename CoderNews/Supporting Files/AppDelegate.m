@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
-#import "JSONManager.h"
 #import "NewsListViewController.h"
 #import "StoryInfo.h"
 
@@ -16,8 +15,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Test Fetch
-    [[JSONManager sharedJSONManager] executeOperations];
     return YES;
 }
 
