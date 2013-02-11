@@ -7,6 +7,7 @@
 //
 
 #import "CoreDataManager.h"
+#import "FetchedStory.h"
 #import "JSONManager.h"
 
 @implementation CoreDataManager
@@ -17,7 +18,7 @@
 
 static CoreDataManager *_sharedInstance;
 
-+ (CoreDataManager *) sharedManager {
++ (CoreDataManager *)sharedManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[CoreDataManager alloc] init];
@@ -55,9 +56,16 @@ static CoreDataManager *_sharedInstance;
     si.uid = [NSNumber numberWithLongLong:[[self getLastUid] longLongValue] + 1];
     NSError* error;
     if(![self.managedObjectContext save:&error]) {
-        return YES;
+        return NO;
     }
-    return NO;
+    return YES;
+}
+
+- (void) persistFetchedStories:(NSArray*)fetchedStories {
+    for(FetchedStory* fs in fetchedStories) {
+        [[CoreDataManager sharedManager] persistStoryWithTitle:fs.title url:fs.url source:fs.source];
+    }
+    [self.delegate newDataAvailable];
 }
 
 - (void) fetchNewDataFromNetwork {

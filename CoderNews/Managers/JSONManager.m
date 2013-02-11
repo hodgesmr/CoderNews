@@ -101,9 +101,7 @@ static JSONManager *_sharedJSONManagerInsance;
                                   // I don't like the hn and proggit results being grouped together, so shuffle
                                   [self shuffleResults];
                                   [self pruneUnwantedStories];
-                                  for(FetchedStory* fs in _sharedJSONManagerInsance.fetchedStories) {
-                                      [[CoreDataManager sharedManager] persistStoryWithTitle:fs.title url:fs.url source:fs.source];
-                                  }
+                                  [[CoreDataManager sharedManager] persistFetchedStories:_sharedJSONManagerInsance.fetchedStories];
                                   _sharedJSONManagerInsance.operations = nil;
                                   NSLog(@"All operations finished");
                               }];

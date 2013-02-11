@@ -11,7 +11,7 @@
 #import "CoreDataManager.h"
 #import "NewsListViewController.h"
 
-@interface NewsListViewController ()
+@interface NewsListViewController () <CoreDataDelegate>
 
 @end
 
@@ -41,11 +41,15 @@
                                                                      attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:11.0]}];
     
     [self.tableView addSubview: refreshControl];
-}
-
-- (void) viewWillAppear:(BOOL)animated {
+    
     self.fetchedResultsController = [[CoreDataManager sharedManager] fetchStoryInfosById];
     [self refreshFeed];
+    [[CoreDataManager sharedManager] setDelegate:self];
+    [self checkForNewData];
+}
+
+- (void) checkForNewData {
+    [[CoreDataManager sharedManager] fetchNewDataFromNetwork];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
@@ -64,11 +68,10 @@
 }
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state {
-    [self refreshFeed];
+    [self checkForNewData];
 }
 
 -(void) refreshFeed {
-    [[CoreDataManager sharedManager] fetchNewDataFromNetwork];
     NSError* error;
     if(![[self fetchedResultsController] performFetch:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -186,6 +189,12 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
     [self.tableView endUpdates];
+}
+
+#pragma mark - CoreDataDelegate
+
+-(void)newDataAvailable {
+    [self refreshFeed];
 }
 
 @end
