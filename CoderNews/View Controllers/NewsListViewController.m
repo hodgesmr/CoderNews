@@ -49,6 +49,7 @@
 }
 
 - (void) checkForNewData {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [[CoreDataManager sharedManager] fetchNewDataFromNetwork];
 }
 
@@ -211,6 +212,7 @@
 #pragma mark - CoreDataDelegate
 
 -(void)newDataAvailable {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self refreshFeed];
 }
 
