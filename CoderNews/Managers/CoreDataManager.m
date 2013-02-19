@@ -85,6 +85,31 @@ static CoreDataManager *_sharedInstance;
     return si.uid;
 }
 
+- (void) deleteStoriesOlderThanDays:(int)days {
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSDate* today = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    [components setHour:-(24*days)];
+    [components setMinute:0];
+    [components setSecond:0];
+    NSDate *nDaysAgo = [cal dateByAddingComponents:components toDate: today options:0];
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date < %@", nDaysAgo];
+    [fetchRequest setPredicate:predicate];
+    NSError* error;
+    NSArray* results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if(results != nil && [results count] && error == nil) {
+        for(int i=0; i<[results count]; i++) {
+            [self.managedObjectContext deleteObject:[results objectAtIndex:i]];
+        }
+        error = nil;
+        [self.managedObjectContext save:&error];
+    }
+}
+
 - (int) countEntries {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext];

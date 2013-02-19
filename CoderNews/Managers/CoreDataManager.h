@@ -31,6 +31,7 @@
 - (BOOL) storyExistsWithUrl:(NSString *)url;
 - (void) setUrlVisited:(NSString*)url;
 - (void) fetchNewDataFromNetwork;
+- (void) deleteStoriesOlderThanDays:(int)days;
 + (CoreDataManager *)sharedManager;
 
 @end

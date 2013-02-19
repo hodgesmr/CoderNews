@@ -103,6 +103,7 @@ static JSONManager *_sharedJSONManagerInsance;
                                   [self pruneUnwantedStories];
                                   [[CoreDataManager sharedManager] persistFetchedStories:_sharedJSONManagerInsance.fetchedStories];
                                   _sharedJSONManagerInsance.operations = nil;
+                                  [[CoreDataManager sharedManager] deleteStoriesOlderThanDays:2];
                                   NSLog(@"All operations finished");
                               }];
 }
