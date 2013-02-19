@@ -57,6 +57,11 @@
     currentlySelected = nil;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self refreshFeed];
+}
+
 - (void) viewDidUnload {
     self.fetchedResultsController = nil; // Not sure if I want this or not...
     self.fetchedResultsController.delegate = nil;
