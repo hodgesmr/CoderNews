@@ -122,6 +122,10 @@
     NSAttributedString* as = [[NSAttributedString alloc] initWithString:info.title];
     cell.textLabel.attributedText = as;
     cell.textLabel.numberOfLines = 0;
+    NSString* urlString = info.url;
+    NSURL* url = [NSURL URLWithString:urlString];
+    NSString* domain = [url host];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", domain, info.date];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -148,7 +152,7 @@
     
     CGSize expectedLabelSize = [info.title sizeWithFont:cell.textLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
     
-    return expectedLabelSize.height + 26; // woop, hard code
+    return expectedLabelSize.height + 40; // woop, hard code
 }
 
 
