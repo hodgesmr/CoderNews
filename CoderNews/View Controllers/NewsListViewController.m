@@ -222,6 +222,7 @@
 
 -(void)newDataAvailable {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [[CoreDataManager sharedManager] deleteStoriesOlderThanDays:2];
     [self refreshFeed];
 }
 
