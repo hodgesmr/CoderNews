@@ -124,8 +124,7 @@
     cell.textLabel.numberOfLines = 0;
     NSString* urlString = info.url;
     NSURL* url = [NSURL URLWithString:urlString];
-    NSString* domain = [url host];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@", domain, info.date];
+    cell.detailTextLabel.text = [url host];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -143,6 +142,9 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSString* urlString = info.url;
+    NSURL* url = [NSURL URLWithString:urlString];
+    NSString* domain = [url host];
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -150,9 +152,10 @@
     // FLT_MAX here simply means no constraint in height
     CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
     
-    CGSize expectedLabelSize = [info.title sizeWithFont:cell.textLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
+    CGSize titleSize = [info.title sizeWithFont:cell.textLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
+    CGSize detailSize = [domain sizeWithFont:cell.detailTextLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.detailTextLabel.lineBreakMode];
     
-    return expectedLabelSize.height + 40; // woop, hard code
+    return titleSize.height + detailSize.height + 25; // woop, hard code
 }
 
 
