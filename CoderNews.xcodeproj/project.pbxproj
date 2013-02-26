@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630D0E9416DC67D100339680 /* navbar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 630D0E9216DC67D100339680 /* navbar_bg@2x.png */; };
+		630D0E9516DC67D100339680 /* navbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 630D0E9316DC67D100339680 /* navbar_bg.png */; };
 		631AD03D16BEBB2A00D0036A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 631AD03C16BEBB2A00D0036A /* InfoPlist.strings */; };
 		631AD03E16BEBB7B00D0036A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F73FB616BEBA9A00FCB221 /* AppDelegate.m */; };
 		631AD04216BEBF2600D0036A /* StoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 631AD04116BEBF2600D0036A /* StoryInfo.m */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		630D0E9216DC67D100339680 /* navbar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_bg@2x.png"; sourceTree = "<group>"; };
+		630D0E9316DC67D100339680 /* navbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_bg.png; sourceTree = "<group>"; };
 		631AD03C16BEBB2A00D0036A /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		631AD04016BEBF2600D0036A /* StoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryInfo.h; sourceTree = "<group>"; };
 		631AD04116BEBF2600D0036A /* StoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryInfo.m; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 		631028F016C8AB5300048397 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				630D0E9216DC67D100339680 /* navbar_bg@2x.png */,
+				630D0E9316DC67D100339680 /* navbar_bg.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -303,6 +309,8 @@
 				63F18DE716BDCD1E00A1EEE9 /* Default-568h@2x.png in Resources */,
 				63F73FB816BEBAE300FCB221 /* MainStoryboard.storyboard in Resources */,
 				631AD03D16BEBB2A00D0036A /* InfoPlist.strings in Resources */,
+				630D0E9416DC67D100339680 /* navbar_bg@2x.png in Resources */,
+				630D0E9516DC67D100339680 /* navbar_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
