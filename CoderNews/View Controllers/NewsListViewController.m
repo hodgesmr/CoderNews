@@ -129,6 +129,12 @@
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.attributedText = asTitle;
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
+    if([[NSNumber numberWithBool:YES] isEqualToNumber:info.visited]) {
+        cell.textLabel.textColor = [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0];
+    }
+    else {
+        cell.textLabel.textColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
+    }
     
     NSString* urlString = info.url;
     NSURL* url = [NSURL URLWithString:urlString];
