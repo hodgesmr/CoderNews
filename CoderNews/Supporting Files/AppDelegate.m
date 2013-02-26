@@ -22,7 +22,8 @@
                                                            [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor,
                                                            [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
                                                            UITextAttributeTextShadowOffset,
-                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], UITextAttributeFont, nil]];
+                                                           [UIFont fontWithName:@"HelveticaNeue" size:21.0], UITextAttributeFont, nil]];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:32.0/255.0 green:32.0/255.0 blue:128.0/255 alpha:1.0]];
     return YES;
 }
 
