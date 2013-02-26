@@ -63,7 +63,7 @@
 }
 
 - (void) viewDidUnload {
-    self.fetchedResultsController = nil; // Not sure if I want this or not...
+    self.fetchedResultsController = nil;
     self.fetchedResultsController.delegate = nil;
 }
 
@@ -119,12 +119,14 @@
 
 -(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSAttributedString* as = [[NSAttributedString alloc] initWithString:info.title];
-    cell.textLabel.attributedText = as;
+    NSAttributedString* asTitle = [[NSAttributedString alloc] initWithString:info.title];
     cell.textLabel.numberOfLines = 0;
+    cell.textLabel.attributedText = asTitle;
     NSString* urlString = info.url;
     NSURL* url = [NSURL URLWithString:urlString];
-    cell.detailTextLabel.text = [url host];
+    NSAttributedString* asDetails = [[NSAttributedString alloc] initWithString:[url host]];
+    cell.detailTextLabel.numberOfLines = 1;
+    cell.detailTextLabel.attributedText = asDetails;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -150,12 +152,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     //Calculate the expected size based on the font and linebreak mode of the label
     // FLT_MAX here simply means no constraint in height
-    CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
+    CGSize maximumLabelSize = CGSizeMake(270, FLT_MAX); // this 270 came from experimentation.
     
     CGSize titleSize = [info.title sizeWithFont:cell.textLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
     CGSize detailSize = [domain sizeWithFont:cell.detailTextLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.detailTextLabel.lineBreakMode];
     
-    return titleSize.height + detailSize.height + 25; // woop, hard code
+    return titleSize.height + detailSize.height + 10; // woop, hard code
 }
 
 
