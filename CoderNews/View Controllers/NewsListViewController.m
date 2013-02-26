@@ -38,7 +38,7 @@
     NSString* fetchMessage = @"Pull to refresh";
     
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:fetchMessage
-                                                                     attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:11.0]}];
+                                                                     attributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:11.0]}];
     
     [self.tableView addSubview: refreshControl];
     
@@ -97,6 +97,12 @@
         contentViewController.storyTitle = si.title;
         contentViewController.storyUrl = si.url;
         [[CoreDataManager sharedManager] setUrlVisited:si.url];
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                       initWithTitle: NSLocalizedString(@"News", nil)
+                                       style: UIBarButtonItemStyleBordered
+                                       target: nil action: nil];
+        [self.navigationItem setBackBarButtonItem: backButton];
     }
 }
 
@@ -122,22 +128,14 @@
     NSAttributedString* asTitle = [[NSAttributedString alloc] initWithString:info.title];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.attributedText = asTitle;
-    
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
-    /*
-    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], UITextAttributeTextColor,
-                                                           [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor,
-                                                           [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
-                                                           UITextAttributeTextShadowOffset,
-                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], UITextAttributeFont, nil]];
-     */
     
     NSString* urlString = info.url;
     NSURL* url = [NSURL URLWithString:urlString];
     NSAttributedString* asDetails = [[NSAttributedString alloc] initWithString:[url host]];
     cell.detailTextLabel.numberOfLines = 1;
     cell.detailTextLabel.attributedText = asDetails;
+    cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
