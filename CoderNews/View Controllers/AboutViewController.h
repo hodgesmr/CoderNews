@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface AboutViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *newsButton;
-- (IBAction)newsTap:(id)sender;
+@interface AboutViewController : BaseViewController
 
 @end

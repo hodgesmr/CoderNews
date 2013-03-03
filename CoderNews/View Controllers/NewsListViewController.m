@@ -21,7 +21,6 @@
 }
 
 @synthesize fetchedResultsController;
-@synthesize aboutButton;
 
 - (void)viewDidLoad
 {
@@ -104,10 +103,6 @@
                                        target: nil action: nil];
         [self.navigationItem setBackBarButtonItem: backButton];
     }
-}
-
-- (IBAction)aboutTap:(id)sender {
-    [self performSegueWithIdentifier:@"aboutSegue" sender:self];
 }
 
 #pragma mark - Table view data source
