@@ -40,7 +40,7 @@
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:fetchMessage
                                                                      attributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:11.0]}];
     
-    [self.tableView addSubview: refreshControl];
+    [self.newsTableView addSubview: refreshControl];
     
     self.fetchedResultsController = [[CoreDataManager sharedManager] fetchStoryInfosById];
     [self refreshFeed];
@@ -83,7 +83,7 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         exit(-1); // do I really want to do this?
     }
-    [self.tableView reloadData];
+    [self.newsTableView reloadData];
     
     // Stop refresh control
     [refreshControl endRefreshing];
@@ -186,13 +186,13 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     // The fetch controller is about to start sending change notifications, so prepare the table view for updates.
-    [self.tableView beginUpdates];
+    [self.newsTableView beginUpdates];
 }
 
 #pragma mark - fetchedResultsController
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     
-    UITableView *tableView = self.tableView;
+    UITableView *tableView = self.newsTableView;
     
     switch(type) {
             
@@ -223,11 +223,11 @@
     switch(type) {
             
         case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.newsTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            [self.newsTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
 }
@@ -235,7 +235,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
-    [self.tableView endUpdates];
+    [self.newsTableView endUpdates];
 }
 
 #pragma mark - CoreDataDelegate

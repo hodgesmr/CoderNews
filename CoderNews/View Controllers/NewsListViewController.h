@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsListViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface NewsListViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, retain) NSFetchedResultsController* fetchedResultsController;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *aboutButton;
-
+@property (strong, nonatomic) IBOutlet UITableView *newsTableView;
 - (IBAction)aboutTap:(id)sender;
 @end

@@ -81,6 +81,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="aboutButton" destination="edT-1H-cuP" id="U5R-BG-58O"/>
+                        <outlet property="newsTableView" destination="13" id="Nlv-S5-GfD"/>
                         <segue destination="PmC-zE-Nmg" kind="push" identifier="contentSegue" id="as9-r1-4iP"/>
                         <segue destination="1yI-R5-s2N" kind="modal" identifier="aboutSegue" id="9LD-SA-WLd"/>
                     </connections>
@@ -154,31 +155,6 @@
             <point key="canvasLocation" x="928" y="683"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="newsTap:"/>
-                <relationship kind="outlet" name="newsButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="ContentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NewsListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="aboutTap:"/>
-                <relationship kind="outlet" name="aboutButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
