@@ -65,6 +65,8 @@
                         <outlet property="newsTableView" destination="13" id="Nlv-S5-GfD"/>
                         <segue destination="PmC-zE-Nmg" kind="push" identifier="contentSegue" id="as9-r1-4iP"/>
                         <segue destination="1yI-R5-s2N" kind="push" identifier="aboutSegue" id="9LD-SA-WLd"/>
+                        <segue destination="Had-ug-Afe" kind="push" id="LNn-QV-Qee"/>
+                        <segue destination="jsh-F2-Rk8" kind="push" id="TLF-53-kTK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -98,7 +100,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5S-4R-6ZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928" y="64"/>
+            <point key="canvasLocation" x="896" y="-496"/>
+        </scene>
+        <!--Privacy View Controller - Privacy-->
+        <scene sceneID="7ax-T3-vc1">
+            <objects>
+                <viewController id="jsh-F2-Rk8" customClass="PrivacyViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WcA-V6-fzC">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Privacy" id="Jus-R6-gwF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odF-t9-m4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896" y="893"/>
+        </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="sur-LV-fHN">
+            <objects>
+                <viewController id="Had-ug-Afe" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dak-oO-Prk">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="GuV-YL-qsZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jIY-rk-DJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1424" y="430"/>
         </scene>
         <!--About View Controller - About-->
         <scene sceneID="fty-SH-MGv">
@@ -113,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrc-H4-cMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928" y="683"/>
+            <point key="canvasLocation" x="1424" y="-192"/>
         </scene>
     </scenes>
     <classes>
@@ -140,6 +172,12 @@
             <relationships>
                 <relationship kind="outlet" name="newsTableView" candidateClass="UITableView"/>
             </relationships>
+        </class>
+        <class className="PrivacyViewController" superclassName="BaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrivacyViewController.h"/>
+        </class>
+        <class className="SettingsViewController" superclassName="BaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

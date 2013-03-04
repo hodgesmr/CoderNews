@@ -8,6 +8,8 @@
 
 #import "AboutViewController.h"
 #import "BaseViewController.h"
+#import "PrivacyViewController.h"
+#import "SettingsViewController.h"
 
 @interface BaseViewController ()
 
@@ -50,7 +52,7 @@
                                                              if(self.visibleTag != ABOUT_TAG) {
                                                                  AboutViewController* avc = [[AboutViewController alloc] init];
                                                                  [self.navigationController popToRootViewControllerAnimated:NO];
-                                                                 [self.navigationController pushViewController:avc animated:NO];
+                                                                 [self.navigationController pushViewController:avc animated:NO]; // TODO this doesnt work
                                                              }
                                                              self.visibleTag = ABOUT_TAG;
                                                          }];
@@ -59,20 +61,30 @@
                                                            image:[UIImage imageNamed:@"Privacy_Icon"]
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
-                                                              NSLog(@"Item: %@", item);
+                                                              if(self.visibleTag != PRIVACY_TAG) {
+                                                                  PrivacyViewController* pvc = [[PrivacyViewController alloc] init];
+                                                                  [self.navigationController popToRootViewControllerAnimated:NO];
+                                                                  [self.navigationController pushViewController:pvc animated:NO]; // TODO this doesnt work
+                                                              }
+                                                              self.visibleTag = PRIVACY_TAG;
                                                           }];
     
     REMenuItem *settingsItem = [[REMenuItem alloc] initWithTitle:@"Settings"
                                                           image:[UIImage imageNamed:@"Settings_Icon"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
-                                                             NSLog(@"Item: %@", item);
+                                                             if(self.visibleTag != SETTINGS_TAG) {
+                                                                 SettingsViewController* svc = [[SettingsViewController alloc] init];
+                                                                 [self.navigationController popToRootViewControllerAnimated:NO];
+                                                                 [self.navigationController pushViewController:svc animated:NO]; // TODO this doesnt work
+                                                             }
+                                                             self.visibleTag = SETTINGS_TAG;
                                                          }];
     
     homeItem.tag = HOME_TAG;
     aboutItem.tag = ABOUT_TAG;
     privacyItem.tag = PRIVACY_TAG;
-    settingsItem.tag = SETTING_TAG;
+    settingsItem.tag = SETTINGS_TAG;
     
     self.menu = [[REMenu alloc] initWithItems:@[homeItem, aboutItem, privacyItem, settingsItem]];
     self.menu.cornerRadius = 4;
