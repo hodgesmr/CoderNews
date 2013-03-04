@@ -165,7 +165,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     //Calculate the expected size based on the font and linebreak mode of the label
     // FLT_MAX here simply means no constraint in height
-    CGSize maximumLabelSize = CGSizeMake(280, FLT_MAX); // this 270 came from experimentation.
+    CGSize maximumLabelSize = CGSizeMake(280, FLT_MAX); // this 280 came from experimentation.
     
     CGSize titleSize = [info.title sizeWithFont:cell.textLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
     CGSize detailSize = [domain sizeWithFont:cell.detailTextLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.detailTextLabel.lineBreakMode];
