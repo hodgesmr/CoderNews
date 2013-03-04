@@ -42,6 +42,7 @@
     
     refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:fetchMessage
                                                                      attributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:11.0]}];
+    refreshControl.tintColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:52/255.0 alpha:1];
     
     [self.newsTableView addSubview: refreshControl];
     
@@ -155,7 +156,7 @@
         cell.textLabel.textColor = [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0];
     }
     else {
-        cell.textLabel.textColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
+        cell.textLabel.textColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:52/255.0 alpha:1];
     }
     
     NSString* urlString = info.url;
