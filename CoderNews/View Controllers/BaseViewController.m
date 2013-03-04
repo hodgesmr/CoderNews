@@ -80,6 +80,15 @@
     self.menu.shadowOffset = CGSizeMake(0, 1);
     self.menu.shadowOpacity = 1;
     self.menu.imageOffset = CGSizeMake(5, -1);
+    self.menu.font = [UIFont fontWithName:@"HelveticaNeue" size:21.0];
+    /*
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], UITextAttributeTextColor,
+                                                           [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor,
+                                                           [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
+                                                           UITextAttributeTextShadowOffset,
+                                                           [UIFont fontWithName:@"HelveticaNeue" size:21.0], UITextAttributeFont, nil]];
+     */
     
     [self.menu showFromNavigationController:self.navigationController];
 }
