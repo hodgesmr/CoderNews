@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
+#import "AboutViewController.h"
 #import "BaseViewController.h"
 
 @interface BaseViewController ()
@@ -17,7 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self action:@selector(showMenu)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,15 +37,22 @@
                                                        image:[UIImage imageNamed:@"Home_Icon"]
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
-                                                          [self.navigationController popToRootViewControllerAnimated:NO];
+                                                          if(self.visibleTag != HOME_TAG) {
+                                                              [self.navigationController popToRootViewControllerAnimated:NO];
+                                                          }
+                                                          self.visibleTag = HOME_TAG;
                                                       }];
     
     REMenuItem *aboutItem = [[REMenuItem alloc] initWithTitle:@"About"
                                                           image:[UIImage imageNamed:@"About_Icon"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
-                                                             [self.navigationController popToRootViewControllerAnimated:NO];
-                                                             [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
+                                                             if(self.visibleTag != ABOUT_TAG) {
+                                                                 AboutViewController* avc = [[AboutViewController alloc] init];
+                                                                 [self.navigationController popToRootViewControllerAnimated:NO];
+                                                                 [self.navigationController pushViewController:avc animated:NO];
+                                                             }
+                                                             self.visibleTag = ABOUT_TAG;
                                                          }];
     
     REMenuItem *privacyItem = [[REMenuItem alloc] initWithTitle:@"Privacy"
@@ -62,10 +69,10 @@
                                                              NSLog(@"Item: %@", item);
                                                          }];
     
-    homeItem.tag = 0;
-    aboutItem.tag = 1;
-    privacyItem.tag = 2;
-    settingsItem.tag = 3;
+    homeItem.tag = HOME_TAG;
+    aboutItem.tag = ABOUT_TAG;
+    privacyItem.tag = PRIVACY_TAG;
+    settingsItem.tag = SETTING_TAG;
     
     self.menu = [[REMenu alloc] initWithItems:@[homeItem, aboutItem, privacyItem, settingsItem]];
     self.menu.cornerRadius = 4;

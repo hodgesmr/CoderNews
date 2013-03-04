@@ -64,7 +64,7 @@
                     <connections>
                         <outlet property="newsTableView" destination="13" id="Nlv-S5-GfD"/>
                         <segue destination="PmC-zE-Nmg" kind="push" identifier="contentSegue" id="as9-r1-4iP"/>
-                        <segue destination="1yI-R5-s2N" kind="modal" identifier="aboutSegue" id="9LD-SA-WLd"/>
+                        <segue destination="1yI-R5-s2N" kind="push" identifier="aboutSegue" id="9LD-SA-WLd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -100,27 +100,16 @@
             </objects>
             <point key="canvasLocation" x="928" y="64"/>
         </scene>
-        <!--About View Controller-->
+        <!--About View Controller - About-->
         <scene sceneID="fty-SH-MGv">
             <objects>
-                <viewController id="1yI-R5-s2N" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController title="About" id="1yI-R5-s2N" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAS-UB-QlP">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9U-rS-Y1Q">
-                                <items>
-                                    <navigationItem title="About" id="iDz-nH-0gr"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="H9U-rS-Y1Q" firstAttribute="top" secondItem="MAS-UB-QlP" secondAttribute="top" type="default" id="CUg-qp-GN5"/>
-                            <constraint firstItem="H9U-rS-Y1Q" firstAttribute="leading" secondItem="MAS-UB-QlP" secondAttribute="leading" type="default" id="MIO-iQ-qH5"/>
-                            <constraint firstItem="H9U-rS-Y1Q" firstAttribute="trailing" secondItem="MAS-UB-QlP" secondAttribute="trailing" type="default" id="zxM-9t-4Ag"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="About" id="L3l-0E-XLJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrc-H4-cMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

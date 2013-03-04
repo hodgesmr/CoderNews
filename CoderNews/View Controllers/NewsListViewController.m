@@ -27,6 +27,8 @@
     [super viewDidLoad];
     
     self.title = @"Coder News";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self action:@selector(showMenu)];
+    
     //add refresh control to the table view
     refreshControl = [[UIRefreshControl alloc] init];
     
@@ -59,6 +61,7 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self refreshFeed];
+    self.visibleTag = HOME_TAG;
 }
 
 - (void) viewDidUnload {
