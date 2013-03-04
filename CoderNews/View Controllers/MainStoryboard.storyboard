@@ -65,8 +65,8 @@
                         <outlet property="newsTableView" destination="13" id="Nlv-S5-GfD"/>
                         <segue destination="PmC-zE-Nmg" kind="push" identifier="contentSegue" id="as9-r1-4iP"/>
                         <segue destination="1yI-R5-s2N" kind="push" identifier="aboutSegue" id="9LD-SA-WLd"/>
-                        <segue destination="Had-ug-Afe" kind="push" id="LNn-QV-Qee"/>
-                        <segue destination="jsh-F2-Rk8" kind="push" id="TLF-53-kTK"/>
+                        <segue destination="Had-ug-Afe" kind="push" identifier="settingsSegue" id="LNn-QV-Qee"/>
+                        <segue destination="jsh-F2-Rk8" kind="push" identifier="privacySegue" id="TLF-53-kTK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -148,38 +148,6 @@
             <point key="canvasLocation" x="1424" y="-192"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AboutViewController" superclassName="BaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="newsTap:"/>
-            </relationships>
-        </class>
-        <class className="BaseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseViewController.h"/>
-        </class>
-        <class className="ContentViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NewsListViewController" superclassName="BaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="newsTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="PrivacyViewController" superclassName="BaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrivacyViewController.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="BaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

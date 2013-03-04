@@ -50,9 +50,7 @@
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              if(self.visibleTag != ABOUT_TAG) {
-                                                                 AboutViewController* avc = [[AboutViewController alloc] init];
-                                                                 [self.navigationController popToRootViewControllerAnimated:NO];
-                                                                 [self.navigationController pushViewController:avc animated:NO]; // TODO this doesnt work
+                                                                 [self.rootViewControllerDelegate pushToAbout];
                                                              }
                                                              self.visibleTag = ABOUT_TAG;
                                                          }];
@@ -62,9 +60,7 @@
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
                                                               if(self.visibleTag != PRIVACY_TAG) {
-                                                                  PrivacyViewController* pvc = [[PrivacyViewController alloc] init];
-                                                                  [self.navigationController popToRootViewControllerAnimated:NO];
-                                                                  [self.navigationController pushViewController:pvc animated:NO]; // TODO this doesnt work
+                                                                  [self.rootViewControllerDelegate pushToPrivacy];
                                                               }
                                                               self.visibleTag = PRIVACY_TAG;
                                                           }];
@@ -74,9 +70,7 @@
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              if(self.visibleTag != SETTINGS_TAG) {
-                                                                 SettingsViewController* svc = [[SettingsViewController alloc] init];
-                                                                 [self.navigationController popToRootViewControllerAnimated:NO];
-                                                                 [self.navigationController pushViewController:svc animated:NO]; // TODO this doesnt work
+                                                                 [self.rootViewControllerDelegate pushToSettings];
                                                              }
                                                              self.visibleTag = SETTINGS_TAG;
                                                          }];

@@ -1,5 +1,5 @@
 //
-//  MasterViewController.h
+//  NewsListViewController.h
 //  CoderNews
 //
 //  Created by Matt Hodges on 2/2/13.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface NewsListViewController : BaseViewController <NSFetchedResultsControllerDelegate>
+@interface NewsListViewController : BaseViewController <NSFetchedResultsControllerDelegate, RootViewControllerDelegate>
 
 @property (nonatomic, retain) NSFetchedResultsController* fetchedResultsController;
 @property (strong, nonatomic) IBOutlet UITableView *newsTableView;

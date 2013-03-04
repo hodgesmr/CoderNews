@@ -14,9 +14,19 @@
 #define PRIVACY_TAG 3
 #define SETTINGS_TAG 4
 
+@protocol RootViewControllerDelegate
+
+-(void)pushToAbout;
+-(void)pushToPrivacy;
+-(void)pushToSettings;
+
+@end
+
 @interface BaseViewController : UIViewController
 @property (strong, nonatomic) REMenu *menu;
 @property int visibleTag;
+@property (weak) id<RootViewControllerDelegate> rootViewControllerDelegate;
+
 
 
 - (void) showMenu;

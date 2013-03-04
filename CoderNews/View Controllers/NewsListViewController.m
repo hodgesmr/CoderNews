@@ -1,5 +1,5 @@
 //
-//  MasterViewController.m
+//  NewsListViewController.m
 //  CoderNews
 //
 //  Created by Matt Hodges on 2/2/13.
@@ -10,6 +10,8 @@
 #import "ContentViewController.h"
 #import "CoreDataManager.h"
 #import "NewsListViewController.h"
+#import "PrivacyViewController.h"
+#import "SettingsViewController.h"
 
 @interface NewsListViewController () <CoreDataDelegate>
 
@@ -28,7 +30,7 @@
     
     self.title = @"Coder News";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Menu_Icon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showMenu)];
-    
+    self.rootViewControllerDelegate = self;
     //add refresh control to the table view
     refreshControl = [[UIRefreshControl alloc] init];
     
@@ -106,6 +108,28 @@
                                        target: nil action: nil];
         [self.navigationItem setBackBarButtonItem: backButton];
     }
+}
+
+#pragma mark = RootViewControllerDelegate
+-(void)pushToAbout {
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    AboutViewController* avc = [[AboutViewController alloc] init];
+    avc.rootViewControllerDelegate = self;
+    [self.navigationController pushViewController:avc animated:NO];
+}
+
+-(void)pushToPrivacy {
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    PrivacyViewController* pvc = [[PrivacyViewController alloc] init];
+    pvc.rootViewControllerDelegate = self;
+    [self.navigationController pushViewController:pvc animated:NO];
+}
+
+-(void)pushToSettings {
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    SettingsViewController* svc = [[SettingsViewController alloc] init];
+    svc.rootViewControllerDelegate = self;
+    [self.navigationController pushViewController:svc animated:NO];
 }
 
 #pragma mark - Table view data source
