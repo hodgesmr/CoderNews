@@ -27,9 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSMutableArray *toolbarItems = [NSMutableArray arrayWithArray:[self.toolbar items]];
     // we don't actually want the stop button in there yet
+    NSMutableArray *toolbarItems = [NSMutableArray arrayWithArray:[self.toolbar items]];
     [toolbarItems removeObject:self.stopButton];
+    
+    [self.toolbar setTintColor:[UIColor darkGrayColor]];
+    
     self.toolbar.items = toolbarItems;
     self.webView.delegate = self;
     self.title = storyTitle;
