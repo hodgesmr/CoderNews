@@ -8,16 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContentViewController : UIViewController
+@interface ContentViewController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, weak) NSString* storyTitle;
 @property (nonatomic, weak) NSString* storyUrl;
 @property (nonatomic, weak) IBOutlet UIWebView* webView;
-@property (nonatomic, weak) IBOutlet UIToolbar* toolbar;
+@property (nonatomic, strong) IBOutlet UIToolbar* toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *stopButton;
 
 
 @end
