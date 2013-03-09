@@ -81,21 +81,40 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOB-pG-dRC">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TO5-Oo-06m">
+                                <items>
+                                    <barButtonItem style="plain" systemItem="rewind" id="Tly-mC-cqG"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="dyu-m5-6dC"/>
+                                    <barButtonItem style="plain" systemItem="fastForward" id="m42-qO-17t"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="FbX-Tb-6Qp"/>
+                                    <barButtonItem style="plain" systemItem="refresh" id="yUt-8k-LvV"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kdE-6T-lI1"/>
+                                    <barButtonItem style="plain" systemItem="action" id="Iw3-JF-OJ9"/>
+                                </items>
+                            </toolbar>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iln-IZ-EFB">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rOB-pG-dRC" firstAttribute="top" secondItem="91p-ko-47E" secondAttribute="top" type="default" id="M9c-OM-hlg"/>
-                            <constraint firstItem="rOB-pG-dRC" firstAttribute="trailing" secondItem="91p-ko-47E" secondAttribute="trailing" type="default" id="OKy-0b-oUz"/>
-                            <constraint firstItem="rOB-pG-dRC" firstAttribute="bottom" secondItem="91p-ko-47E" secondAttribute="bottom" type="default" id="ggr-yw-ccO"/>
-                            <constraint firstItem="rOB-pG-dRC" firstAttribute="leading" secondItem="91p-ko-47E" secondAttribute="leading" type="default" id="reT-Jr-ORb"/>
+                            <constraint firstItem="TO5-Oo-06m" firstAttribute="trailing" secondItem="91p-ko-47E" secondAttribute="trailing" type="default" id="Af7-m6-KdV"/>
+                            <constraint firstItem="Iln-IZ-EFB" firstAttribute="bottom" secondItem="TO5-Oo-06m" secondAttribute="top" type="default" id="GsE-j5-nOb"/>
+                            <constraint firstItem="Iln-IZ-EFB" firstAttribute="top" secondItem="91p-ko-47E" secondAttribute="top" type="default" id="Hou-Bs-mOb"/>
+                            <constraint firstItem="TO5-Oo-06m" firstAttribute="bottom" secondItem="91p-ko-47E" secondAttribute="bottom" type="default" id="IdS-Vn-mZC"/>
+                            <constraint firstItem="Iln-IZ-EFB" firstAttribute="leading" secondItem="91p-ko-47E" secondAttribute="leading" type="default" id="MCz-6R-ZEF"/>
+                            <constraint firstItem="TO5-Oo-06m" firstAttribute="leading" secondItem="91p-ko-47E" secondAttribute="leading" type="default" id="NUi-kn-QWS"/>
+                            <constraint firstItem="Iln-IZ-EFB" firstAttribute="trailing" secondItem="91p-ko-47E" secondAttribute="trailing" type="default" id="sRy-EI-Fox"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kVa-Gr-8XR"/>
                     <connections>
-                        <outlet property="webView" destination="rOB-pG-dRC" id="qkL-QO-Hqd"/>
+                        <outlet property="backButton" destination="Tly-mC-cqG" id="NKv-FF-0rd"/>
+                        <outlet property="forwardButton" destination="m42-qO-17t" id="Mvn-El-Lln"/>
+                        <outlet property="refreshButton" destination="yUt-8k-LvV" id="Dcc-Ep-nZk"/>
+                        <outlet property="shareButton" destination="Iw3-JF-OJ9" id="04W-jV-asZ"/>
+                        <outlet property="toolbar" destination="TO5-Oo-06m" id="HMA-Ai-Y7P"/>
+                        <outlet property="webView" destination="Iln-IZ-EFB" id="yOd-lH-weT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5S-4R-6ZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,6 +170,9 @@
     <classes>
         <class className="AboutViewController" superclassName="BaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="newsTap:"/>
+            </relationships>
         </class>
         <class className="BaseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseViewController.h"/>
@@ -158,6 +180,11 @@
         <class className="ContentViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>

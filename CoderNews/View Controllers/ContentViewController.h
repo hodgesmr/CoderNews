@@ -12,6 +12,12 @@
 
 @property (nonatomic, weak) NSString* storyTitle;
 @property (nonatomic, weak) NSString* storyUrl;
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (nonatomic, weak) IBOutlet UIWebView* webView;
+@property (nonatomic, weak) IBOutlet UIToolbar* toolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
+
 
 @end

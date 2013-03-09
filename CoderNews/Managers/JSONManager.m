@@ -98,7 +98,7 @@ static JSONManager *_sharedJSONManagerInsance;
                                     NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
                                 }
                               completionBlock:^(NSArray *operations) {
-                                  // I don't like the hn and proggit results being grouped together, so shuffle
+                                  // I don't like the hn and proggit results being grouped together, so shuffle. Also, I don't necessarily agree that the best content always has the most upvotes.
                                   [self shuffleResults];
                                   [self pruneUnwantedStories];
                                   [[CoreDataManager sharedManager] persistFetchedStories:_sharedJSONManagerInsance.fetchedStories];
