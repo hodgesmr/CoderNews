@@ -32,9 +32,6 @@
     if (self.menu.isOpen)
         return [self.menu close];
     
-    // Sample icons from http://icons8.com/download-free-icons-for-ios-tab-bar
-    //
-    
     REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"News"
                                                        image:[UIImage imageNamed:@"Home_Icon"]
                                             highlightedImage:nil
