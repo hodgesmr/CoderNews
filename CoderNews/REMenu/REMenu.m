@@ -26,6 +26,7 @@
 #import "REMenu.h"
 #import "REMenuItem.h"
 #import "REMenuItemView.h"
+#import "SoundManager.h"
 
 
 @interface REMenuItem ()
@@ -87,7 +88,8 @@
 }
 
 - (void)showFromNavigationController:(UINavigationController *)navigationController
-{   
+{
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
     for (REMenuItem *item in _items) {
         NSInteger index = [_items indexOfObject:item];
         
@@ -148,6 +150,7 @@
 
 - (void)closeWithCompletion:(void (^)(void))completion
 {
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-close" andExtension:@"wav"];
     _isOpen = NO;
     [UIView animateWithDuration:0.2 animations:^{
         CGRect frame = _menuView.frame;

@@ -39,7 +39,11 @@
     NSURL* url = [[NSURL alloc] initWithString:self.storyUrl];
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
-    
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,8 +86,25 @@
         [toolbarItems replaceObjectAtIndex:4 withObject:self.refreshButton];
         self.toolbar.items = toolbarItems;
     }
-    
-    
 }
 
+
+- (IBAction)toolbarAction:(id)sender {
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    if(sender == self.backButton) {
+        [self.webView goBack];
+    }
+    else if(sender == self.forwardButton) {
+        [self.webView goForward];
+    }
+    else if(sender == self.refreshButton) {
+        [self.webView reload];
+    }
+    else if(sender == self.stopButton) {
+        [self.webView stopLoading];
+    }
+    else if(sender == self.shareButton) {
+        // TODO
+    }
+}
 @end

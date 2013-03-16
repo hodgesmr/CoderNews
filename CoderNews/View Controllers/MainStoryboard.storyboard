@@ -85,28 +85,32 @@
                                 <items>
                                     <barButtonItem style="plain" systemItem="rewind" id="Tly-mC-cqG">
                                         <connections>
-                                            <action selector="goBack" destination="Iln-IZ-EFB" id="WEM-dN-zTJ"/>
+                                            <action selector="toolbarAction:" destination="PmC-zE-Nmg" id="uDp-KM-gux"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RsE-gz-37T"/>
                                     <barButtonItem style="plain" systemItem="fastForward" id="m42-qO-17t">
                                         <connections>
-                                            <action selector="goForward" destination="Iln-IZ-EFB" id="ANN-MX-tUN"/>
+                                            <action selector="toolbarAction:" destination="PmC-zE-Nmg" id="EaX-rw-xeQ"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="saN-pe-jx1"/>
                                     <barButtonItem style="plain" systemItem="refresh" id="yUt-8k-LvV">
                                         <connections>
-                                            <action selector="reload" destination="Iln-IZ-EFB" id="4j7-Pt-zv3"/>
+                                            <action selector="toolbarAction:" destination="PmC-zE-Nmg" id="ftz-25-sfQ"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="stop" id="ZIk-zD-DPx">
                                         <connections>
-                                            <action selector="stopLoading" destination="Iln-IZ-EFB" id="syU-nr-Mbg"/>
+                                            <action selector="toolbarAction:" destination="PmC-zE-Nmg" id="iBl-V3-7an"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kdE-6T-lI1"/>
-                                    <barButtonItem style="plain" systemItem="action" id="Iw3-JF-OJ9"/>
+                                    <barButtonItem style="plain" systemItem="action" id="Iw3-JF-OJ9">
+                                        <connections>
+                                            <action selector="toolbarAction:" destination="PmC-zE-Nmg" id="seu-q9-ieZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iln-IZ-EFB">
@@ -188,9 +192,6 @@
     <classes>
         <class className="AboutViewController" superclassName="BaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="newsTap:"/>
-            </relationships>
         </class>
         <class className="BaseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseViewController.h"/>
@@ -198,6 +199,8 @@
         <class className="ContentViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
             <relationships>
+                <relationship kind="action" name="goBack:"/>
+                <relationship kind="action" name="toolbarAction:"/>
                 <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>

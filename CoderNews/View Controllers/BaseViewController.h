@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "REMenu.h"
+#import "SoundManager.h"
 
 #define HOME_TAG 1
 #define ABOUT_TAG 2

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SoundManager.h"
 
 @interface ContentViewController : UIViewController <UIWebViewDelegate>
 
@@ -19,6 +20,6 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *stopButton;
-
+- (IBAction)toolbarAction:(id)sender;
 
 @end

@@ -117,6 +117,7 @@
                                        style: UIBarButtonItemStyleBordered
                                        target: nil action: nil];
         [self.navigationItem setBackBarButtonItem: backButton];
+        [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
     }
 }
 

@@ -29,8 +29,9 @@
 
 - (void)showMenu
 {
-    if (self.menu.isOpen)
+    if (self.menu.isOpen) {
         return [self.menu close];
+    }
     
     REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"News"
                                                        image:[UIImage imageNamed:@"Home_Icon"]

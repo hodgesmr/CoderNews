@@ -41,6 +41,10 @@
 		632C61EB16E435A300FC8C68 /* Home_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 632C61E916E435A300FC8C68 /* Home_Icon.png */; };
 		632C61EC16E435A300FC8C68 /* Home_Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 632C61EA16E435A300FC8C68 /* Home_Icon@2x.png */; };
 		632C61EF16E441C800FC8C68 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 632C61EE16E441C800FC8C68 /* SettingsViewController.m */; };
+		635E601216F5001600F78E87 /* click-open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601016F5001600F78E87 /* click-open.wav */; };
+		635E601916F503F500F78E87 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E601816F503F500F78E87 /* SoundManager.m */; };
+		635E601B16F5055E00F78E87 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635E601A16F5055E00F78E87 /* AudioToolbox.framework */; };
+		635E601F16F50C5200F78E87 /* click-close.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601E16F50C5200F78E87 /* click-close.wav */; };
 		63EBE9C516F3FA800086F773 /* navbar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C316F3FA800086F773 /* navbar_bg@2x.png */; };
 		63EBE9C616F3FA800086F773 /* navbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C416F3FA800086F773 /* navbar_bg.png */; };
 		63EBE9C916F4010B0086F773 /* toolbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C716F4010B0086F773 /* toolbar_bg.png */; };
@@ -117,6 +121,11 @@
 		632C61EA16E435A300FC8C68 /* Home_Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home_Icon@2x.png"; sourceTree = "<group>"; };
 		632C61ED16E441C800FC8C68 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		632C61EE16E441C800FC8C68 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		635E601016F5001600F78E87 /* click-open.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "click-open.wav"; sourceTree = "<group>"; };
+		635E601716F503F500F78E87 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		635E601816F503F500F78E87 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		635E601A16F5055E00F78E87 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		635E601E16F50C5200F78E87 /* click-close.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "click-close.wav"; sourceTree = "<group>"; };
 		63EBE9C316F3FA800086F773 /* navbar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_bg@2x.png"; sourceTree = "<group>"; };
 		63EBE9C416F3FA800086F773 /* navbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_bg.png; sourceTree = "<group>"; };
 		63EBE9C716F4010B0086F773 /* toolbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_bg.png; sourceTree = "<group>"; };
@@ -151,9 +160,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F18DCF16BDCD1E00A1EEE9 /* UIKit.framework in Frameworks */,
+				635E601B16F5055E00F78E87 /* AudioToolbox.framework in Frameworks */,
 				631AD06E16BEE08600D0036A /* MobileCoreServices.framework in Frameworks */,
 				631AD06C16BEE07700D0036A /* SystemConfiguration.framework in Frameworks */,
-				63F18DCF16BDCD1E00A1EEE9 /* UIKit.framework in Frameworks */,
 				63F18DD116BDCD1E00A1EEE9 /* Foundation.framework in Frameworks */,
 				63F18DD316BDCD1E00A1EEE9 /* CoreGraphics.framework in Frameworks */,
 				63F18DD516BDCD1E00A1EEE9 /* CoreData.framework in Frameworks */,
@@ -227,6 +237,15 @@
 			path = REMenu;
 			sourceTree = "<group>";
 		};
+		635E600F16F4FFE400F78E87 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				635E601E16F50C5200F78E87 /* click-close.wav */,
+				635E601016F5001600F78E87 /* click-open.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		6389F74C16C8790400FAEBBB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +258,7 @@
 		63F18DC216BDCD1D00A1EEE9 = {
 			isa = PBXGroup;
 			children = (
+				635E601A16F5055E00F78E87 /* AudioToolbox.framework */,
 				631AD06D16BEE08600D0036A /* MobileCoreServices.framework */,
 				631AD06B16BEE07700D0036A /* SystemConfiguration.framework */,
 				63F18DD616BDCD1E00A1EEE9 /* CoderNews */,
@@ -269,6 +289,7 @@
 		63F18DD616BDCD1E00A1EEE9 /* CoderNews */ = {
 			isa = PBXGroup;
 			children = (
+				635E600F16F4FFE400F78E87 /* Sounds */,
 				632C61B516E40CF300FC8C68 /* REMenu */,
 				631028F016C8AB5300048397 /* Images */,
 				6389F74C16C8790400FAEBBB /* Model */,
@@ -314,6 +335,8 @@
 				63F73FAA16BEB80800FCB221 /* CoreDataManager.m */,
 				631AD06F16BEE58A00D0036A /* JSONManager.h */,
 				631AD07016BEE58A00D0036A /* JSONManager.m */,
+				635E601716F503F500F78E87 /* SoundManager.h */,
+				635E601816F503F500F78E87 /* SoundManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -410,6 +433,8 @@
 				63EBE9CA16F4010B0086F773 /* toolbar_bg@2x.png in Resources */,
 				63EBE9CD16F4C87F0086F773 /* ribbon@2x.png in Resources */,
 				63EBE9CE16F4C87F0086F773 /* ribbon.png in Resources */,
+				635E601216F5001600F78E87 /* click-open.wav in Resources */,
+				635E601F16F50C5200F78E87 /* click-close.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +471,7 @@
 				632C61C016E40D3800FC8C68 /* BaseViewController.m in Sources */,
 				632C61EF16E441C800FC8C68 /* SettingsViewController.m in Sources */,
 				6320D04916E4430E00B9D272 /* PrivacyViewController.m in Sources */,
+				635E601916F503F500F78E87 /* SoundManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
