@@ -94,6 +94,14 @@
     [refreshControl endRefreshing];
 }
 
+- (NSString*) stripWWWFromURL:(NSString*)urlString {
+    NSString* wwwString = [[urlString substringToIndex:4] lowercaseString];
+    if([wwwString isEqualToString:@"www."]) {
+        return [urlString substringWithRange:NSMakeRange(4, urlString.length-4)];
+    }
+    return urlString;
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if([segue.identifier isEqualToString:@"contentSegue"]) {
@@ -161,7 +169,8 @@
     
     NSString* urlString = info.url;
     NSURL* url = [NSURL URLWithString:urlString];
-    NSAttributedString* asDetails = [[NSAttributedString alloc] initWithString:[url host]];
+    NSString* domain = [self stripWWWFromURL:[url host]];
+    NSAttributedString* asDetails = [[NSAttributedString alloc] initWithString:domain];
     cell.detailTextLabel.numberOfLines = 1;
     cell.detailTextLabel.attributedText = asDetails;
     cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
@@ -184,7 +193,7 @@
     StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString* urlString = info.url;
     NSURL* url = [NSURL URLWithString:urlString];
-    NSString* domain = [url host];
+    NSString* domain = [self stripWWWFromURL:[url host]];
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
