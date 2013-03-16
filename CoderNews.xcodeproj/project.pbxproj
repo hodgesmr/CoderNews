@@ -45,6 +45,8 @@
 		63EBE9C616F3FA800086F773 /* navbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C416F3FA800086F773 /* navbar_bg.png */; };
 		63EBE9C916F4010B0086F773 /* toolbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C716F4010B0086F773 /* toolbar_bg.png */; };
 		63EBE9CA16F4010B0086F773 /* toolbar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C816F4010B0086F773 /* toolbar_bg@2x.png */; };
+		63EBE9CD16F4C87F0086F773 /* ribbon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9CB16F4C87F0086F773 /* ribbon@2x.png */; };
+		63EBE9CE16F4C87F0086F773 /* ribbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9CC16F4C87F0086F773 /* ribbon.png */; };
 		63F18DCF16BDCD1E00A1EEE9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F18DCE16BDCD1E00A1EEE9 /* UIKit.framework */; };
 		63F18DD116BDCD1E00A1EEE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F18DD016BDCD1E00A1EEE9 /* Foundation.framework */; };
 		63F18DD316BDCD1E00A1EEE9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F18DD216BDCD1E00A1EEE9 /* CoreGraphics.framework */; };
@@ -119,6 +121,8 @@
 		63EBE9C416F3FA800086F773 /* navbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_bg.png; sourceTree = "<group>"; };
 		63EBE9C716F4010B0086F773 /* toolbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_bg.png; sourceTree = "<group>"; };
 		63EBE9C816F4010B0086F773 /* toolbar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_bg@2x.png"; sourceTree = "<group>"; };
+		63EBE9CB16F4C87F0086F773 /* ribbon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ribbon@2x.png"; sourceTree = "<group>"; };
+		63EBE9CC16F4C87F0086F773 /* ribbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ribbon.png; sourceTree = "<group>"; };
 		63F18DCB16BDCD1E00A1EEE9 /* CoderNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoderNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F18DCE16BDCD1E00A1EEE9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		63F18DD016BDCD1E00A1EEE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -162,6 +166,8 @@
 		631028F016C8AB5300048397 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				63EBE9CB16F4C87F0086F773 /* ribbon@2x.png */,
+				63EBE9CC16F4C87F0086F773 /* ribbon.png */,
 				63EBE9C716F4010B0086F773 /* toolbar_bg.png */,
 				63EBE9C816F4010B0086F773 /* toolbar_bg@2x.png */,
 				63EBE9C316F3FA800086F773 /* navbar_bg@2x.png */,
@@ -402,6 +408,8 @@
 				63EBE9C616F3FA800086F773 /* navbar_bg.png in Resources */,
 				63EBE9C916F4010B0086F773 /* toolbar_bg.png in Resources */,
 				63EBE9CA16F4010B0086F773 /* toolbar_bg@2x.png in Resources */,
+				63EBE9CD16F4C87F0086F773 /* ribbon@2x.png in Resources */,
+				63EBE9CE16F4C87F0086F773 /* ribbon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
