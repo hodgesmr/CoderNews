@@ -45,6 +45,7 @@
     refreshControl.tintColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:52/255.0 alpha:1];
     
     [self.newsTableView addSubview: refreshControl];
+    self.newsTableView.separatorColor = [UIColor colorWithRed:90.0/255.0 green:90.0/255.0 blue:90.0/255.0 alpha:0.7];
     
     self.fetchedResultsController = [[CoreDataManager sharedManager] fetchStoryInfosById];
     [self refreshFeed];
