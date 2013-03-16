@@ -166,22 +166,22 @@
 		631028F016C8AB5300048397 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				63EBE9CB16F4C87F0086F773 /* ribbon@2x.png */,
-				63EBE9CC16F4C87F0086F773 /* ribbon.png */,
-				63EBE9C716F4010B0086F773 /* toolbar_bg.png */,
-				63EBE9C816F4010B0086F773 /* toolbar_bg@2x.png */,
-				63EBE9C316F3FA800086F773 /* navbar_bg@2x.png */,
-				63EBE9C416F3FA800086F773 /* navbar_bg.png */,
+				632C61D116E40F7200FC8C68 /* About_Icon.png */,
+				632C61D216E40F7200FC8C68 /* About_Icon@2x.png */,
 				632C61E916E435A300FC8C68 /* Home_Icon.png */,
 				632C61EA16E435A300FC8C68 /* Home_Icon@2x.png */,
 				632C61E516E426A300FC8C68 /* Menu_Icon@2x.png */,
 				632C61E616E426A300FC8C68 /* Menu_Icon.png */,
-				632C61D116E40F7200FC8C68 /* About_Icon.png */,
-				632C61D216E40F7200FC8C68 /* About_Icon@2x.png */,
+				63EBE9C316F3FA800086F773 /* navbar_bg@2x.png */,
+				63EBE9C416F3FA800086F773 /* navbar_bg.png */,
 				632C61D516E40F7200FC8C68 /* Privacy_Icon.png */,
 				632C61D616E40F7200FC8C68 /* Privacy_Icon@2x.png */,
+				63EBE9CB16F4C87F0086F773 /* ribbon@2x.png */,
+				63EBE9CC16F4C87F0086F773 /* ribbon.png */,
 				632C61D716E40F7200FC8C68 /* Settings_Icon.png */,
 				632C61D816E40F7200FC8C68 /* Settings_Icon@2x.png */,
+				63EBE9C716F4010B0086F773 /* toolbar_bg.png */,
+				63EBE9C816F4010B0086F773 /* toolbar_bg@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -324,16 +324,16 @@
 				63F73FB716BEBAE300FCB221 /* MainStoryboard.storyboard */,
 				631AD04916BEC81B00D0036A /* AboutViewController.h */,
 				631AD04A16BEC81B00D0036A /* AboutViewController.m */,
+				632C61BE16E40D3800FC8C68 /* BaseViewController.h */,
+				632C61BF16E40D3800FC8C68 /* BaseViewController.m */,
 				63F73FAD16BEB93B00FCB221 /* ContentViewController.h */,
 				63F73FAE16BEB93B00FCB221 /* ContentViewController.m */,
 				63F73FAF16BEB93B00FCB221 /* NewsListViewController.h */,
 				63F73FB016BEB93B00FCB221 /* NewsListViewController.m */,
-				632C61BE16E40D3800FC8C68 /* BaseViewController.h */,
-				632C61BF16E40D3800FC8C68 /* BaseViewController.m */,
-				632C61ED16E441C800FC8C68 /* SettingsViewController.h */,
-				632C61EE16E441C800FC8C68 /* SettingsViewController.m */,
 				6320D04716E4430E00B9D272 /* PrivacyViewController.h */,
 				6320D04816E4430E00B9D272 /* PrivacyViewController.m */,
+				632C61ED16E441C800FC8C68 /* SettingsViewController.h */,
+				632C61EE16E441C800FC8C68 /* SettingsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

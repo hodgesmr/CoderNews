@@ -178,11 +178,11 @@
     // end gross
     
     if([[NSNumber numberWithBool:NO] isEqualToNumber:info.visited]) {
-        cell.textLabel.textColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:52/255.0 alpha:1];
+        cell.textLabel.textColor = [UIColor colorWithRed:25/255.0 green:25/255.0 blue:25/255.0 alpha:1];
         ribbonView.hidden = NO;
     }
     else {
-        cell.textLabel.textColor = [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0];
+        cell.textLabel.textColor = [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:0.7];
         ribbonView.hidden = YES;
     }
     NSString* urlString = info.url;
