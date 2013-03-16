@@ -161,13 +161,30 @@
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.attributedText = asTitle;
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
-    if([[NSNumber numberWithBool:YES] isEqualToNumber:info.visited]) {
-        cell.textLabel.textColor = [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0];
+    UIImageView *ribbonView = nil;
+    
+    // this is a gross hack to make sure we only add the ribbon once.
+    for ( UIView *childView in cell.subviews ) {
+        if([childView isKindOfClass:[UIImageView class]]) {
+           ribbonView = (UIImageView*)childView;
+        }
+    }
+    if(ribbonView == nil) {
+        UIImage *ribbon = [UIImage imageNamed:@"ribbon.png"];
+        ribbonView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+        [ribbonView setImage:ribbon];
+        [cell addSubview:ribbonView];
+    }
+    // end gross
+    
+    if([[NSNumber numberWithBool:NO] isEqualToNumber:info.visited]) {
+        cell.textLabel.textColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:52/255.0 alpha:1];
+        ribbonView.hidden = NO;
     }
     else {
-        cell.textLabel.textColor = [UIColor colorWithRed:53/255.0 green:53/255.0 blue:52/255.0 alpha:1];
+        cell.textLabel.textColor = [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0];
+        ribbonView.hidden = YES;
     }
-    
     NSString* urlString = info.url;
     NSURL* url = [NSURL URLWithString:urlString];
     NSString* domain = [self stripWWWFromURL:[url host]];
@@ -181,7 +198,7 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // set up the cell...
     [self configureCell:cell atIndexPath:indexPath];
