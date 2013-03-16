@@ -21,7 +21,9 @@
                                                            [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
                                                            UITextAttributeTextShadowOffset,
                                                            [UIFont fontWithName:@"HelveticaNeue" size:21.0], UITextAttributeFont, nil]];
-   [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
+    UIImage *navBackgroundImage = [UIImage imageNamed:@"navbar_bg"];
+    [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
     
     return YES;
 }
