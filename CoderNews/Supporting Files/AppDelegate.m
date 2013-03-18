@@ -17,11 +17,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // preferences
-    NSDictionary* defaultPreferences = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary* defaultPreferences = [[NSDictionary alloc] initWithObjectsAndKeys:
                                         [NSNumber numberWithBool:YES], REQUIRES_HACKER_NEWS,
                                         [NSNumber numberWithBool:YES], REQUIRES_PROGGIT,
                                         [NSNumber numberWithBool:YES], REQUIRES_SOUND,
-                                        2, STORY_LIFETIME,
+                                        [NSNumber numberWithInt:2], STORY_LIFETIME,
                                         nil];
     [[PreferencesManager sharedPreferencesManager] registerDefaults:defaultPreferences];
     
