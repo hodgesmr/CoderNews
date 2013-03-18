@@ -109,8 +109,6 @@ static JSONManager *_sharedJSONManagerInsance;
 
 - (AFHTTPRequestOperation *)fetchJSON:(NSString*)requestUrl {
     
-    
-    
     NSURL* jsonUrl = [NSURL URLWithString:requestUrl];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:jsonUrl];
     AFJSONRequestOperation *operation = nil;
@@ -146,6 +144,7 @@ static JSONManager *_sharedJSONManagerInsance;
             }
         } failure:nil];
     }
+    
     // Pokemon exception hadling - Catch 'em all!
     @catch (NSException* iae) {
         NSLog(@"Error pulling down data");
