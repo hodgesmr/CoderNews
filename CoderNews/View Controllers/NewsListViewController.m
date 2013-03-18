@@ -80,6 +80,7 @@
 }
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state {
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
     [self checkForNewData];
 }
 
