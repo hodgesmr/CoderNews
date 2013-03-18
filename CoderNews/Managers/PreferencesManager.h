@@ -16,8 +16,6 @@
 @interface PreferencesManager : NSObject
 
 + (PreferencesManager *) sharedPreferencesManager;
-- (void) populateCache;
-- (void) clearCache;
 
 - (BOOL) requiresHackerNews;
 - (BOOL) requiresProggit;
@@ -28,5 +26,7 @@
 - (void) setRequiresProggit:(BOOL)requiresProggit;
 - (void) setRequiresSound:(BOOL)requiresSound;
 - (void) setStoryLifetime:(int)storyLifetime;
+
+- (void) registerDefaults:(NSDictionary*)defaultPreferences;
 
 @end

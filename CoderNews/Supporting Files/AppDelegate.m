@@ -9,12 +9,23 @@
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
 #import "NewsListViewController.h"
+#import "PreferencesManager.h"
 #import "StoryInfo.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // preferences
+    NSDictionary* defaultPreferences = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [NSNumber numberWithBool:YES], REQUIRES_HACKER_NEWS,
+                                        [NSNumber numberWithBool:YES], REQUIRES_PROGGIT,
+                                        [NSNumber numberWithBool:YES], REQUIRES_SOUND,
+                                        2, STORY_LIFETIME,
+                                        nil];
+    [[PreferencesManager sharedPreferencesManager] registerDefaults:defaultPreferences];
+    
+    // set up the appearance
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0], UITextAttributeTextColor,
                                                            [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],UITextAttributeTextShadowColor,

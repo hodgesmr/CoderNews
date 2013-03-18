@@ -31,17 +31,6 @@ static NSMutableDictionary* preferencesCache = nil;
     return self;
 }
 
-- (void) populateCache {
-    [self cacheValue:[NSNumber numberWithBool:[self requiresHackerNews]] forKey:REQUIRES_HACKER_NEWS];
-    [self cacheValue:[NSNumber numberWithBool:[self requiresProggit]] forKey:REQUIRES_PROGGIT];
-    [self cacheValue:[NSNumber numberWithBool:[self requiresSound]] forKey:REQUIRES_SOUND];
-    [self cacheValue:[NSNumber numberWithInt:[self storyLifetime]] forKey:STORY_LIFETIME];
-}
-
-- (void) clearCache {
-    preferencesCache = nil;
-}
-
 - (BOOL) requiresHackerNews {
     if([preferencesCache objectForKey:REQUIRES_HACKER_NEWS]) {
         return [[preferencesCache objectForKey:REQUIRES_HACKER_NEWS] boolValue];
@@ -90,6 +79,11 @@ static NSMutableDictionary* preferencesCache = nil;
     [self cacheValue:[NSNumber numberWithInt:storyLifetime] forKey:STORY_LIFETIME];
 }
 
+- (void) registerDefaults:(NSDictionary*)defaultPreferences {
+    [defaults registerDefaults:defaultPreferences];
+    [self populateCache];
+}
+
 # pragma mark - private methods
 
 - (void) cacheValue:(id)value forKey:(NSString*)key {
@@ -97,6 +91,17 @@ static NSMutableDictionary* preferencesCache = nil;
         preferencesCache = [[NSMutableDictionary alloc] init];
     }
     [preferencesCache setObject:value forKey:key];
+}
+
+- (void) populateCache {
+    [self cacheValue:[NSNumber numberWithBool:[self requiresHackerNews]] forKey:REQUIRES_HACKER_NEWS];
+    [self cacheValue:[NSNumber numberWithBool:[self requiresProggit]] forKey:REQUIRES_PROGGIT];
+    [self cacheValue:[NSNumber numberWithBool:[self requiresSound]] forKey:REQUIRES_SOUND];
+    [self cacheValue:[NSNumber numberWithInt:[self storyLifetime]] forKey:STORY_LIFETIME];
+}
+
+- (void) clearCache {
+    preferencesCache = nil;
 }
 
 @end
