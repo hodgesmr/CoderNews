@@ -145,7 +145,7 @@ static JSONManager *_sharedJSONManagerInsance;
         } failure:nil];
     }
     
-    // Pokemon exception hadling - Catch 'em all!
+    // Pokemon exception handling - Catch 'em all!
     @catch (NSException* iae) {
         NSLog(@"Error pulling down data");
     }

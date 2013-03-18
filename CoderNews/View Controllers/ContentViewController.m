@@ -43,6 +43,7 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
 }
 
