@@ -109,38 +109,47 @@ static JSONManager *_sharedJSONManagerInsance;
 
 - (AFHTTPRequestOperation *)fetchJSON:(NSString*)requestUrl {
     
+    
+    
     NSURL* jsonUrl = [NSURL URLWithString:requestUrl];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:jsonUrl];
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        if([requestUrl isEqualToString:proggitUrl]) {
-            
-            NSArray* arr = [[JSON valueForKeyPath:@"data"] valueForKey:@"children"];
-            for (NSDictionary *item in arr) {
-                FetchedStory* fs = [[FetchedStory alloc] init];
-                fs.title = [[item valueForKey:@"data"]valueForKey:@"title"];
-                fs.url = [[item valueForKey:@"data"]valueForKey:@"url"];
-                fs.score = [[item valueForKey:@"data"]valueForKey:@"score"];
-                fs.source = @"proggit";
-                [self.fetchedStories addObject:fs];
-            }
-        }
-        else if([requestUrl isEqualToString:hackerNewsUrl]) {
-            NSArray* arr = [JSON valueForKeyPath:@"items"];
-            for (NSDictionary *item in arr) {
-                FetchedStory* fs = [[FetchedStory alloc] init];
-                fs.title = [item valueForKey:@"title"];
-                fs.url = [item valueForKey:@"url"];
-                NSString* scoreString = [item valueForKey:@"score"];
-                if(scoreString != nil && [scoreString length]!=0) {
-                    NSRange spaceRange = [scoreString rangeOfString:@" "];
-                    scoreString = [scoreString substringToIndex:spaceRange.location];
-                    fs.score = [NSDecimalNumber decimalNumberWithString:scoreString];
-                    fs.source = @"hackernews";
+    AFJSONRequestOperation *operation = nil;
+    @try {
+        operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+            if([requestUrl isEqualToString:proggitUrl]) {
+                
+                NSArray* arr = [[JSON valueForKeyPath:@"data"] valueForKey:@"children"];
+                for (NSDictionary *item in arr) {
+                    FetchedStory* fs = [[FetchedStory alloc] init];
+                    fs.title = [[item valueForKey:@"data"]valueForKey:@"title"];
+                    fs.url = [[item valueForKey:@"data"]valueForKey:@"url"];
+                    fs.score = [[item valueForKey:@"data"]valueForKey:@"score"];
+                    fs.source = @"proggit";
                     [self.fetchedStories addObject:fs];
                 }
             }
-        }
-    } failure:nil];
+            else if([requestUrl isEqualToString:hackerNewsUrl]) {
+                NSArray* arr = [JSON valueForKeyPath:@"items"];
+                for (NSDictionary *item in arr) {
+                    FetchedStory* fs = [[FetchedStory alloc] init];
+                    fs.title = [item valueForKey:@"title"];
+                    fs.url = [item valueForKey:@"url"];
+                    NSString* scoreString = [item valueForKey:@"score"];
+                    if(scoreString != nil && [scoreString length]!=0) {
+                        NSRange spaceRange = [scoreString rangeOfString:@" "];
+                        scoreString = [scoreString substringToIndex:spaceRange.location];
+                        fs.score = [NSDecimalNumber decimalNumberWithString:scoreString];
+                        fs.source = @"hackernews";
+                        [self.fetchedStories addObject:fs];
+                    }
+                }
+            }
+        } failure:nil];
+    }
+    // Pokemon exception hadling - Catch 'em all!
+    @catch (NSException* iae) {
+        NSLog(@"Error pulling down data");
+    }
     
     return operation;
 }
