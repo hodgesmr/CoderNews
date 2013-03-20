@@ -126,6 +126,7 @@
                                   cancelButtonTitle:cancelTitle
                                   destructiveButtonTitle:nil
                                   otherButtonTitles:other1, other2, other3, nil];
+    actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
     [actionSheet showInView:self.view];
 }
 
