@@ -10,6 +10,7 @@
 #import "ContentViewController.h"
 #import "CoreDataManager.h"
 #import "NewsListViewController.h"
+#import "PreferencesManager.h"
 #import "PrivacyViewController.h"
 #import "SettingsViewController.h"
 
@@ -294,7 +295,7 @@
 
 -(void)newDataAvailable {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    [[CoreDataManager sharedManager] deleteStoriesOlderThanDays:2];
+    [[CoreDataManager sharedManager] deleteStoriesOlderThanDays:[[PreferencesManager sharedPreferencesManager] storyLifetime]];
     [self refreshFeed];
 }
 

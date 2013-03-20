@@ -10,6 +10,7 @@
 #import "CoreDataManager.h"
 #import "JSONManager.h"
 #import "FetchedStory.h"
+#import "PreferencesManager.h"
 
 static NSString* const proggitUrl = @"http://www.reddit.com/r/programming/.json";
 static NSString* const hackerNewsUrl = @"http://hndroidapi.appspot.com/news/format/json/page/?appid=Coder%20News";
@@ -86,8 +87,12 @@ static JSONManager *_sharedJSONManagerInsance;
 
 - (void) loadOperations {
     _sharedJSONManagerInsance.operations = [NSMutableArray arrayWithCapacity:2];
-    [_sharedJSONManagerInsance.operations addObject:[self fetchJSON:proggitUrl]];
-    [_sharedJSONManagerInsance.operations addObject:[self fetchJSON:hackerNewsUrl]];
+    if([[PreferencesManager sharedPreferencesManager] requiresProggit]) {
+        [_sharedJSONManagerInsance.operations addObject:[self fetchJSON:proggitUrl]];
+    }
+    if([[PreferencesManager sharedPreferencesManager] requiresHackerNews]) {
+        [_sharedJSONManagerInsance.operations addObject:[self fetchJSON:hackerNewsUrl]];
+    }
 }
 
 - (void) executeOperations {
@@ -98,7 +103,7 @@ static JSONManager *_sharedJSONManagerInsance;
                                     NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
                                 }
                               completionBlock:^(NSArray *operations) {
-                                  // I don't like the hn and proggit results being grouped together, so shuffle. Also, I don't necessarily agree that the best content always has the most upvotes.
+                                  // I don't like the hn and proggit results being grouped together, so shuffle. Also, I don't necessarily agree that the best content always has the most upvotes. However... I could be convinced of alternatives...
                                   [self shuffleResults];
                                   [self pruneUnwantedStories];
                                   [[CoreDataManager sharedManager] persistFetchedStories:_sharedJSONManagerInsance.fetchedStories];
@@ -134,6 +139,7 @@ static JSONManager *_sharedJSONManagerInsance;
                 fs.url = [item valueForKey:@"url"];
                 NSString* scoreString = [item valueForKey:@"score"];
                 if(scoreString != nil && [scoreString length]!=0) {
+                    // the api doesn't remove the word "points" so I will
                     NSRange spaceRange = [scoreString rangeOfString:@" "];
                     scoreString = [scoreString substringToIndex:spaceRange.location];
                     fs.score = [NSDecimalNumber decimalNumberWithString:scoreString];

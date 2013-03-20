@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
+#import "PreferencesManager.h"
 #import "SoundManager.h"
 
 static SoundManager*_sharedSoundManagerInsance;
@@ -21,10 +22,12 @@ static SoundManager*_sharedSoundManagerInsance;
 }
 
 - (void) playSoundWithName:(NSString*)name andExtension:(NSString*)extension {
-    NSString *soundPath = [[NSBundle mainBundle] pathForResource:name ofType:extension];
-	NSURL *soundUrl = [NSURL fileURLWithPath:soundPath];
-	AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundUrl, &_soundObject);
-    AudioServicesPlaySystemSound(_soundObject);
+    if([[PreferencesManager sharedPreferencesManager] requiresSound]) {
+        NSString *soundPath = [[NSBundle mainBundle] pathForResource:name ofType:extension];
+        NSURL *soundUrl = [NSURL fileURLWithPath:soundPath];
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundUrl, &_soundObject);
+        AudioServicesPlaySystemSound(_soundObject);
+    }
 }
 
 @end
