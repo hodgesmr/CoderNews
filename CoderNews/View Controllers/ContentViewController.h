@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SoundManager.h"
 
-@interface ContentViewController : UIViewController <UIWebViewDelegate>
+@interface ContentViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, weak) NSString* storyTitle;
 @property (nonatomic, weak) NSString* storyUrl;

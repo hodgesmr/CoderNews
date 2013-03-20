@@ -58,6 +58,8 @@
     return YES;
 }
 
+# pragma mark - Web View
+
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -74,6 +76,8 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self updateButtonsWithStop:NO];
 }
+
+# pragma mark - Toobar
 
 - (void)updateButtonsWithStop:(BOOL)hasStop {
     self.forwardButton.enabled = self.webView.canGoForward;
@@ -105,7 +109,39 @@
         [self.webView stopLoading];
     }
     else if(sender == self.shareButton) {
+        [self showActionSheet:sender];
+    }
+}
+
+# pragma mark - UIActionSheet
+
+- (void)showActionSheet:(id)sender {
+    NSString *other1 = @"Copy URL";
+    NSString *other2 = @"Open in Safari";
+    NSString *other3 = @"Read Later";
+    NSString *cancelTitle = @"Cancel";
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:cancelTitle
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:other1, other2, other3, nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    if(buttonIndex == 0) { // copy to clipboard
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = self.webView.request.URL.absoluteString;
+    }
+    else if(buttonIndex == 1) { // open in Safari
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.webView.request.URL.absoluteString]];
+    }
+    else if(buttonIndex == 2) { // read later functionality
         // TODO
     }
 }
+
+
 @end
