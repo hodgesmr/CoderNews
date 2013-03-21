@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
+#import "AppConstants.h"
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
 #import "NewsListViewController.h"
+#import "PocketAPI.h"
 #import "PreferencesManager.h"
 #import "StoryInfo.h"
 
@@ -38,12 +40,29 @@
     UIImage *toolbarBackgroundImage = [UIImage imageNamed:@"toolbar_bg"];
     [[UIToolbar appearance] setBackgroundImage:toolbarBackgroundImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
+    // Pocket
+    [[PocketAPI sharedAPI] setConsumerKey:POCKET_API_KEY];
+    
     return YES;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // May want to implement this later...
+}
+
+- (BOOL) application:(UIApplication *)application
+           openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation{
+    
+    if([[PocketAPI sharedAPI] handleOpenURL:url]) {
+        return YES;
+    }
+    else {
+        // if you handle your own custom url-schemes, do it here
+        return NO;
+    }
 }
 
 @end

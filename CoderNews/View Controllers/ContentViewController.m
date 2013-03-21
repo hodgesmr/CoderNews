@@ -7,6 +7,7 @@
 //
 
 #import "ContentViewController.h"
+#import "PocketAPI.h"
 
 @interface ContentViewController ()
 
@@ -140,7 +141,19 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.webView.request.URL.absoluteString]];
     }
     else if(buttonIndex == 2) { // read later functionality
-        // TODO
+        NSURL *url = [NSURL URLWithString:self.webView.request.URL.absoluteString];
+        [[PocketAPI sharedAPI] saveURL:url handler: ^(PocketAPI *API, NSURL *URL, NSError *error){
+            if(error) {
+                // there was an issue connecting to Pocket
+                // present some UI to notify if necessary
+                NSLog(@"Pocket error");
+                
+            }
+            else {
+                // the URL was saved successfully
+                NSLog(@"Pocket success");
+            }
+        }];
     }
 }
 
