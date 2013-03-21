@@ -144,12 +144,21 @@
         NSURL *url = [NSURL URLWithString:self.webView.request.URL.absoluteString];
         [[PocketAPI sharedAPI] saveURL:url handler: ^(PocketAPI *API, NSURL *URL, NSError *error){
             if(error) {
-                // there was an issue connecting to Pocket
-                // this will usually be caused by the user backing out.
-                // in which case, I don't want to do anything.
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                                  message:NSLocalizedString(@"There was an error adding the story to your Pocket account.", nil)
+                                                                 delegate:nil
+                                                        cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                                        otherButtonTitles:nil];
+                [message show];
             }
             else {
-                // the URL was saved successfully. Do anything?
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Saved", nil)
+                                                                  message:NSLocalizedString(@"The story was added to your Pocket account.", nil)
+                                                                 delegate:nil
+                                                        cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                                        otherButtonTitles:nil];
+                
+                [message show];
             }
         }];
     }
