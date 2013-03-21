@@ -47,7 +47,7 @@
 		6358786516FA822200A831E1 /* PocketAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358784916FA822200A831E1 /* PocketAPIOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6358786616FA822200A831E1 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358784C16FA822200A831E1 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6358786F16FA827E00A831E1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6358786E16FA827E00A831E1 /* Security.framework */; };
-		6358787216FA84A100A831E1 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358787116FA84A100A831E1 /* AppConstants.m */; };
+		6358787216FA84A100A831E1 /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358787116FA84A100A831E1 /* Keys.m */; };
 		635E601216F5001600F78E87 /* click-open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601016F5001600F78E87 /* click-open.wav */; };
 		635E601916F503F500F78E87 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E601816F503F500F78E87 /* SoundManager.m */; };
 		635E601B16F5055E00F78E87 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635E601A16F5055E00F78E87 /* AudioToolbox.framework */; };
@@ -141,8 +141,8 @@
 		6358784B16FA822200A831E1 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		6358784C16FA822200A831E1 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		6358786E16FA827E00A831E1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		6358787016FA84A100A831E1 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
-		6358787116FA84A100A831E1 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
+		6358787016FA84A100A831E1 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
+		6358787116FA84A100A831E1 /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
 		635E601016F5001600F78E87 /* click-open.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "click-open.wav"; sourceTree = "<group>"; };
 		635E601716F503F500F78E87 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		635E601816F503F500F78E87 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
@@ -364,8 +364,8 @@
 			isa = PBXGroup;
 			children = (
 				631AD03C16BEBB2A00D0036A /* InfoPlist.strings */,
-				6358787016FA84A100A831E1 /* AppConstants.h */,
-				6358787116FA84A100A831E1 /* AppConstants.m */,
+				6358787016FA84A100A831E1 /* Keys.h */,
+				6358787116FA84A100A831E1 /* Keys.m */,
 				63F73FB516BEBA9A00FCB221 /* AppDelegate.h */,
 				63F73FB616BEBA9A00FCB221 /* AppDelegate.m */,
 				63F18DD816BDCD1E00A1EEE9 /* CoderNews-Info.plist */,
@@ -539,7 +539,7 @@
 				6358786416FA822200A831E1 /* PocketAPILogin.m in Sources */,
 				6358786516FA822200A831E1 /* PocketAPIOperation.m in Sources */,
 				6358786616FA822200A831E1 /* SFHFKeychainUtils.m in Sources */,
-				6358787216FA84A100A831E1 /* AppConstants.m in Sources */,
+				6358787216FA84A100A831E1 /* Keys.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

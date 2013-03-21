@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
 //
 
-#import "AppConstants.h"
+#import "Keys.h"
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
 #import "NewsListViewController.h"
