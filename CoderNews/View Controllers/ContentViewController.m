@@ -7,6 +7,7 @@
 //
 
 #import "ContentViewController.h"
+#import "CustomAlertView.h"
 #import "PocketAPI.h"
 
 @interface ContentViewController ()
@@ -144,21 +145,22 @@
         NSURL *url = [NSURL URLWithString:self.webView.request.URL.absoluteString];
         [[PocketAPI sharedAPI] saveURL:url handler: ^(PocketAPI *API, NSURL *URL, NSError *error){
             if(error) {
-                UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-                                                                  message:NSLocalizedString(@"There was an error adding the story to your Pocket account.", nil)
-                                                                 delegate:nil
-                                                        cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                                                        otherButtonTitles:nil];
-                [message show];
+                
+                CustomAlertView *customAlertView = [[CustomAlertView alloc] initWithTitle:@"Error"
+                                                                                  message:@"There was an error adding the story to your Pocket account."
+                                                                                 delegate:nil
+                                                                        cancelButtonTitle:nil
+                                                                        otherButtonTitles:@"OK",nil];
+                [customAlertView show];
+                
             }
             else {
-                UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Saved", nil)
-                                                                  message:NSLocalizedString(@"The story was added to your Pocket account.", nil)
-                                                                 delegate:nil
-                                                        cancelButtonTitle:NSLocalizedString(@"OK", nil)
-                                                        otherButtonTitles:nil];
-                
-                [message show];
+                CustomAlertView *customAlertView = [[CustomAlertView alloc] initWithTitle:@"Saved"
+                                                                                  message:@"The story was added to your Pocket account."
+                                                                                 delegate:nil
+                                                                        cancelButtonTitle:nil
+                                                                        otherButtonTitles:@"OK",nil];
+                [customAlertView show];
             }
         }];
     }

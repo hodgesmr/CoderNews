@@ -48,6 +48,7 @@
 		6358786616FA822200A831E1 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358784C16FA822200A831E1 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6358786F16FA827E00A831E1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6358786E16FA827E00A831E1 /* Security.framework */; };
 		6358787216FA84A100A831E1 /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358787116FA84A100A831E1 /* Keys.m */; };
+		6358787616FA954000A831E1 /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358787516FA954000A831E1 /* CustomAlertView.m */; };
 		635E601216F5001600F78E87 /* click-open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601016F5001600F78E87 /* click-open.wav */; };
 		635E601916F503F500F78E87 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E601816F503F500F78E87 /* SoundManager.m */; };
 		635E601B16F5055E00F78E87 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635E601A16F5055E00F78E87 /* AudioToolbox.framework */; };
@@ -143,6 +144,8 @@
 		6358786E16FA827E00A831E1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6358787016FA84A100A831E1 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
 		6358787116FA84A100A831E1 /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
+		6358787416FA954000A831E1 /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
+		6358787516FA954000A831E1 /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
 		635E601016F5001600F78E87 /* click-open.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "click-open.wav"; sourceTree = "<group>"; };
 		635E601716F503F500F78E87 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		635E601816F503F500F78E87 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
@@ -293,6 +296,15 @@
 			path = SDK;
 			sourceTree = "<group>";
 		};
+		6358787316FA922B00A831E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6358787416FA954000A831E1 /* CustomAlertView.h */,
+				6358787516FA954000A831E1 /* CustomAlertView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		635E600F16F4FFE400F78E87 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,15 +359,16 @@
 		63F18DD616BDCD1E00A1EEE9 /* CoderNews */ = {
 			isa = PBXGroup;
 			children = (
-				635E600F16F4FFE400F78E87 /* Sounds */,
-				632C61B516E40CF300FC8C68 /* REMenu */,
-				631028F016C8AB5300048397 /* Images */,
-				6389F74C16C8790400FAEBBB /* Model */,
 				631AD04E16BEDF9F00D0036A /* AFNetworking */,
-				63F73FAC16BEB90900FCB221 /* View Controllers */,
-				63F73FA816BEB7E500FCB221 /* Managers */,
 				63F73FA116BEB73700FCB221 /* Core Data */,
+				631028F016C8AB5300048397 /* Images */,
+				63F73FA816BEB7E500FCB221 /* Managers */,
+				6389F74C16C8790400FAEBBB /* Model */,
+				632C61B516E40CF300FC8C68 /* REMenu */,
+				635E600F16F4FFE400F78E87 /* Sounds */,
 				63F18DD716BDCD1E00A1EEE9 /* Supporting Files */,
+				63F73FAC16BEB90900FCB221 /* View Controllers */,
+				6358787316FA922B00A831E1 /* Views */,
 			);
 			path = CoderNews;
 			sourceTree = "<group>";
@@ -540,6 +553,7 @@
 				6358786516FA822200A831E1 /* PocketAPIOperation.m in Sources */,
 				6358786616FA822200A831E1 /* SFHFKeychainUtils.m in Sources */,
 				6358787216FA84A100A831E1 /* Keys.m in Sources */,
+				6358787616FA954000A831E1 /* CustomAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
