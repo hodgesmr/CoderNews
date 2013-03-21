@@ -145,13 +145,11 @@
         [[PocketAPI sharedAPI] saveURL:url handler: ^(PocketAPI *API, NSURL *URL, NSError *error){
             if(error) {
                 // there was an issue connecting to Pocket
-                // present some UI to notify if necessary
-                NSLog(@"Pocket error");
-                
+                // this will usually be caused by the user backing out.
+                // in which case, I don't want to do anything.
             }
             else {
-                // the URL was saved successfully
-                NSLog(@"Pocket success");
+                // the URL was saved successfully. Do anything?
             }
         }];
     }
