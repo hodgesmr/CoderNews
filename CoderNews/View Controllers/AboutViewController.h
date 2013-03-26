@@ -10,5 +10,7 @@
 #import "BaseViewController.h"
 
 @interface AboutViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UILabel *coderNewsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *versionNumberLabel;
 
 @end

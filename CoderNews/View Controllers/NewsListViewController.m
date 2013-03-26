@@ -126,9 +126,10 @@
 #pragma mark = RootViewControllerDelegate
 -(void)pushToAbout {
     [self.navigationController popToRootViewControllerAnimated:NO];
-    AboutViewController* avc = [[AboutViewController alloc] init];
+    /*AboutViewController* avc = [[AboutViewController alloc] init];
     avc.rootViewControllerDelegate = self;
-    [self.navigationController pushViewController:avc animated:NO];
+    [self.navigationController pushViewController:avc animated:NO];*/
+    [self performSegueWithIdentifier:@"aboutSegue" sender:self];
 }
 
 -(void)pushToPrivacy {
