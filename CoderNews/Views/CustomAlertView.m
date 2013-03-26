@@ -4,6 +4,7 @@
 //
 //  Created by Matt Hodges on 3/20/13.
 //  Copyright (c) 2013 Matt Hodges. All rights reserved.
+//  Most of this code came from http://mobile.tutsplus.com/tutorials/iphone/ios-sdk-uialertview-custom-graphics/
 //
 
 #import "CustomAlertView.h"
@@ -22,6 +23,7 @@
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    // create the base shape
     CGRect activeBounds = self.bounds;
     CGFloat cornerRadius = 10.0f;
     CGFloat inset = 6.5f;
@@ -32,6 +34,7 @@
     CGRect bPathFrame = CGRectMake(originX, originY, width, height);
     CGPathRef path = [UIBezierPath bezierPathWithRoundedRect:bPathFrame cornerRadius:cornerRadius].CGPath;
     
+    // fill and outer drop shadow
     CGContextAddPath(context, path);
     CGContextSetFillColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
     CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 1.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
@@ -41,6 +44,8 @@
     CGContextAddPath(context, path);
     CGContextClip(context);
     
+    
+    // draw gradient
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     size_t count = 3;
     CGFloat locations[3] = {0.0f, 0.57f, 1.0f};
@@ -57,8 +62,9 @@
     CGColorSpaceRelease(colorSpace);
     CGGradientRelease(gradient);
     
-    CGFloat buttonOffset = 92.5f; //Offset buttonOffset by half point for crisp lines
-    CGContextSaveGState(context); //Save Context State Before Clipping "hatchPath"
+    // create a hatched background under the buttons
+    CGFloat buttonOffset = 92.5f;
+    CGContextSaveGState(context);
     CGRect hatchFrame = CGRectMake(0.0f, buttonOffset, activeBounds.size.width, (activeBounds.size.height - buttonOffset+1.0f));
     CGContextClipToRect(context, hatchFrame);
     CGFloat spacer = 4.0f;
@@ -77,6 +83,7 @@
     CGContextDrawPath(context, kCGPathStroke);
     CGContextRestoreGState(context);
     
+    // draw a line
     CGMutablePathRef linePath = CGPathCreateMutable();
     CGFloat linePathY = (buttonOffset - 1.0f);
     CGPathMoveToPoint(linePath, NULL, 0.0f, linePathY);
@@ -90,12 +97,14 @@
     CGContextDrawPath(context, kCGPathStroke);
     CGContextRestoreGState(context);
     
+    // inner shadow
     CGContextAddPath(context, path);
     CGContextSetLineWidth(context, 3.0f);
     CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0f].CGColor);
     CGContextSetShadowWithColor(context, CGSizeMake(0.0f, 0.0f), 6.0f, [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f].CGColor);
     CGContextDrawPath(context, kCGPathStroke);
     
+    // redraw outer line so it looks clean
     CGContextRestoreGState(context);
     CGContextAddPath(context, path);
     CGContextSetLineWidth(context, 3.0f);
@@ -107,7 +116,7 @@
 - (void)layoutSubviews {
     for (UIView *subview in self.subviews){
         if ([subview isMemberOfClass:[UIImageView class]]) {
-            subview.hidden = YES;
+            subview.hidden = YES; // Hide the blue background image
         }
         if ([subview isMemberOfClass:[UILabel class]]) {
             UILabel *label = (UILabel*)subview;
