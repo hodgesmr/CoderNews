@@ -126,22 +126,24 @@
 #pragma mark = RootViewControllerDelegate
 -(void)pushToAbout {
     [self.navigationController popToRootViewControllerAnimated:NO];
-    /*AboutViewController* avc = [[AboutViewController alloc] init];
+    UIStoryboard *storyboard = [self storyboard];
+    AboutViewController *avc = [storyboard instantiateViewControllerWithIdentifier:@"AboutScreen"];
     avc.rootViewControllerDelegate = self;
-    [self.navigationController pushViewController:avc animated:NO];*/
-    [self performSegueWithIdentifier:@"aboutSegue" sender:self];
+    [self.navigationController pushViewController:avc animated:NO];
 }
 
 -(void)pushToPrivacy {
     [self.navigationController popToRootViewControllerAnimated:NO];
-    PrivacyViewController* pvc = [[PrivacyViewController alloc] init];
+    UIStoryboard *storyboard = [self storyboard];
+    PrivacyViewController *pvc = [storyboard instantiateViewControllerWithIdentifier:@"PrivacyScreen"];
     pvc.rootViewControllerDelegate = self;
     [self.navigationController pushViewController:pvc animated:NO];
 }
 
 -(void)pushToSettings {
     [self.navigationController popToRootViewControllerAnimated:NO];
-    SettingsViewController* svc = [[SettingsViewController alloc] init];
+    UIStoryboard *storyboard = [self storyboard];
+    SettingsViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"SettingsScreen"];
     svc.rootViewControllerDelegate = self;
     [self.navigationController pushViewController:svc animated:NO];
 }

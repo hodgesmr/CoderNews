@@ -146,7 +146,7 @@
         <!--Privacy View Controller - Privacy-->
         <scene sceneID="7ax-T3-vc1">
             <objects>
-                <viewController id="jsh-F2-Rk8" customClass="PrivacyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyScreen" id="jsh-F2-Rk8" customClass="PrivacyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WcA-V6-fzC">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -161,7 +161,7 @@
         <!--Settings View Controller - Settings-->
         <scene sceneID="sur-LV-fHN">
             <objects>
-                <viewController id="Had-ug-Afe" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsScreen" id="Had-ug-Afe" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dak-oO-Prk">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -176,7 +176,7 @@
         <!--About View Controller - About-->
         <scene sceneID="fty-SH-MGv">
             <objects>
-                <viewController title="About" id="1yI-R5-s2N" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutScreen" title="About" id="1yI-R5-s2N" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAS-UB-QlP">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
