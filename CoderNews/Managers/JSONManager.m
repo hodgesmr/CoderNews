@@ -13,7 +13,7 @@
 #import "PreferencesManager.h"
 
 static NSString* const proggitUrl = @"http://www.reddit.com/r/programming/.json";
-static NSString* const hackerNewsUrl = @"http://hndroidapi.appspot.com/news/format/json/page/?appid=Coder%20News";
+static NSString* const hackerNewsUrl = @"http://api.ihackernews.com/page";
 
 static JSONManager *_sharedJSONManagerInsance;
 
@@ -70,14 +70,6 @@ static JSONManager *_sharedJSONManagerInsance;
         }
         // we already have the story
         else if([[CoreDataManager sharedManager] storyExistsWithUrl:fs.url]) {
-            [deathIndexes addIndex:i];
-        }
-        // The HN API that I'm using doesn't do a good job of handling UTF-8 characters
-        // that have been HTML encoded. Because of this, we're getting some garbage back.
-        // I haven't come up with a good way to deal with this yet, so for now I'm just
-        // going to throw out all stories that have a semi-colon. Yes, we're going to lose
-        // some stories, but I don't care.
-        else if([fs.title rangeOfString:@";"].location != NSNotFound) {
             [deathIndexes addIndex:i];
         }
     }
@@ -137,15 +129,9 @@ static JSONManager *_sharedJSONManagerInsance;
                 FetchedStory* fs = [[FetchedStory alloc] init];
                 fs.title = [item valueForKey:@"title"];
                 fs.url = [item valueForKey:@"url"];
-                NSString* scoreString = [item valueForKey:@"score"];
-                if(scoreString != nil && [scoreString length]!=0) {
-                    // the api doesn't remove the word "points" so I will
-                    NSRange spaceRange = [scoreString rangeOfString:@" "];
-                    scoreString = [scoreString substringToIndex:spaceRange.location];
-                    fs.score = [NSDecimalNumber decimalNumberWithString:scoreString];
-                    fs.source = @"hackernews";
-                    [self.fetchedStories addObject:fs];
-                }
+                fs.score = [item valueForKey:@"points"];
+                fs.source = @"hackernews";
+                [self.fetchedStories addObject:fs];
             }
         }
     } failure:nil];
