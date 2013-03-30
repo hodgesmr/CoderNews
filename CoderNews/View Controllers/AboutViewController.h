@@ -12,5 +12,8 @@
 @interface AboutViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UILabel *coderNewsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *versionNumberLabel;
+@property (weak, nonatomic) IBOutlet UIButton *followButton;
+@property (weak, nonatomic) IBOutlet UIButton *rateButton;
+@property (weak, nonatomic) IBOutlet UIButton *contactButton;
 
 @end

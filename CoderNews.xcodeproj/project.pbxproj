@@ -53,6 +53,10 @@
 		635E601916F503F500F78E87 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E601816F503F500F78E87 /* SoundManager.m */; };
 		635E601B16F5055E00F78E87 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635E601A16F5055E00F78E87 /* AudioToolbox.framework */; };
 		635E601F16F50C5200F78E87 /* click-close.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601E16F50C5200F78E87 /* click-close.wav */; };
+		63699B781707829700ACB086 /* blackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 63699B741707829700ACB086 /* blackButton.png */; };
+		63699B791707829700ACB086 /* blackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63699B751707829700ACB086 /* blackButton@2x.png */; };
+		63699B7A1707829700ACB086 /* blackButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 63699B761707829700ACB086 /* blackButtonHighlight.png */; };
+		63699B7B1707829700ACB086 /* blackButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63699B771707829700ACB086 /* blackButtonHighlight@2x.png */; };
 		63EBE9C516F3FA800086F773 /* navbar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C316F3FA800086F773 /* navbar_bg@2x.png */; };
 		63EBE9C616F3FA800086F773 /* navbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C416F3FA800086F773 /* navbar_bg.png */; };
 		63EBE9C916F4010B0086F773 /* toolbar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C716F4010B0086F773 /* toolbar_bg.png */; };
@@ -151,6 +155,10 @@
 		635E601816F503F500F78E87 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		635E601A16F5055E00F78E87 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		635E601E16F50C5200F78E87 /* click-close.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "click-close.wav"; sourceTree = "<group>"; };
+		63699B741707829700ACB086 /* blackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackButton.png; sourceTree = "<group>"; };
+		63699B751707829700ACB086 /* blackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackButton@2x.png"; sourceTree = "<group>"; };
+		63699B761707829700ACB086 /* blackButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackButtonHighlight.png; sourceTree = "<group>"; };
+		63699B771707829700ACB086 /* blackButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		63EBE9C316F3FA800086F773 /* navbar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_bg@2x.png"; sourceTree = "<group>"; };
 		63EBE9C416F3FA800086F773 /* navbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_bg.png; sourceTree = "<group>"; };
 		63EBE9C716F4010B0086F773 /* toolbar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar_bg.png; sourceTree = "<group>"; };
@@ -202,6 +210,10 @@
 		631028F016C8AB5300048397 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				63699B741707829700ACB086 /* blackButton.png */,
+				63699B751707829700ACB086 /* blackButton@2x.png */,
+				63699B761707829700ACB086 /* blackButtonHighlight.png */,
+				63699B771707829700ACB086 /* blackButtonHighlight@2x.png */,
 				632C61D116E40F7200FC8C68 /* About_Icon.png */,
 				632C61D216E40F7200FC8C68 /* About_Icon@2x.png */,
 				632C61E916E435A300FC8C68 /* Home_Icon.png */,
@@ -510,6 +522,10 @@
 				63EBE9CE16F4C87F0086F773 /* ribbon.png in Resources */,
 				635E601216F5001600F78E87 /* click-open.wav in Resources */,
 				635E601F16F50C5200F78E87 /* click-close.wav in Resources */,
+				63699B781707829700ACB086 /* blackButton.png in Resources */,
+				63699B791707829700ACB086 /* blackButton@2x.png in Resources */,
+				63699B7A1707829700ACB086 /* blackButtonHighlight.png in Resources */,
+				63699B7B1707829700ACB086 /* blackButtonHighlight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,6 +29,20 @@
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Menu_Icon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showMenu)];
     self.title = @"About";
     self.versionNumberLabel.text = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey];
+    
+    UIImage *buttonImage = [[UIImage imageNamed:@"blackButton.png"]
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"blackButtonHighlight.png"]
+                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    [[self followButton] setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [[self followButton] setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [[self followButton] setTitle:@"Follow @hodgesmr" forState:UIControlStateNormal];
+    [[self rateButton] setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [[self rateButton] setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [[self rateButton] setTitle:@"Rate App" forState:UIControlStateNormal];
+    [[self contactButton] setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [[self contactButton] setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [[self contactButton] setTitle:@"Contact" forState:UIControlStateNormal];
 }
 
 - (void) viewWillAppear:(BOOL)animated {

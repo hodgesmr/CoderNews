@@ -198,18 +198,86 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zh-8V-mfI">
+                                <rect key="contentStretch" x="0.5" y="0.5" width="0.0" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="HAe-q8-LH6"/>
+                                    <constraint firstAttribute="width" constant="200" id="ghZ-zJ-Ipm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="Follow @hodgesmr" backgroundImage="blackButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjE-gM-Pb4">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ijx-HS-bY8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="follow">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gy2-pa-BlI">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="EcD-yb-TdK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="rate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWY-pp-N2M">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="34B-vF-alt"/>
+                                    <constraint firstAttribute="height" constant="44" id="YSu-J6-jbE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="contact">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZZU-VH-UKQ" firstAttribute="centerX" secondItem="MAS-UB-QlP" secondAttribute="centerX" type="default" id="7Pf-Ou-y86"/>
+                            <constraint firstItem="gy2-pa-BlI" firstAttribute="top" secondItem="MAS-UB-QlP" secondAttribute="top" constant="148" id="03Z-mC-hzD"/>
+                            <constraint firstItem="gy2-pa-BlI" firstAttribute="leading" secondItem="gjE-gM-Pb4" secondAttribute="leading" type="default" id="5jS-P1-LDV"/>
+                            <constraint firstItem="gjE-gM-Pb4" firstAttribute="centerX" secondItem="aGR-nh-eHT" secondAttribute="centerX" type="default" id="6fq-UO-94y"/>
+                            <constraint firstItem="3zh-8V-mfI" firstAttribute="top" secondItem="MAS-UB-QlP" secondAttribute="top" constant="85" id="FT1-cp-P6q"/>
+                            <constraint firstItem="LWY-pp-N2M" firstAttribute="leading" secondItem="gy2-pa-BlI" secondAttribute="leading" type="default" id="HI3-77-Rbm"/>
+                            <constraint firstItem="gy2-pa-BlI" firstAttribute="trailing" secondItem="gjE-gM-Pb4" secondAttribute="trailing" type="default" id="IRI-LI-eVe"/>
+                            <constraint firstItem="3zh-8V-mfI" firstAttribute="leading" secondItem="MAS-UB-QlP" secondAttribute="leading" constant="124" id="VAF-zy-vqs"/>
                             <constraint firstItem="aGR-nh-eHT" firstAttribute="top" secondItem="MAS-UB-QlP" secondAttribute="top" constant="41" id="VOf-vt-kAs"/>
+                            <constraint firstAttribute="bottom" secondItem="LWY-pp-N2M" secondAttribute="bottom" constant="155" id="eZN-xz-HbI"/>
+                            <constraint firstItem="LWY-pp-N2M" firstAttribute="trailing" secondItem="gy2-pa-BlI" secondAttribute="trailing" type="default" id="kUQ-XI-hKp"/>
+                            <constraint firstItem="gjE-gM-Pb4" firstAttribute="top" secondItem="MAS-UB-QlP" secondAttribute="top" constant="75" id="kn2-j8-Llp"/>
                             <constraint firstItem="aGR-nh-eHT" firstAttribute="centerX" secondItem="ZZU-VH-UKQ" secondAttribute="centerX" type="default" id="nVa-Ck-h0E"/>
+                            <constraint firstItem="LWY-pp-N2M" firstAttribute="centerX" secondItem="MAS-UB-QlP" secondAttribute="centerX" type="default" id="rU9-9o-LVR"/>
                             <constraint firstItem="ZZU-VH-UKQ" firstAttribute="top" secondItem="MAS-UB-QlP" secondAttribute="top" constant="20" symbolic="YES" type="default" id="w7l-a6-xXW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="L3l-0E-XLJ"/>
                     <connections>
                         <outlet property="coderNewsLabel" destination="ZZU-VH-UKQ" id="hM5-dS-srL"/>
+                        <outlet property="contactButton" destination="LWY-pp-N2M" id="9N9-oC-UVj"/>
+                        <outlet property="followButton" destination="gjE-gM-Pb4" id="p7B-TN-bC7"/>
+                        <outlet property="rateButton" destination="gy2-pa-BlI" id="Stc-Ua-YPR"/>
                         <outlet property="versionNumberLabel" destination="aGR-nh-eHT" id="CDN-Sb-rsn"/>
                     </connections>
                 </viewController>
@@ -218,6 +286,52 @@
             <point key="canvasLocation" x="1424" y="-192"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blackButton.png" width="36" height="36"/>
+    </resources>
+    <classes>
+        <class className="AboutViewController" superclassName="BaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="coderNewsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contactButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rateButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="versionNumberLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="BaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseViewController.h"/>
+        </class>
+        <class className="ContentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toolbarAction:"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forwardButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="refreshButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="stopButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NewsListViewController" superclassName="BaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="newsTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PrivacyViewController" superclassName="BaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PrivacyViewController.h"/>
+        </class>
+        <class className="SettingsViewController" superclassName="BaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
