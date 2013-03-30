@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
 @property (weak, nonatomic) IBOutlet UIButton *rateButton;
 @property (weak, nonatomic) IBOutlet UIButton *contactButton;
+- (IBAction)followTap:(id)sender;
 
 @end

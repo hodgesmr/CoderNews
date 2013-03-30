@@ -55,4 +55,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)followTap:(id)sender {
+    NSArray *urls = [NSArray arrayWithObjects:
+                     @"twitter://user?screen_name=hodgesmr", // Twitter
+                     @"tweetbot:///user_profile/hodgesmr", // TweetBot
+                     @"echofon:///user_timeline?hodgesmr", // Echofon
+                     @"twit:///user?screen_name=hodgesmr", // Twittelator Pro
+                     @"x-seesmic://twitter_profile?twitter_screen_name=hodgesmr", // Seesmic
+                     @"x-birdfeed://user?screen_name=hodgesmr", // Birdfeed
+                     @"tweetings:///user?screen_name=hodgesmr", // Tweetings
+                     @"simplytweet:?link=http://twitter.com/hodgesmr", // SimplyTweet
+                     @"icebird://user?screen_name=hodgesmr", // IceBird
+                     @"fluttr://user/hodgesmr", // Fluttr
+                     @"http://twitter.com/hodgesmr",
+                     nil];
+    
+    UIApplication *application = [UIApplication sharedApplication];
+    
+    for (NSString *candidate in urls) {
+        NSURL *url = [NSURL URLWithString:candidate];
+        if ([application canOpenURL:url])
+        {
+            [application openURL:url];
+            return;
+        }
+    }
+}
 @end
