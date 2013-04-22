@@ -7,6 +7,7 @@
 //
 
 #import "AboutViewController.h"
+#import "CustomAlertView.h"
 
 @interface AboutViewController ()
 
@@ -37,9 +38,9 @@
     [[self followButton] setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [[self followButton] setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [[self followButton] setTitle:@"Follow @hodgesmr" forState:UIControlStateNormal];
-    [[self rateButton] setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [[self rateButton] setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
-    [[self rateButton] setTitle:@"Rate App" forState:UIControlStateNormal];
+    [[self forkButton] setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [[self forkButton] setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [[self forkButton] setTitle:@"Fork App" forState:UIControlStateNormal];
     [[self contactButton] setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [[self contactButton] setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [[self contactButton] setTitle:@"Contact" forState:UIControlStateNormal];
@@ -56,6 +57,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)followTap:(id)sender {
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
     NSArray *urls = [NSArray arrayWithObjects:
                      @"twitter://user?screen_name=hodgesmr", // Twitter
                      @"tweetbot:///user_profile/hodgesmr", // TweetBot
@@ -80,5 +82,37 @@
             return;
         }
     }
+}
+
+- (IBAction)forkTap:(id)sender {
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    // TODO once this is pushed to GitHub
+}
+
+- (IBAction)contactTap:(id)sender {
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        NSArray *toRecipients = [NSArray arrayWithObjects:@"hodgesmr1@gmail.com", nil];
+        [mailer setToRecipients:toRecipients];
+        [self presentViewController:mailer animated:YES completion:nil];
+    }
+    else
+    {
+        CustomAlertView *customAlertView = [[CustomAlertView alloc] initWithTitle:@"Error"
+                                                                          message:@"Your device is not set up to send email."
+                                                                         delegate:nil
+                                                                cancelButtonTitle:nil
+                                                                otherButtonTitles:@"OK",nil];
+        [customAlertView show];
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
