@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface SettingsViewController : BaseViewController
+@interface SettingsViewController : BaseViewController <UITableViewDataSource>
+
+@property (nonatomic, weak) IBOutlet UITableView *tbl;
 
 @end
