@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSMutableArray* operations;
 @property (nonatomic, strong) NSMutableArray* fetchedStories;
+@property (nonatomic, strong) NSMutableArray* fetchedHackerNewsStories;
+@property (nonatomic, strong) NSMutableArray* fetchedProggitStories;
 
 + (JSONManager *)sharedJSONManager;
 - (void) executeOperations;

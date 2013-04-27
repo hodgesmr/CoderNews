@@ -20,6 +20,8 @@ static JSONManager *_sharedJSONManagerInsance;
 @implementation JSONManager
 @synthesize operations;
 @synthesize fetchedStories;
+@synthesize fetchedHackerNewsStories;
+@synthesize fetchedProggitStories;
 
 + (JSONManager *) sharedJSONManager {
     static dispatch_once_t onceToken;
@@ -29,13 +31,19 @@ static JSONManager *_sharedJSONManagerInsance;
     return _sharedJSONManagerInsance;
 }
 
-- (void) shuffleResults {
-    NSUInteger count = [self.fetchedStories count];
-    for (NSUInteger i = 0; i < count; ++i) {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count - i;
-        NSInteger n = (arc4random() % nElements) + i;
-        [self.fetchedStories exchangeObjectAtIndex:i withObjectAtIndex:n];
+- (void) mergeFetchedStories {
+    int i = 0;
+    int hnLen = [self.fetchedHackerNewsStories count];
+    int prLen = [self.fetchedProggitStories count];
+    
+    while(i < hnLen || i < prLen) {
+        if(i < hnLen) {
+            [self.fetchedStories insertObject:[self.fetchedHackerNewsStories objectAtIndex:i] atIndex:0];
+        }
+        if(i < prLen) {
+            [self.fetchedStories insertObject:[self.fetchedProggitStories objectAtIndex:i] atIndex:0];
+        }
+        i++;
     }
 }
 
@@ -90,13 +98,14 @@ static JSONManager *_sharedJSONManagerInsance;
 - (void) executeOperations {
     [_sharedJSONManagerInsance loadOperations];
     _sharedJSONManagerInsance.fetchedStories = [[NSMutableArray alloc] init];
+    _sharedJSONManagerInsance.fetchedProggitStories = [[NSMutableArray alloc] init];
+    _sharedJSONManagerInsance.fetchedHackerNewsStories = [[NSMutableArray alloc] init];
     [self enqueueBatchOfHTTPRequestOperations:operations
                                 progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations) {
                                     NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
                                 }
                               completionBlock:^(NSArray *operations) {
-                                  // I don't like the hn and proggit results being grouped together, so shuffle. Also, I don't necessarily agree that the best content always has the most upvotes. However... I could be convinced of alternatives...
-                                  [self shuffleResults];
+                                  [self mergeFetchedStories];
                                   [self pruneUnwantedStories];
                                   [[CoreDataManager sharedManager] persistFetchedStories:_sharedJSONManagerInsance.fetchedStories];
                                   _sharedJSONManagerInsance.operations = nil;
@@ -120,7 +129,7 @@ static JSONManager *_sharedJSONManagerInsance;
                 fs.url = [[item valueForKey:@"data"]valueForKey:@"url"];
                 fs.score = [[item valueForKey:@"data"]valueForKey:@"score"];
                 fs.source = @"proggit";
-                [self.fetchedStories addObject:fs];
+                [self.fetchedProggitStories addObject:fs];
             }
         }
         else if([requestUrl isEqualToString:hackerNewsUrl]) {
@@ -131,7 +140,7 @@ static JSONManager *_sharedJSONManagerInsance;
                 fs.url = [item valueForKey:@"url"];
                 fs.score = [item valueForKey:@"points"];
                 fs.source = @"hackernews";
-                [self.fetchedStories addObject:fs];
+                [self.fetchedHackerNewsStories addObject:fs];
             }
         }
     } failure:nil];
