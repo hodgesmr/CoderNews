@@ -40,7 +40,7 @@
     [[self followButton] setTitle:@"Follow @hodgesmr" forState:UIControlStateNormal];
     [[self forkButton] setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [[self forkButton] setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
-    [[self forkButton] setTitle:@"Fork App" forState:UIControlStateNormal];
+    [[self forkButton] setTitle:@"Fork Me!" forState:UIControlStateNormal];
     [[self contactButton] setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [[self contactButton] setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
     [[self contactButton] setTitle:@"Contact" forState:UIControlStateNormal];
