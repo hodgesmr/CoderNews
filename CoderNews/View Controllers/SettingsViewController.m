@@ -16,7 +16,6 @@
 @implementation SettingsViewController
 
 @synthesize tbl;
-@synthesize cacheControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,14 +33,6 @@
     self.title = @"Settings";
     self.tbl.backgroundView = nil;
     self.tbl.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:220.0/255.0 alpha:1.0];
-    
-    // set up cacheControl
-    NSArray* cacheDays = [NSArray arrayWithObjects: @"1", @"2", @"3", @"4", @"5", nil];
-    self.cacheControl = [[UISegmentedControl alloc] initWithItems:cacheDays];
-    [self.cacheControl setTintColor:[UIColor blackColor]];
-    [self.cacheControl addTarget:self action:@selector(cacheSelection:) forControlEvents:UIControlEventValueChanged];
-    self.cacheControl.frame = CGRectMake(10, 16, self.tbl.frame.size.width-20, 47);
-    [self.cacheControl setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -59,18 +50,30 @@
 {
     switch (section) {
         case 0:{
-            UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl.frame.size.width, tbl.contentInset.top)];
-            footerView.backgroundColor = [UIColor clearColor];
-            return footerView;
+            return nil;
         }
         case 1:{
             
             UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl.frame.size.width, 16)];
             footerView.backgroundColor = [UIColor clearColor];
             [footerView setClipsToBounds:NO];
-            
             [footerView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
-            [footerView addSubview:self.cacheControl];
+            
+            UILabel* cacheLabel = [[UILabel alloc] initWithFrame:CGRectMake
+                                    (10, 10, footerView.frame.size.width-20, 30)];
+            cacheLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
+            [cacheLabel setBackgroundColor:[UIColor clearColor]];
+            [cacheLabel setShadowColor:[UIColor colorWithWhite:1 alpha:.75]];
+            [cacheLabel setText:@"Days to keep stories:"];
+            [footerView addSubview:cacheLabel];
+            
+            NSArray* cacheDays = [NSArray arrayWithObjects: @"1", @"2", @"3", @"4", @"5", nil];
+            UISegmentedControl* cacheControl = [[UISegmentedControl alloc] initWithItems:cacheDays];
+            [cacheControl setTintColor:[UIColor blackColor]];
+            [cacheControl addTarget:self action:@selector(cacheSelection:) forControlEvents:UIControlEventValueChanged];
+            cacheControl.frame = CGRectMake(10, 44, self.tbl.frame.size.width-20, 47);
+            [cacheControl setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+            [footerView addSubview:cacheControl];
             return footerView;
         }
     }

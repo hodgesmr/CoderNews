@@ -11,6 +11,5 @@
 @interface SettingsViewController : BaseViewController <UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *tbl;
-@property (nonatomic, strong) UISegmentedControl *cacheControl;
 
 @end
