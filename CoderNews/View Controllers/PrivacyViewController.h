@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface PrivacyViewController : BaseViewController
+@interface PrivacyViewController : BaseViewController <UIWebViewDelegate>
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
