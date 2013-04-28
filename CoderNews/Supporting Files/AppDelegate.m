@@ -35,9 +35,9 @@
                                                            UITextAttributeTextShadowOffset,
                                                            [UIFont fontWithName:@"HelveticaNeue-Medium" size:21.0], UITextAttributeFont, nil]];
     [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
-    UIImage *navBackgroundImage = [UIImage imageNamed:@"navbar_bg"];
+    UIImage *navBackgroundImage = [UIImage imageNamed:@"navbarBackground"];
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
-    UIImage *toolbarBackgroundImage = [UIImage imageNamed:@"toolbar_bg"];
+    UIImage *toolbarBackgroundImage = [UIImage imageNamed:@"toolbarBackground"];
     [[UIToolbar appearance] setBackgroundImage:toolbarBackgroundImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
     // Pocket

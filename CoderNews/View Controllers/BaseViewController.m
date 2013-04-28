@@ -34,7 +34,7 @@
     }
     
     REMenuItem *homeItem = [[REMenuItem alloc] initWithTitle:@"News"
-                                                       image:[UIImage imageNamed:@"Home_Icon"]
+                                                       image:[UIImage imageNamed:@"homeIcon"]
                                             highlightedImage:nil
                                                       action:^(REMenuItem *item) {
                                                           if(self.visibleTag != HOME_TAG) {
@@ -44,7 +44,7 @@
                                                       }];
     
     REMenuItem *aboutItem = [[REMenuItem alloc] initWithTitle:@"About"
-                                                          image:[UIImage imageNamed:@"About_Icon"]
+                                                          image:[UIImage imageNamed:@"aboutIcon"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              if(self.visibleTag != ABOUT_TAG) {
@@ -54,7 +54,7 @@
                                                          }];
     
     REMenuItem *privacyItem = [[REMenuItem alloc] initWithTitle:@"Privacy"
-                                                           image:[UIImage imageNamed:@"Privacy_Icon"]
+                                                           image:[UIImage imageNamed:@"privacyIcon"]
                                                 highlightedImage:nil
                                                           action:^(REMenuItem *item) {
                                                               if(self.visibleTag != PRIVACY_TAG) {
@@ -64,7 +64,7 @@
                                                           }];
     
     REMenuItem *settingsItem = [[REMenuItem alloc] initWithTitle:@"Settings"
-                                                          image:[UIImage imageNamed:@"Settings_Icon"]
+                                                          image:[UIImage imageNamed:@"settingsIcon"]
                                                highlightedImage:nil
                                                          action:^(REMenuItem *item) {
                                                              if(self.visibleTag != SETTINGS_TAG) {
