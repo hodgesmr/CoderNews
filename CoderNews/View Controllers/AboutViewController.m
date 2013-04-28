@@ -86,7 +86,7 @@
 
 - (IBAction)forkTap:(id)sender {
     [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
-    // TODO once this is pushed to GitHub
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://github.com/hodgesmr/CoderNews"]];
 }
 
 - (IBAction)contactTap:(id)sender {
