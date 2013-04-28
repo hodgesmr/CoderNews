@@ -16,6 +16,7 @@
 @implementation SettingsViewController
 
 @synthesize tbl;
+@synthesize cacheControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +33,15 @@
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Menu_Icon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showMenu)];
     self.title = @"Settings";
     self.tbl.backgroundView = nil;
-    self.tbl.backgroundColor = [UIColor clearColor];
+    self.tbl.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:220.0/255.0 alpha:1.0];
+    
+    // set up cacheControl
+    NSArray* cacheDays = [NSArray arrayWithObjects: @"1", @"2", @"3", @"4", @"5", nil];
+    self.cacheControl = [[UISegmentedControl alloc] initWithItems:cacheDays];
+    [self.cacheControl setTintColor:[UIColor blackColor]];
+    [self.cacheControl addTarget:self action:@selector(cacheSelection:) forControlEvents:UIControlEventValueChanged];
+    self.cacheControl.frame = CGRectMake(10, 16, self.tbl.frame.size.width-20, 47);
+    [self.cacheControl setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -46,10 +55,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (UIView *)tableView:(UITableView *)tv viewForFooterInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:{
+            UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl.frame.size.width, tbl.contentInset.top)];
+            footerView.backgroundColor = [UIColor clearColor];
+            return footerView;
+        }
+        case 1:{
+            
+            UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl.frame.size.width, 16)];
+            footerView.backgroundColor = [UIColor clearColor];
+            [footerView setClipsToBounds:NO];
+            
+            [footerView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+            [footerView addSubview:self.cacheControl];
+            return footerView;
+        }
+    }
+    return nil;
+}
+
 #pragma mark - UITableViewDataSource methods
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     UISwitch *switchview = [[UISwitch alloc] initWithFrame:CGRectZero];
+    [switchview setOnTintColor: [UIColor blackColor]];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
     if(indexPath.section == 0){
         switch (indexPath.row) {
