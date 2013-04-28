@@ -56,7 +56,7 @@ static NSMutableDictionary* preferencesCache = nil;
     if([preferencesCache objectForKey:STORY_LIFETIME]) {
         return [[preferencesCache objectForKey:STORY_LIFETIME] intValue];
     }
-    return [defaults boolForKey:STORY_LIFETIME];
+    return [defaults integerForKey:STORY_LIFETIME];
 }
 
 - (void) setRequiresHackerNews:(BOOL)requiresHackerNews {
@@ -81,7 +81,7 @@ static NSMutableDictionary* preferencesCache = nil;
 
 - (void) registerDefaults:(NSDictionary*)defaultPreferences {
     [defaults registerDefaults:defaultPreferences];
-    [self populateCache];
+    //[self populateCache];
 }
 
 # pragma mark - private methods
