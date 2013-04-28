@@ -54,13 +54,13 @@
         }
         case 1:{
             
-            UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl.frame.size.width, 16)];
+            UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tbl.frame.size.width, 100)];
             footerView.backgroundColor = [UIColor clearColor];
             [footerView setClipsToBounds:NO];
             [footerView setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
             
             UILabel* cacheLabel = [[UILabel alloc] initWithFrame:CGRectMake
-                                    (10, 10, footerView.frame.size.width-20, 30)];
+                                    (20, 10, footerView.frame.size.width-30, 30)];
             cacheLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
             [cacheLabel setBackgroundColor:[UIColor clearColor]];
             [cacheLabel setShadowColor:[UIColor colorWithWhite:1 alpha:.75]];
@@ -69,15 +69,31 @@
             
             NSArray* cacheDays = [NSArray arrayWithObjects: @"1", @"2", @"3", @"4", @"5", nil];
             UISegmentedControl* cacheControl = [[UISegmentedControl alloc] initWithItems:cacheDays];
-            [cacheControl setTintColor:[UIColor blackColor]];
+            cacheControl.segmentedControlStyle = UISegmentedControlStyleBar;
+            cacheControl.tintColor = [UIColor grayColor];
             [cacheControl addTarget:self action:@selector(cacheSelection:) forControlEvents:UIControlEventValueChanged];
             cacheControl.frame = CGRectMake(10, 44, self.tbl.frame.size.width-20, 47);
             [cacheControl setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin];
+            cacheControl.selectedSegmentIndex = [[PreferencesManager sharedPreferencesManager] storyLifetime]-1;
             [footerView addSubview:cacheControl];
             return footerView;
         }
     }
     return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    // hackity hackity hackity
+    switch (section) {
+        case 0:
+            return 0;
+            break;
+            
+        case 1:
+            return 100;
+            break;
+    }
+    return 0;
 }
 
 #pragma mark - UITableViewDataSource methods
