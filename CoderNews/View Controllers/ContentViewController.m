@@ -46,7 +46,7 @@
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,7 +97,7 @@
 
 
 - (IBAction)toolbarAction:(id)sender {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     if(sender == self.backButton) {
         [self.webView goBack];
     }
@@ -133,7 +133,7 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     if(buttonIndex == 0) { // copy to clipboard
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         pasteboard.string = self.webView.request.URL.absoluteString;

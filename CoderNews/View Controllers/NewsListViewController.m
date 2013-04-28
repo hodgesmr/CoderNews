@@ -81,7 +81,7 @@
 }
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     [self checkForNewData];
 }
 
@@ -119,7 +119,7 @@
                                        style: UIBarButtonItemStyleBordered
                                        target: nil action: nil];
         [self.navigationItem setBackBarButtonItem: backButton];
-        [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+        [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     }
 }
 

@@ -57,7 +57,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)followTap:(id)sender {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     NSArray *urls = [NSArray arrayWithObjects:
                      @"twitter://user?screen_name=hodgesmr", // Twitter
                      @"tweetbot:///user_profile/hodgesmr", // TweetBot
@@ -85,12 +85,12 @@
 }
 
 - (IBAction)forkTap:(id)sender {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     // TODO once this is pushed to GitHub
 }
 
 - (IBAction)contactTap:(id)sender {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     if ([MFMailComposeViewController canSendMail])
     {
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
@@ -112,7 +112,7 @@
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

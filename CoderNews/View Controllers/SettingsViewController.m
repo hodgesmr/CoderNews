@@ -153,21 +153,21 @@
 # pragma mark - control responders
 - (void) toggleRequiresHackerNews:(id)sender {
     [[PreferencesManager sharedPreferencesManager] setRequiresHackerNews:[sender isOn]];
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
 }
 
 - (void) toggleRequiresProggit:(id)sender {
     [[PreferencesManager sharedPreferencesManager] setRequiresProggit:[sender isOn]];
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
 }
 
 - (void) toggleRequiresSound:(id)sender {
     [[PreferencesManager sharedPreferencesManager] setRequiresSound:[sender isOn]];
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
 }
 
 - (void) cacheSelection:(id)sender {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     [[PreferencesManager sharedPreferencesManager] setStoryLifetime:[sender selectedSegmentIndex]+1];
 }
 

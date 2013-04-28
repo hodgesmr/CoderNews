@@ -89,7 +89,7 @@
 
 - (void)showFromNavigationController:(UINavigationController *)navigationController
 {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-open" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     for (REMenuItem *item in _items) {
         NSInteger index = [_items indexOfObject:item];
         
@@ -150,7 +150,7 @@
 
 - (void)closeWithCompletion:(void (^)(void))completion
 {
-    [[SoundManager sharedSoundManager] playSoundWithName:@"click-close" andExtension:@"wav"];
+    [[SoundManager sharedSoundManager] playSoundWithName:@"twoClick" andExtension:@"wav"];
     _isOpen = NO;
     [UIView animateWithDuration:0.2 animations:^{
         CGRect frame = _menuView.frame;

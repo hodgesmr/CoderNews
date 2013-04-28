@@ -50,10 +50,10 @@
 		6358786F16FA827E00A831E1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6358786E16FA827E00A831E1 /* Security.framework */; };
 		6358787216FA84A100A831E1 /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358787116FA84A100A831E1 /* Keys.m */; };
 		6358787616FA954000A831E1 /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358787516FA954000A831E1 /* CustomAlertView.m */; };
-		635E601216F5001600F78E87 /* click-open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601016F5001600F78E87 /* click-open.wav */; };
+		635E601216F5001600F78E87 /* oneClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601016F5001600F78E87 /* oneClick.wav */; };
 		635E601916F503F500F78E87 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E601816F503F500F78E87 /* SoundManager.m */; };
 		635E601B16F5055E00F78E87 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635E601A16F5055E00F78E87 /* AudioToolbox.framework */; };
-		635E601F16F50C5200F78E87 /* click-close.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601E16F50C5200F78E87 /* click-close.wav */; };
+		635E601F16F50C5200F78E87 /* twoClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601E16F50C5200F78E87 /* twoClick.wav */; };
 		63699B781707829700ACB086 /* blackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 63699B741707829700ACB086 /* blackButton.png */; };
 		63699B791707829700ACB086 /* blackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63699B751707829700ACB086 /* blackButton@2x.png */; };
 		63699B7A1707829700ACB086 /* blackButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 63699B761707829700ACB086 /* blackButtonHighlight.png */; };
@@ -152,11 +152,11 @@
 		6358787116FA84A100A831E1 /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
 		6358787416FA954000A831E1 /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
 		6358787516FA954000A831E1 /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
-		635E601016F5001600F78E87 /* click-open.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "click-open.wav"; sourceTree = "<group>"; };
+		635E601016F5001600F78E87 /* oneClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = oneClick.wav; sourceTree = "<group>"; };
 		635E601716F503F500F78E87 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		635E601816F503F500F78E87 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		635E601A16F5055E00F78E87 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		635E601E16F50C5200F78E87 /* click-close.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "click-close.wav"; sourceTree = "<group>"; };
+		635E601E16F50C5200F78E87 /* twoClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = twoClick.wav; sourceTree = "<group>"; };
 		63699B741707829700ACB086 /* blackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackButton.png; sourceTree = "<group>"; };
 		63699B751707829700ACB086 /* blackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackButton@2x.png"; sourceTree = "<group>"; };
 		63699B761707829700ACB086 /* blackButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackButtonHighlight.png; sourceTree = "<group>"; };
@@ -323,8 +323,8 @@
 		635E600F16F4FFE400F78E87 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				635E601E16F50C5200F78E87 /* click-close.wav */,
-				635E601016F5001600F78E87 /* click-open.wav */,
+				635E601E16F50C5200F78E87 /* twoClick.wav */,
+				635E601016F5001600F78E87 /* oneClick.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -524,8 +524,8 @@
 				63EBE9CA16F4010B0086F773 /* toolbarBackground@2x.png in Resources */,
 				63EBE9CD16F4C87F0086F773 /* ribbon@2x.png in Resources */,
 				63EBE9CE16F4C87F0086F773 /* ribbon.png in Resources */,
-				635E601216F5001600F78E87 /* click-open.wav in Resources */,
-				635E601F16F50C5200F78E87 /* click-close.wav in Resources */,
+				635E601216F5001600F78E87 /* oneClick.wav in Resources */,
+				635E601F16F50C5200F78E87 /* twoClick.wav in Resources */,
 				63699B781707829700ACB086 /* blackButton.png in Resources */,
 				63699B791707829700ACB086 /* blackButton@2x.png in Resources */,
 				63699B7A1707829700ACB086 /* blackButtonHighlight.png in Resources */,
