@@ -1,4 +1,5 @@
 # CoderNews
+### A simple reader for Hacker News and Reddit Programming
 
 CoderNews is a simple iOS application for aggregating and reading articles from [Hacker News](http://news.ycombinator.com) and [Reddit Programming](http://reddit.com/r/programming). While there are many alternative applications available to consume this content, CoderNews was designed to keep things minimalistic. Often it is too hard to try to read and submit comments, or vote on stories, from the confines of a hand-held device. CoderNews strives to give you what you want: fresh content that is easy to read.
 
@@ -34,4 +35,4 @@ Yeah, probably.
 
 ## A Matt Hodges project
 
-This project is maintained by [@hodgesmr](http://twitter.com/hodgesmr)
+This project is maintained by [@hodgesmr](http://twitter.com/hodgesmr).
