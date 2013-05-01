@@ -81,7 +81,7 @@ static NSMutableDictionary* preferencesCache = nil;
 
 - (void) registerDefaults:(NSDictionary*)defaultPreferences {
     [defaults registerDefaults:defaultPreferences];
-    //[self populateCache];
+    [self populateCache];
 }
 
 # pragma mark - private methods
