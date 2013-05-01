@@ -98,14 +98,16 @@ static JSONManager *_sharedJSONManagerInsance;
     _sharedJSONManagerInsance.fetchedHackerNewsStories = [[NSMutableArray alloc] init];
     [self enqueueBatchOfHTTPRequestOperations:operations
                                 progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations) {
-                                    NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
+                                    // logging for troubleshooting
+                                    // NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
                                 }
                               completionBlock:^(NSArray *operations) {
                                   [self mergeFetchedStories];
                                   [self pruneUnwantedStories];
                                   [[CoreDataManager sharedManager] persistFetchedStories:_sharedJSONManagerInsance.fetchedStories];
                                   _sharedJSONManagerInsance.operations = nil;
-                                  NSLog(@"All operations finished");
+                                  // logging for troubleshooting
+                                  // NSLog(@"All operations finished");
                               }];
 }
 
