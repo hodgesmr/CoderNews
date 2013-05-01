@@ -60,10 +60,6 @@ static JSONManager *_sharedJSONManagerInsance;
         else if([fs.source isEqualToString:@"proggit"] && [fs.score doubleValue] < 10) {
             [deathIndexes addIndex:i];
         }
-        // 'Show HN' posts
-        else if([[fs.title lowercaseString] rangeOfString:@"show hn"].location != NSNotFound) {
-            [deathIndexes addIndex:i];
-        }
         // 'Ask HN' posts
         else if([[fs.title lowercaseString] rangeOfString:@"ask hn"].location != NSNotFound) {
             [deathIndexes addIndex:i];
@@ -137,6 +133,10 @@ static JSONManager *_sharedJSONManagerInsance;
             for (NSDictionary *item in arr) {
                 FetchedStory* fs = [[FetchedStory alloc] init];
                 fs.title = [item valueForKey:@"title"];
+                // I don't want the 'Show HN' part of the title
+                if([[fs.title lowercaseString] rangeOfString:@"show hn: "].location != NSNotFound) {
+                    fs.title = [fs.title substringFromIndex:9];
+                }
                 fs.url = [item valueForKey:@"url"];
                 fs.score = [item valueForKey:@"points"];
                 fs.source = @"hackernews";
