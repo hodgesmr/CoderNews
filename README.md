@@ -23,7 +23,7 @@ CoderNews was intentionally designed to be simple and minimal. You won't find fe
 
 ### How is the content ordered?
 
-Often, Hacker News and Reddit will keep stories at the top of the page for a long time. I call these *stale* stories. CoderNews works to show you fresh content. Newer front-page stories will appear at the top of the news list.
+Often, Hacker News and Reddit will keep stories at the top of the page for a long time. I call these *stale* stories. CoderNews works to show you fresh content. Stories are in chronological order, with newer front-page stories appearing at the top of the news list.
 
 ### Why isn't CoderNews optimized for the iPad?
 
