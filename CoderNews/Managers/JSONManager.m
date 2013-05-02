@@ -136,7 +136,8 @@ static JSONManager *_sharedJSONManagerInsance;
                 FetchedStory* fs = [[FetchedStory alloc] init];
                 fs.title = [item valueForKey:@"title"];
                 // I don't want the 'Show HN' part of the title
-                if([[fs.title lowercaseString] rangeOfString:@"show hn: "].location != NSNotFound) {
+                NSString* firstBit = [fs.title substringToIndex:9];
+                if([[firstBit lowercaseString] isEqualToString:@"show hn: "]) {
                     fs.title = [fs.title substringFromIndex:9];
                 }
                 fs.url = [item valueForKey:@"url"];
