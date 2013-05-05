@@ -9,6 +9,7 @@
 #import "AboutViewController.h"
 #import "ContentViewController.h"
 #import "CoreDataManager.h"
+#import "CustomTableViewCell.h"
 #import "NewsListViewController.h"
 #import "PreferencesManager.h"
 #import "PrivacyViewController.h"
@@ -161,37 +162,22 @@
     return [sectionInfo numberOfObjects];
 }
 
--(void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+-(void)configureCell:(CustomTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSAttributedString* asTitle = [[NSAttributedString alloc] initWithString:info.title];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.attributedText = asTitle;
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
-    UIImageView *ribbonView = nil;
-    
-    // this is a gross hack to make sure we only add the ribbon once
-    // I think a subclass of uitableviewcell should eventually happen
-    for ( UIView *childView in cell.subviews ) {
-        if([childView isKindOfClass:[UIImageView class]]) {
-           ribbonView = (UIImageView*)childView;
-        }
-    }
-    if(ribbonView == nil) {
-        UIImage *ribbon = [UIImage imageNamed:@"ribbon.png"];
-        ribbonView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
-        [ribbonView setImage:ribbon];
-        [cell addSubview:ribbonView];
-    }
-    // end gross
     
     if([[NSNumber numberWithBool:NO] isEqualToNumber:info.visited]) {
         cell.textLabel.textColor = [UIColor colorWithRed:25/255.0 green:25/255.0 blue:25/255.0 alpha:1];
-        ribbonView.hidden = NO;
+        cell.ribbon.hidden = NO;
     }
     else {
         cell.textLabel.textColor = [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:0.7];
-        ribbonView.hidden = YES;
+        cell.ribbon.hidden = YES;
     }
+    
     NSString* urlString = info.url;
     NSURL* url = [NSURL URLWithString:urlString];
     NSString* domain = [self stripWWWFromURL:[url host]];
@@ -201,11 +187,11 @@
     cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CustomTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    CustomTableViewCell* cell = (CustomTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // set up the cell...
     [self configureCell:cell atIndexPath:indexPath];
@@ -262,7 +248,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self configureCell:(CustomTableViewCell*)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:

@@ -68,6 +68,7 @@
 		63C17A9F17330205007C8F1D /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17A9517330205007C8F1D /* iTunesArtwork@2x.png */; };
 		63C17AA517330FD2007C8F1D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17AA417330FD2007C8F1D /* Icon.png */; };
 		63C17AA717330FD6007C8F1D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17AA617330FD6007C8F1D /* Icon@2x.png */; };
+		63CAD6051737034C005AD4A5 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAD6041737034C005AD4A5 /* CustomTableViewCell.m */; };
 		63EBE9C516F3FA800086F773 /* navbarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C316F3FA800086F773 /* navbarBackground@2x.png */; };
 		63EBE9C616F3FA800086F773 /* navbarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C416F3FA800086F773 /* navbarBackground.png */; };
 		63EBE9C916F4010B0086F773 /* toolbarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C716F4010B0086F773 /* toolbarBackground.png */; };
@@ -183,6 +184,8 @@
 		63C17A9517330205007C8F1D /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		63C17AA417330FD2007C8F1D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		63C17AA617330FD6007C8F1D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		63CAD6031737034C005AD4A5 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		63CAD6041737034C005AD4A5 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		63EBE9C316F3FA800086F773 /* navbarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbarBackground@2x.png"; sourceTree = "<group>"; };
 		63EBE9C416F3FA800086F773 /* navbarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbarBackground.png; sourceTree = "<group>"; };
 		63EBE9C716F4010B0086F773 /* toolbarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbarBackground.png; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 			children = (
 				6358787416FA954000A831E1 /* CustomAlertView.h */,
 				6358787516FA954000A831E1 /* CustomAlertView.m */,
+				63CAD6031737034C005AD4A5 /* CustomTableViewCell.h */,
+				63CAD6041737034C005AD4A5 /* CustomTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 				6358786616FA822200A831E1 /* SFHFKeychainUtils.m in Sources */,
 				6358787216FA84A100A831E1 /* Keys.m in Sources */,
 				6358787616FA954000A831E1 /* CustomAlertView.m in Sources */,
+				63CAD6051737034C005AD4A5 /* CustomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
