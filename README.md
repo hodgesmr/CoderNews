@@ -9,7 +9,7 @@ There were many reasons to make CoderNews open source. One is that I used many o
 
 The other reason for making CoderNews open source is that I know there is room for improvement. This project began like so many projects do: I was simply playing around with an idea one night, and the next thing I know I've got an app. That being said, there are many ways in which CoderNews can be improved. I'll admit it: some of the code is hacky. And the UI isn't the greatest (I'll be the first to admit that I'm no designer). So what better way to allow CoderNews to improve than let the community contribute?
 
-The master branch reflects the most up-to-date codebase for CoderNews. The associated tags reflect the various App Store releases.
+The master branch reflects the most up-to-date codebase for CoderNews. The associated tags reflect the various App Store submissions. Update your tags regularly, as they may change if Apple doesn't like a given submission.
 
 ### Pocket API Key
 
