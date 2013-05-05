@@ -9,7 +9,6 @@
 #import "Keys.h"
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
-#import "NewsListViewController.h"
 #import "PocketAPI.h"
 #import "PreferencesManager.h"
 #import "StoryInfo.h"
@@ -48,7 +47,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // May want to implement this later...
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"applicationDidBecomeActive" object:nil];
 }
 
 - (BOOL) application:(UIApplication *)application

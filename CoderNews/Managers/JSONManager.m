@@ -137,8 +137,8 @@ static JSONManager *_sharedJSONManagerInsance;
                 fs.title = [item valueForKey:@"title"];
                 // I don't want the 'Show HN' part of the title
                 if([fs.title length] > 9) {
-                    NSString* firstBit = [fs.title substringToIndex:9];
-                    if([[firstBit lowercaseString] isEqualToString:@"show hn: "]) {
+                    NSString* firstChunk = [fs.title substringToIndex:9];
+                    if([[firstChunk lowercaseString] isEqualToString:@"show hn: "]) {
                         fs.title = [fs.title substringFromIndex:9];
                     }
                 }

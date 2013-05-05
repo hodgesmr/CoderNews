@@ -51,6 +51,7 @@
     self.fetchedResultsController = [[CoreDataManager sharedManager] fetchStoryInfosById];
     [self refreshFeed];
     [[CoreDataManager sharedManager] setDelegate:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkForNewData) name:@"applicationDidBecomeActive" object:nil];
     [self checkForNewData];
 }
 
@@ -169,7 +170,8 @@
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
     UIImageView *ribbonView = nil;
     
-    // this is a gross hack to make sure we only add the ribbon once.
+    // this is a gross hack to make sure we only add the ribbon once
+    // I think a subclass of uitableviewcell should eventually happen
     for ( UIView *childView in cell.subviews ) {
         if([childView isKindOfClass:[UIImageView class]]) {
            ribbonView = (UIImageView*)childView;
