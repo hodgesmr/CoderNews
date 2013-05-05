@@ -52,7 +52,6 @@
     [self refreshFeed];
     [[CoreDataManager sharedManager] setDelegate:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkForNewData) name:@"applicationDidBecomeActive" object:nil];
-    [self checkForNewData];
 }
 
 - (void) checkForNewData {
