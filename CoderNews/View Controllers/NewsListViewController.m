@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Coder News";
+    self.title = @"CoderNews";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menuIcon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showMenu)];
     self.rootViewControllerDelegate = self;
     //add refresh control to the table view
