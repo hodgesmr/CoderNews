@@ -314,10 +314,10 @@
     if(![diff isEqualToString:@"0"]) {
         NSString* message;
         if([diff isEqualToString:@"1"]) {
-            message = [NSString stringWithFormat:@"%@%@", diff, @" new stories"];
+            message = [NSString stringWithFormat:@"%@%@", diff, @" new story"];
         }
         else {
-            message = [NSString stringWithFormat:@"%@%@", diff, @" new story"];
+            message = [NSString stringWithFormat:@"%@%@", diff, @" new stories"];
         }
         [self.view makeToast:message];
     }
