@@ -28,6 +28,7 @@
 #import "CoreDataManager.h"
 #import "JSONManager.h"
 #import "FetchedStory.h"
+#import "NSString+HTML.h"
 #import "PreferencesManager.h"
 
 static NSString* const proggitUrl = @"http://www.reddit.com/r/programming/.json";
@@ -120,7 +121,7 @@ static JSONManager *_sharedJSONManagerInsance;
     [self enqueueBatchOfHTTPRequestOperations:operations
                                 progressBlock:^(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations) {
                                     // logging for troubleshooting
-                                     NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
+                                    // NSLog(@"Finished %d of %d", numberOfFinishedOperations, totalNumberOfOperations);
                                 }
                               completionBlock:^(NSArray *operations) {
                                   [self mergeFetchedStories];
@@ -128,7 +129,7 @@ static JSONManager *_sharedJSONManagerInsance;
                                   [[CoreDataManager sharedManager] persistFetchedStories:_sharedJSONManagerInsance.fetchedStories];
                                   _sharedJSONManagerInsance.operations = nil;
                                   // logging for troubleshooting
-                                   NSLog(@"All operations finished");
+                                  // NSLog(@"All operations finished");
                               }];
 }
 
@@ -145,6 +146,7 @@ static JSONManager *_sharedJSONManagerInsance;
             for (NSDictionary *item in arr) {
                 FetchedStory* fs = [[FetchedStory alloc] init];
                 fs.title = [[item valueForKey:@"data"]valueForKey:@"title"];
+                fs.title = [fs.title stringByDecodingHTMLEntities];
                 fs.url = [[item valueForKey:@"data"]valueForKey:@"url"];
                 fs.score = [[item valueForKey:@"data"]valueForKey:@"score"];
                 fs.source = @"proggit";
@@ -156,6 +158,7 @@ static JSONManager *_sharedJSONManagerInsance;
             for (NSDictionary *item in arr) {
                 FetchedStory* fs = [[FetchedStory alloc] init];
                 fs.title = [item valueForKey:@"title"];
+                fs.title = [fs.title stringByDecodingHTMLEntities];
                 // I don't want the 'Show HN' part of the title
                 if([fs.title length] > 9) {
                     NSString* firstChunk = [fs.title substringToIndex:9];
