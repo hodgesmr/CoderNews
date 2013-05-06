@@ -94,6 +94,9 @@ static JSONManager *_sharedJSONManagerInsance;
         else if([[CoreDataManager sharedManager] storyExistsWithUrl:fs.url]) {
             [deathIndexes addIndex:i];
         }
+        else if([[CoreDataManager sharedManager] storyExistsWithTitle:fs.title]) {
+            [deathIndexes addIndex:i];
+        }
     }
     
     [self.fetchedStories removeObjectsAtIndexes:deathIndexes];

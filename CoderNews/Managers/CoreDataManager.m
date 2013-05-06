@@ -62,7 +62,7 @@ static CoreDataManager *_sharedInstance;
 }
 
 - (BOOL) persistStoryWithTitle:(NSString *)title url:(NSString *)url source:(NSString *)source {
-    if([self storyExistsWithUrl:url]) {
+    if([self storyExistsWithUrl:url] || [self storyExistsWithTitle:title]) {
         return YES;
     }
     StoryInfo* si = [NSEntityDescription insertNewObjectForEntityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext];
@@ -145,6 +145,19 @@ static CoreDataManager *_sharedInstance;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext]];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"url == %@", url];
+    [request setPredicate:predicate];
+    NSError* error = nil;
+    NSArray* result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if(result != nil && [result count] && error == nil) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL) storyExistsWithTitle:(NSString *)title {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"StoryInfo" inManagedObjectContext:self.managedObjectContext]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", title];
     [request setPredicate:predicate];
     NSError* error = nil;
     NSArray* result = [self.managedObjectContext executeFetchRequest:request error:&error];

@@ -47,6 +47,7 @@
 - (void) persistFetchedStories:(NSArray*)fetchedStories;
 - (void) clearCoreData;
 - (BOOL) storyExistsWithUrl:(NSString *)url;
+- (BOOL) storyExistsWithTitle:(NSString *)title;
 - (void) setUrlVisited:(NSString*)url;
 - (void) fetchNewDataFromNetwork;
 - (void) deleteStoriesOlderThanDays:(int)days;
