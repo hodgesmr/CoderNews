@@ -32,8 +32,11 @@
 #import "PreferencesManager.h"
 #import "PrivacyViewController.h"
 #import "SettingsViewController.h"
+#import "UIView+Toast.h"
 
-@interface NewsListViewController () <CoreDataDelegate>
+@interface NewsListViewController () <CoreDataDelegate> {
+    NSDecimalNumber* oldUid;
+}
 
 @end
 
@@ -71,10 +74,12 @@
     [self refreshFeed];
     [[CoreDataManager sharedManager] setDelegate:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkForNewData) name:@"applicationDidBecomeActive" object:nil];
+    oldUid = [NSDecimalNumber decimalNumberWithString:@"0"];
 }
 
 - (void) checkForNewData {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    oldUid = [NSDecimalNumber decimalNumberWithString:[[[CoreDataManager sharedManager] getLastUid] stringValue]];
     [[CoreDataManager sharedManager] fetchNewDataFromNetwork];
 }
 
@@ -304,6 +309,12 @@
 -(void)newDataAvailable {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [[CoreDataManager sharedManager] deleteStoriesOlderThanDays:[[PreferencesManager sharedPreferencesManager] storyLifetime]];
+    NSDecimalNumber* newUid = [NSDecimalNumber decimalNumberWithString:[[[CoreDataManager sharedManager] getLastUid] stringValue]];
+    NSString* diff = [[newUid decimalNumberBySubtracting:oldUid] stringValue];
+    if(![diff isEqualToString:@"0"]) {
+        NSString* message = [NSString stringWithFormat:@"%@%@", diff, @" new stories"];
+        [self.view makeToast:message];
+    }
     [self refreshFeed];
 }
 

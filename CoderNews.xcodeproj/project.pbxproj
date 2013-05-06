@@ -71,6 +71,7 @@
 		63CAD6051737034C005AD4A5 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAD6041737034C005AD4A5 /* CustomTableViewCell.m */; };
 		63CB148C17384FB0008AE490 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB148B17384FB0008AE490 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		63CB148F17385051008AE490 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB148E17385051008AE490 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		63CB1492173853E2008AE490 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB1491173853E2008AE490 /* UIView+Toast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		63EBE9C516F3FA800086F773 /* navbarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C316F3FA800086F773 /* navbarBackground@2x.png */; };
 		63EBE9C616F3FA800086F773 /* navbarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C416F3FA800086F773 /* navbarBackground.png */; };
 		63EBE9C916F4010B0086F773 /* toolbarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBE9C716F4010B0086F773 /* toolbarBackground.png */; };
@@ -192,6 +193,8 @@
 		63CB148B17384FB0008AE490 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		63CB148D17385051008AE490 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		63CB148E17385051008AE490 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		63CB1490173853E2008AE490 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		63CB1491173853E2008AE490 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		63EBE9C316F3FA800086F773 /* navbarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbarBackground@2x.png"; sourceTree = "<group>"; };
 		63EBE9C416F3FA800086F773 /* navbarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbarBackground.png; sourceTree = "<group>"; };
 		63EBE9C716F4010B0086F773 /* toolbarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbarBackground.png; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 				63F18DDC16BDCD1E00A1EEE9 /* main.m */,
 				63CB148A17384FB0008AE490 /* NSString+HTML.h */,
 				63CB148B17384FB0008AE490 /* NSString+HTML.m */,
+				63CB1490173853E2008AE490 /* UIView+Toast.h */,
+				63CB1491173853E2008AE490 /* UIView+Toast.m */,
 				63F18DDE16BDCD1E00A1EEE9 /* CoderNews-Prefix.pch */,
 				631AD03C16BEBB2A00D0036A /* InfoPlist.strings */,
 				63F18DD816BDCD1E00A1EEE9 /* CoderNews-Info.plist */,
@@ -644,6 +649,7 @@
 				63CAD6051737034C005AD4A5 /* CustomTableViewCell.m in Sources */,
 				63CB148C17384FB0008AE490 /* NSString+HTML.m in Sources */,
 				63CB148F17385051008AE490 /* GTMNSString+HTML.m in Sources */,
+				63CB1492173853E2008AE490 /* UIView+Toast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

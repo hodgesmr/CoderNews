@@ -51,6 +51,7 @@
 - (void) setUrlVisited:(NSString*)url;
 - (void) fetchNewDataFromNetwork;
 - (void) deleteStoriesOlderThanDays:(int)days;
+- (NSNumber *) getLastUid;
 + (CoreDataManager *)sharedManager;
 
 @end

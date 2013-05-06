@@ -99,6 +99,9 @@ static CoreDataManager *_sharedInstance;
     [fetchRequest setFetchLimit:1];
     NSError* error;
     NSArray* results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if([results count] == 0) {
+        return [NSNumber numberWithInt:0];
+    }
     StoryInfo* si = [results objectAtIndex:0];
     return si.uid;
 }
