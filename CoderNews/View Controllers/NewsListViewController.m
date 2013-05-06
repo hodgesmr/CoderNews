@@ -312,7 +312,13 @@
     NSDecimalNumber* newUid = [NSDecimalNumber decimalNumberWithString:[[[CoreDataManager sharedManager] getLastUid] stringValue]];
     NSString* diff = [[newUid decimalNumberBySubtracting:oldUid] stringValue];
     if(![diff isEqualToString:@"0"]) {
-        NSString* message = [NSString stringWithFormat:@"%@%@", diff, @" new stories"];
+        NSString* message;
+        if([diff isEqualToString:@"1"]) {
+            message = [NSString stringWithFormat:@"%@%@", diff, @" new stories"];
+        }
+        else {
+            message = [NSString stringWithFormat:@"%@%@", diff, @" new story"];
+        }
         [self.view makeToast:message];
     }
     [self refreshFeed];
