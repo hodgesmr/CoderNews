@@ -72,14 +72,25 @@
     [super didReceiveMemoryWarning];
 }
 
+# pragma mark - Web View
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     [self updateButtonsWithStop:YES];
+    NSURL *url = request.URL;
+    if (![url.scheme isEqual:@"http"] && ![url.scheme isEqual:@"https"]) {
+        if ([[UIApplication sharedApplication]canOpenURL:url]) {
+            [[UIApplication sharedApplication]openURL:url];
+            return NO;
+        }
+    }
+    if( [url.host hasSuffix:@"itunes.apple.com"])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: request.URL.absoluteString]];
+        return NO;
+    }
     return YES;
 }
-
-# pragma mark - Web View
-
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
