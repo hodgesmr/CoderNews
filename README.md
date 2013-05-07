@@ -13,7 +13,7 @@ The master branch reflects the most up-to-date codebase for CoderNews. The assoc
 
 ### Pocket API Key
 
-CoderNews implements the [Pocket SDK for iOS](https://github.com/Pocket/Pocket-ObjC-SDK) as a submodule. One of the requirements for the Pocket SDK is that each developer has a unique and secret API key. CoderNews contains the file **Keys.h** which is committed with a dummy key. If you wish to fork CoderNews, be sure to replace that dummy key with your own Pocket API key. 
+CoderNews implements the [Pocket SDK for iOS](https://github.com/Pocket/Pocket-ObjC-SDK) as a submodule. Be sure to `git clone --recursive` so that it is pulled down with the rest of the repo. One of the requirements for the Pocket SDK is that each developer has a unique and secret API key. CoderNews contains the file **Keys.h** which is committed with a dummy key. If you wish to fork CoderNews, be sure to replace that dummy key with your own Pocket API key. 
 
 ## FAQs
 
