@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="CoderNews : iOS app that aggregates news from Hacker News and Reddit Programming" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>CoderNews</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/hodgesmr/CoderNews">View on GitHub</a>
+
+          <h1 id="project_title">CoderNews</h1>
+          <h2 id="project_tagline">iOS app that aggregates news from Hacker News and Reddit Programming</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/hodgesmr/CoderNews/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/hodgesmr/CoderNews/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>CoderNews</h1>
+
+<h3>A simple reader for Hacker News and Reddit Programming</h3>
+
+<p align="center">
+  <a href="https://itunes.apple.com/us/app/codernews/id643980787?ls=1&amp;mt=8"><img src="https://raw.github.com/hodgesmr/CoderNews/master/coder-news-hero.png" alt="CoderNews" title="CoderNews"></a>
+</p>
+
+<p>CoderNews is a simple iOS application for aggregating and reading articles from <a href="http://news.ycombinator.com">Hacker News</a> and <a href="http://reddit.com/r/programming">Reddit Programming</a>. While there are many alternative applications available to consume this content, CoderNews was designed to keep things minimalistic. Often it is too hard to try to read and submit comments, or vote on stories, from the confines of a hand-held device. CoderNews strives to give you what you want: fresh content that is easy to read.</p>
+
+<h2>Contribute</h2>
+
+<p>There were many reasons to make CoderNews open source. One is that I used many open source libraries and modules while making the applicaiton. I felt it only right to contribute back to the open source community by making the code and assets of CoderNews open and licensed under the MIT License.</p>
+
+<p>The other reason for making CoderNews open source is that I know there is room for improvement. This project began like so many projects do: I was simply playing around with an idea one night, and the next thing I know I've got an app. That being said, there are many ways in which CoderNews can be improved. I'll admit it: some of the code is hacky. And the UI isn't the greatest (I'll be the first to admit that I'm no designer). So what better way to allow CoderNews to improve than let the community contribute?</p>
+
+<p>The master branch reflects the most up-to-date codebase for CoderNews. The associated tags reflect the various App Store submissions. Update your tags regularly, as they may change if Apple doesn't like a given submission.</p>
+
+<h3>Pocket API Key</h3>
+
+<p>CoderNews implements the <a href="https://github.com/Pocket/Pocket-ObjC-SDK">Pocket SDK for iOS</a> as a submodule. Be sure to <code>git clone --recursive</code> so that it is pulled down with the rest of the repo. One of the requirements for the Pocket SDK is that each developer has a unique and secret API key. CoderNews contains the file <strong>Keys.h</strong> which is committed with a dummy key. If you wish to fork CoderNews, be sure to replace that dummy key with your own Pocket API key. </p>
+
+<h2>FAQs</h2>
+
+<h3>How is CoderNews different from other Hacker News / Reddit apps?</h3>
+
+<p>CoderNews was intentionally designed to be simple and minimal. You won't find features such as comment threads or the ability vote on stories. Historically, these features are hard to use on small devices and I want to make an app that is easy to use.</p>
+
+<h3>How is the content ordered?</h3>
+
+<p>Often, Hacker News and Reddit will keep stories at the top of the page for a long time. I call these <em>stale</em> stories. CoderNews works to show you fresh content. Stories are in semi-chronological order, with newer front-page stories appearing at the top of the news list.</p>
+
+<h3>Why don't some stories show up?</h3>
+
+<p>CoderNews isn't meant to be a mirror of Hacker News or Reddit Programming. I'm pruning out stories that don't <em>make the cut</em>. There are point thresholds and content-type filters.</p>
+
+<h3>Why isn't CoderNews optimized for the iPad?</h3>
+
+<p>Short answer: I don't own an iPad so development is challenging. However, feel free to fork and contribute!</p>
+
+<h3>I'm a designer, not a developer. Can I contribute?</h3>
+
+<p>Absolutely! I hope that the look, feel, and experiences of CoderNews will evolve into something beautiful. Designers are welcome to propose new assets or even submit mockups for better layouts.</p>
+
+<h3>Couldn't I do all this with RSS?</h3>
+
+<p>Yeah, probably.</p>
+
+<h2>A Matt Hodges project</h2>
+
+<p>This project is maintained by <a href="http://twitter.com/hodgesmr">@hodgesmr</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">CoderNews maintained by <a href="https://github.com/hodgesmr">hodgesmr</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
