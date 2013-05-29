@@ -1,4 +1,4 @@
-# CoderNews
+# CoderNews [![Build Status](https://travis-ci.org/hodgesmr/CoderNews.png)](https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME])
 ### A simple reader for Hacker News and Reddit Programming
 
 <p align="center" >
