@@ -66,22 +66,27 @@ static PreferencesManager* _sharedPreferencesManagerInstance;
 
 - (void) setRequiresHackerNews:(BOOL)requiresHackerNews {
     [defaults setBool:requiresHackerNews forKey:REQUIRES_HACKER_NEWS];
+    [defaults synchronize];
 }
 
 - (void) setRequiresProggit:(BOOL)requiresProggit {
     [defaults setBool:requiresProggit forKey:REQUIRES_PROGGIT];
+    [defaults synchronize];
 }
 
 - (void) setRequiresSound:(BOOL)requiresSound {
     [defaults setBool:requiresSound forKey:REQUIRES_SOUND];
+    [defaults synchronize];
 }
 
 - (void) setStoryLifetime:(int)storyLifetime {
     [defaults setInteger:storyLifetime forKey:STORY_LIFETIME];
+    [defaults synchronize];
 }
 
 - (void) registerDefaults:(NSDictionary*)defaultPreferences {
     [defaults registerDefaults:defaultPreferences];
+    [defaults synchronize];
 }
 
 @end
