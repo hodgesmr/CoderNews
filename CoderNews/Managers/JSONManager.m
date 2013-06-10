@@ -148,6 +148,8 @@ static JSONManager *_sharedJSONManagerInsance;
                 fs.title = [[item valueForKey:@"data"]valueForKey:@"title"];
                 fs.title = [fs.title stringByDecodingHTMLEntities];
                 fs.url = [[item valueForKey:@"data"]valueForKey:@"url"];
+                // the hn api that I'm using is returning html encoded urls... might switch...
+                fs.url = [fs.url stringByDecodingHTMLEntities];
                 fs.score = [[item valueForKey:@"data"]valueForKey:@"score"];
                 fs.source = @"proggit";
                 [self.fetchedProggitStories addObject:fs];
@@ -167,6 +169,8 @@ static JSONManager *_sharedJSONManagerInsance;
                     }
                 }
                 fs.url = [item valueForKey:@"url"];
+                // the hn api that I'm using is returning html encoded urls... might switch...
+                fs.url = [fs.url stringByDecodingHTMLEntities];
                 fs.score = [item valueForKey:@"points"];
                 fs.source = @"hackernews";
                 [self.fetchedHackerNewsStories addObject:fs];

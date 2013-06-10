@@ -29,6 +29,7 @@
 #import "CoreDataManager.h"
 #import "CustomTableViewCell.h"
 #import "NewsListViewController.h"
+#import "NSString+HTML.h"
 #import "PreferencesManager.h"
 #import "PrivacyViewController.h"
 #import "SettingsViewController.h"
@@ -122,9 +123,11 @@
 }
 
 - (NSString*) stripWWWFromURL:(NSString*)urlString {
-    NSString* wwwString = [[urlString substringToIndex:4] lowercaseString];
-    if([wwwString isEqualToString:@"www."]) {
-        return [urlString substringWithRange:NSMakeRange(4, urlString.length-4)];
+    if(urlString.length > 4) {
+        NSString* wwwString = [[urlString substringToIndex:4] lowercaseString];
+        if([wwwString isEqualToString:@"www."]) {
+            return [urlString substringWithRange:NSMakeRange(4, urlString.length-4)];
+        }
     }
     return urlString;
 }
@@ -135,7 +138,7 @@
         ContentViewController *contentViewController = (ContentViewController *)segue.destinationViewController;
         StoryInfo* si = [self.fetchedResultsController objectAtIndexPath:currentlySelected];
         contentViewController.storyTitle = si.title;
-        contentViewController.storyUrl = si.url;
+        contentViewController.storyUrl = [si.url stringByDecodingHTMLEntities]; // deal with any shit data that got in
         [[CoreDataManager sharedManager] setUrlVisited:si.url];
         
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
@@ -201,10 +204,16 @@
         cell.ribbon.hidden = YES;
     }
     
-    NSString* urlString = info.url;
+    NSString* urlString = [info.url stringByDecodingHTMLEntities]; // decode any shit data that got in
     NSURL* url = [NSURL URLWithString:urlString];
     NSString* domain = [self stripWWWFromURL:[url host]];
-    NSAttributedString* asDetails = [[NSAttributedString alloc] initWithString:domain];
+    NSAttributedString* asDetails;
+    if(domain != nil) {
+        asDetails = [[NSAttributedString alloc] initWithString:domain];
+    }
+    else {
+        asDetails = [[NSAttributedString alloc] initWithString:info.url];
+    }
     cell.detailTextLabel.numberOfLines = 1;
     cell.detailTextLabel.attributedText = asDetails;
     cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
@@ -225,7 +234,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSString* urlString = info.url;
+    NSString* urlString = [info.url stringByDecodingHTMLEntities]; // decode any shit data that got in
     NSURL* url = [NSURL URLWithString:urlString];
     NSString* domain = [self stripWWWFromURL:[url host]];
     static NSString *CellIdentifier = @"Cell";
