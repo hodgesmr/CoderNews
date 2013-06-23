@@ -56,9 +56,16 @@
     self.toolbar.items = toolbarItems;
     self.webView.delegate = self;
     self.title = storyTitle;
-    NSURL* url = [[NSURL alloc] initWithString:self.storyUrl];
-    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:url];
-    [self.webView loadRequest:request];
+    @try {
+        NSURL* url = [[NSURL alloc] initWithString:self.storyUrl];
+        NSURLRequest* request = [[NSURLRequest alloc] initWithURL:url];
+        [self.webView loadRequest:request];
+    }
+    @catch (NSException* e) {
+        // If something screwed up, no controls
+        self.refreshButton.enabled = NO;
+        self.shareButton.enabled = NO;
+    }
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
