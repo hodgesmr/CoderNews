@@ -67,7 +67,6 @@
 		63C17A9F17330205007C8F1D /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17A9517330205007C8F1D /* iTunesArtwork@2x.png */; };
 		63C17AA517330FD2007C8F1D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17AA417330FD2007C8F1D /* Icon.png */; };
 		63C17AA717330FD6007C8F1D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17AA617330FD6007C8F1D /* Icon@2x.png */; };
-		63CAD6051737034C005AD4A5 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CAD6041737034C005AD4A5 /* CustomTableViewCell.m */; };
 		63CB148C17384FB0008AE490 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB148B17384FB0008AE490 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		63CB148F17385051008AE490 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB148E17385051008AE490 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		63CB1492173853E2008AE490 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB1491173853E2008AE490 /* UIView+Toast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -184,8 +183,6 @@
 		63C17A9517330205007C8F1D /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		63C17AA417330FD2007C8F1D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		63C17AA617330FD6007C8F1D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		63CAD6031737034C005AD4A5 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
-		63CAD6041737034C005AD4A5 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		63CB148A17384FB0008AE490 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		63CB148B17384FB0008AE490 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		63CB148D17385051008AE490 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
@@ -346,8 +343,6 @@
 		6358787316FA922B00A831E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				63CAD6031737034C005AD4A5 /* CustomTableViewCell.h */,
-				63CAD6041737034C005AD4A5 /* CustomTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -640,7 +635,6 @@
 				6358786516FA822200A831E1 /* PocketAPIOperation.m in Sources */,
 				6358786616FA822200A831E1 /* SFHFKeychainUtils.m in Sources */,
 				6358787216FA84A100A831E1 /* Keys.m in Sources */,
-				63CAD6051737034C005AD4A5 /* CustomTableViewCell.m in Sources */,
 				63CB148C17384FB0008AE490 /* NSString+HTML.m in Sources */,
 				63CB148F17385051008AE490 /* GTMNSString+HTML.m in Sources */,
 				63CB1492173853E2008AE490 /* UIView+Toast.m in Sources */,

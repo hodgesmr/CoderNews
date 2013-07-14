@@ -27,7 +27,6 @@
 #import "AboutViewController.h"
 #import "ContentViewController.h"
 #import "CoreDataManager.h"
-#import "CustomTableViewCell.h"
 #import "NewsListViewController.h"
 #import "NSString+HTML.h"
 #import "PreferencesManager.h"
@@ -188,7 +187,13 @@
     return [sectionInfo numberOfObjects];
 }
 
--(void)configureCell:(CustomTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell* cell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    // set up the cell...
     StoryInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSAttributedString* asTitle = [[NSAttributedString alloc] initWithString:info.title];
     cell.textLabel.numberOfLines = 0;
@@ -197,11 +202,9 @@
     
     if([[NSNumber numberWithBool:NO] isEqualToNumber:info.visited]) {
         cell.textLabel.textColor = [UIColor colorWithRed:25/255.0 green:25/255.0 blue:25/255.0 alpha:1];
-        cell.ribbon.hidden = NO;
     }
     else {
         cell.textLabel.textColor = [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:0.7];
-        cell.ribbon.hidden = YES;
     }
     
     NSString* urlString = [info.url stringByDecodingHTMLEntities]; // decode any shit data that got in
@@ -217,16 +220,6 @@
     cell.detailTextLabel.numberOfLines = 1;
     cell.detailTextLabel.attributedText = asDetails;
     cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
-}
-
-- (CustomTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    
-    CustomTableViewCell* cell = (CustomTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // set up the cell...
-    [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
@@ -280,7 +273,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:(CustomTableViewCell*)[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [tableView cellForRowAtIndexPath:indexPath];
             break;
             
         case NSFetchedResultsChangeMove:
