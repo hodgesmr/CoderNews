@@ -211,6 +211,7 @@
     }
     else {
         cell.textLabel.textColor = [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:0.7];
+        cell.detailTextLabel.textColor = cell.textLabel.textColor;
         cell.textLabel.font = visitedFont;
     }
     
