@@ -51,7 +51,7 @@
     NSMutableArray *toolbarItems = [NSMutableArray arrayWithArray:[self.toolbar items]];
     [toolbarItems removeObject:self.stopButton];
     
-    [self.toolbar setTintColor:[UIColor darkGrayColor]];
+    [self.toolbar setTintColor:[UIColor whiteColor]];
     
     self.toolbar.items = toolbarItems;
     self.webView.delegate = self;
@@ -182,21 +182,21 @@
         [[PocketAPI sharedAPI] saveURL:url handler: ^(PocketAPI *API, NSURL *URL, NSError *error){
             if(error) {
                 
-                CustomAlertView *customAlertView = [[CustomAlertView alloc] initWithTitle:@"Error"
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                                   message:@"There was an error adding the story to your Pocket account."
                                                                                  delegate:nil
                                                                         cancelButtonTitle:nil
                                                                         otherButtonTitles:@"OK",nil];
-                [customAlertView show];
+                [alertView show];
                 
             }
             else {
-                CustomAlertView *customAlertView = [[CustomAlertView alloc] initWithTitle:@"Saved"
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Saved"
                                                                                   message:@"The story was added to your Pocket account."
                                                                                  delegate:nil
                                                                         cancelButtonTitle:nil
                                                                         otherButtonTitles:@"OK",nil];
-                [customAlertView show];
+                [alertView show];
             }
         }];
     }

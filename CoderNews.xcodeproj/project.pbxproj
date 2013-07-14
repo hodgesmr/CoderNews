@@ -49,7 +49,6 @@
 		6358786616FA822200A831E1 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358784C16FA822200A831E1 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6358786F16FA827E00A831E1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6358786E16FA827E00A831E1 /* Security.framework */; };
 		6358787216FA84A100A831E1 /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358787116FA84A100A831E1 /* Keys.m */; };
-		6358787616FA954000A831E1 /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6358787516FA954000A831E1 /* CustomAlertView.m */; };
 		635E601216F5001600F78E87 /* oneClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 635E601016F5001600F78E87 /* oneClick.wav */; };
 		635E601916F503F500F78E87 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E601816F503F500F78E87 /* SoundManager.m */; };
 		635E601B16F5055E00F78E87 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635E601A16F5055E00F78E87 /* AudioToolbox.framework */; };
@@ -164,8 +163,6 @@
 		6358786E16FA827E00A831E1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6358787016FA84A100A831E1 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
 		6358787116FA84A100A831E1 /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
-		6358787416FA954000A831E1 /* CustomAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertView.h; sourceTree = "<group>"; };
-		6358787516FA954000A831E1 /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
 		635E601016F5001600F78E87 /* oneClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = oneClick.wav; sourceTree = "<group>"; };
 		635E601716F503F500F78E87 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		635E601816F503F500F78E87 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
@@ -349,8 +346,6 @@
 		6358787316FA922B00A831E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6358787416FA954000A831E1 /* CustomAlertView.h */,
-				6358787516FA954000A831E1 /* CustomAlertView.m */,
 				63CAD6031737034C005AD4A5 /* CustomTableViewCell.h */,
 				63CAD6041737034C005AD4A5 /* CustomTableViewCell.m */,
 			);
@@ -645,7 +640,6 @@
 				6358786516FA822200A831E1 /* PocketAPIOperation.m in Sources */,
 				6358786616FA822200A831E1 /* SFHFKeychainUtils.m in Sources */,
 				6358787216FA84A100A831E1 /* Keys.m in Sources */,
-				6358787616FA954000A831E1 /* CustomAlertView.m in Sources */,
 				63CAD6051737034C005AD4A5 /* CustomTableViewCell.m in Sources */,
 				63CB148C17384FB0008AE490 /* NSString+HTML.m in Sources */,
 				63CB148F17385051008AE490 /* GTMNSString+HTML.m in Sources */,
