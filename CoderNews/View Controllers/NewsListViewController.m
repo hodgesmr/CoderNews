@@ -214,7 +214,7 @@
         cell.textLabel.font = visitedFont;
     }
     
-    NSString* urlString = [info.url stringByDecodingHTMLEntities]; // decode any shit data that got in
+    NSString* urlString = [info.url stringByDecodingHTMLEntities];
     NSURL* url = [NSURL URLWithString:urlString];
     NSString* domain = [self stripWWWFromURL:[url host]];
     NSAttributedString* asDetails;
@@ -259,8 +259,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    currentlySelected = indexPath;
-    [self performSegueWithIdentifier:@"contentSegue" sender:self];
+    UITableViewCell* theCell = [tableView cellForRowAtIndexPath:indexPath];
+    CGRect newFrame = CGRectMake(theCell.frame.origin.x+60, theCell.frame.origin.y, theCell.frame.size.width, theCell.frame.size.height);
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [theCell setFrame:newFrame];
+    }completion:^(BOOL finised){
+        currentlySelected = indexPath;
+        [self performSegueWithIdentifier:@"contentSegue" sender:self];}];
+    
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
