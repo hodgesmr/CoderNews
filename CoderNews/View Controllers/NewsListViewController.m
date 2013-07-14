@@ -43,6 +43,9 @@
 @implementation NewsListViewController {
     NSIndexPath* currentlySelected;
     UIRefreshControl* refreshControl;
+    UIFont* visitedFont;
+    UIFont* notVisitedFont;
+    UIFont* domainFont;
 }
 
 @synthesize fetchedResultsController;
@@ -56,7 +59,6 @@
     self.rootViewControllerDelegate = self;
     //add refresh control to the table view
     refreshControl = [[UIRefreshControl alloc] init];
-    
     [refreshControl addTarget:self
                        action:@selector(refreshInvoked:forState:)
              forControlEvents:UIControlEventValueChanged];
@@ -75,6 +77,10 @@
     [[CoreDataManager sharedManager] setDelegate:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkForNewData) name:@"applicationDidBecomeActive" object:nil];
     oldUid = [NSDecimalNumber decimalNumberWithString:@"0"];
+    
+    visitedFont = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
+    notVisitedFont = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
+    domainFont = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
 }
 
 - (void) checkForNewData {
@@ -198,13 +204,14 @@
     NSAttributedString* asTitle = [[NSAttributedString alloc] initWithString:info.title];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.attributedText = asTitle;
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:18.0];
+    cell.textLabel.font = notVisitedFont;
     
     if([[NSNumber numberWithBool:NO] isEqualToNumber:info.visited]) {
         cell.textLabel.textColor = [UIColor colorWithRed:25/255.0 green:25/255.0 blue:25/255.0 alpha:1];
     }
     else {
         cell.textLabel.textColor = [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:0.7];
+        cell.textLabel.font = visitedFont;
     }
     
     NSString* urlString = [info.url stringByDecodingHTMLEntities]; // decode any shit data that got in
@@ -219,7 +226,7 @@
     }
     cell.detailTextLabel.numberOfLines = 1;
     cell.detailTextLabel.attributedText = asDetails;
-    cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
+    cell.detailTextLabel.font = domainFont;
     
     return cell;
 }
@@ -233,11 +240,15 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    //Calculate the expected size based on the font and linebreak mode of the label
-    // FLT_MAX here simply means no constraint in height
-    CGSize maximumLabelSize = CGSizeMake(280, FLT_MAX); // this 280 came from experimentation.
-    
-    CGSize titleSize = [info.title sizeWithFont:cell.textLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
+    CGSize maximumLabelSize = CGSizeMake(265, FLT_MAX);
+    UIFont* labelFont;
+    if([[NSNumber numberWithBool:NO] isEqualToNumber:info.visited]) {
+        labelFont = notVisitedFont;
+    }
+    else {
+        labelFont = visitedFont;
+    }
+    CGSize titleSize = [info.title sizeWithFont:labelFont constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
     CGSize detailSize = [domain sizeWithFont:cell.detailTextLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.detailTextLabel.lineBreakMode];
     
     return titleSize.height + detailSize.height + 10; // woop, hard code
