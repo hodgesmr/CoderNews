@@ -25,7 +25,6 @@
 //
 
 #import "AboutViewController.h"
-#import "CustomAlertView.h"
 
 @interface AboutViewController ()
 
@@ -119,12 +118,12 @@
     }
     else
     {
-        CustomAlertView *customAlertView = [[CustomAlertView alloc] initWithTitle:@"Error"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                           message:@"Your device is not set up to send email."
                                                                          delegate:nil
                                                                 cancelButtonTitle:nil
                                                                 otherButtonTitles:@"OK",nil];
-        [customAlertView show];
+        [alertView show];
     }
 }
 
