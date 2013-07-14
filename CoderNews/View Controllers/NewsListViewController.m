@@ -240,7 +240,7 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    CGSize maximumLabelSize = CGSizeMake(265, FLT_MAX);
+    CGSize maximumLabelSize = CGSizeMake(270, FLT_MAX);
     UIFont* labelFont;
     if([[NSNumber numberWithBool:NO] isEqualToNumber:info.visited]) {
         labelFont = notVisitedFont;
