@@ -47,7 +47,7 @@
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menuIcon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showMenu)];
     self.title = @"About";
     self.versionNumberLabel.text = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey];
-    self.view.backgroundColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:220.0/255.0 alpha:1.0];
+    self.view.backgroundColor = [UIColor colorWithRed:229.0/255.0 green:229.0/255.0 blue:229.0/255.0 alpha:1.0];
     [[self followButton] setBackgroundColor:[UIColor darkGrayColor]];
     [[self followButton] setTitle:@"Follow @hodgesmr" forState:UIControlStateNormal];
     [[self forkButton] setBackgroundColor:[UIColor darkGrayColor]];
