@@ -151,7 +151,6 @@
                                        style: UIBarButtonItemStyleBordered
                                        target: nil action: nil];
         [self.navigationItem setBackBarButtonItem: backButton];
-        [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     }
 }
 
@@ -208,10 +207,11 @@
     
     if([[NSNumber numberWithBool:NO] isEqualToNumber:info.visited]) {
         cell.textLabel.textColor = [UIColor colorWithRed:25/255.0 green:25/255.0 blue:25/255.0 alpha:1];
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:107/255.0 green:161/255.0 blue:203/255.0 alpha:1];
     }
     else {
-        cell.textLabel.textColor = [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:0.7];
-        cell.detailTextLabel.textColor = cell.textLabel.textColor;
+        cell.textLabel.textColor = [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:0.9];
+        cell.detailTextLabel.textColor = [UIColor colorWithRed:40/255.0 green:40/255.0 blue:40/255.0 alpha:0.7];
         cell.textLabel.font = visitedFont;
     }
     
@@ -260,6 +260,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [[SoundManager sharedSoundManager] playSoundWithName:@"oneClick" andExtension:@"wav"];
     UITableViewCell* theCell = [tableView cellForRowAtIndexPath:indexPath];
     CGRect newFrame = CGRectMake(theCell.frame.origin.x+60, theCell.frame.origin.y, theCell.frame.size.width, theCell.frame.size.height);
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
