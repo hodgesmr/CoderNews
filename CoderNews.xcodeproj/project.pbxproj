@@ -520,6 +520,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Matt Hodges";
+				TargetAttributes = {
+					63F18DCA16BDCD1D00A1EEE9 = {
+						DevelopmentTeam = ESEAJ7N555;
+					};
+				};
 			};
 			buildConfigurationList = 63F18DC616BDCD1D00A1EEE9 /* Build configuration list for PBXProject "CoderNews" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -687,11 +692,14 @@
 		63F18DF716BDCD1E00A1EEE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoderNews/Supporting Files/CoderNews-Prefix.pch";
 				INFOPLIST_FILE = "CoderNews/Supporting Files/CoderNews-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -700,7 +708,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoderNews/Supporting Files/CoderNews-Prefix.pch";
 				INFOPLIST_FILE = "CoderNews/Supporting Files/CoderNews-Info.plist";
