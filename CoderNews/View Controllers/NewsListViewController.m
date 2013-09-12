@@ -251,7 +251,7 @@
     }
     CGSize titleSize = [info.title sizeWithFont:labelFont constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
     CGSize detailSize = [domain sizeWithFont:cell.detailTextLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.detailTextLabel.lineBreakMode];
-    
+
     return titleSize.height + detailSize.height + 10; // woop, hard code
 }
 

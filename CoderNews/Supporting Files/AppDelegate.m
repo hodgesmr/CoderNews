@@ -46,8 +46,8 @@
     
     // set up the appearance
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0], UITextAttributeTextColor,
-                                                           [UIFont fontWithName:@"HelveticaNeue-Medium" size:21.0], UITextAttributeFont, nil]];
+                                                           [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           [UIFont fontWithName:@"HelveticaNeue-Medium" size:21.0], NSFontAttributeName, nil]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     UIImage *navBackgroundImage = [UIImage imageNamed:@"navbarBackground"];
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];

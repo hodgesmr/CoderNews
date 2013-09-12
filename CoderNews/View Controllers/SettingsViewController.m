@@ -87,7 +87,6 @@
             
             NSArray* cacheDays = [NSArray arrayWithObjects: @"1", @"2", @"3", @"4", @"5", nil];
             UISegmentedControl* cacheControl = [[UISegmentedControl alloc] initWithItems:cacheDays];
-            cacheControl.segmentedControlStyle = UISegmentedControlStyleBar;
             cacheControl.tintColor = [UIColor blackColor];
             [cacheControl addTarget:self action:@selector(cacheSelection:) forControlEvents:UIControlEventValueChanged];
             cacheControl.frame = CGRectMake(10, 44, self.tbl.frame.size.width-20, 47);
