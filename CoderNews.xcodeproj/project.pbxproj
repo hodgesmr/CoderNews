@@ -63,8 +63,6 @@
 		63C17A9B17330205007C8F1D /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17A9117330205007C8F1D /* Icon-Small@2x.png */; };
 		63C17A9E17330205007C8F1D /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17A9417330205007C8F1D /* iTunesArtwork.png */; };
 		63C17A9F17330205007C8F1D /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17A9517330205007C8F1D /* iTunesArtwork@2x.png */; };
-		63C17AA517330FD2007C8F1D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17AA417330FD2007C8F1D /* Icon.png */; };
-		63C17AA717330FD6007C8F1D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C17AA617330FD6007C8F1D /* Icon@2x.png */; };
 		63CB148C17384FB0008AE490 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB148B17384FB0008AE490 /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		63CB148F17385051008AE490 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB148E17385051008AE490 /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		63CB1492173853E2008AE490 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CB1491173853E2008AE490 /* UIView+Toast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -177,8 +175,6 @@
 		63C17A9317330205007C8F1D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		63C17A9417330205007C8F1D /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		63C17A9517330205007C8F1D /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		63C17AA417330FD2007C8F1D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		63C17AA617330FD6007C8F1D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		63CB148A17384FB0008AE490 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		63CB148B17384FB0008AE490 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		63CB148D17385051008AE490 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
@@ -379,8 +375,6 @@
 		63F18DC216BDCD1D00A1EEE9 = {
 			isa = PBXGroup;
 			children = (
-				63C17AA617330FD6007C8F1D /* Icon@2x.png */,
-				63C17AA417330FD2007C8F1D /* Icon.png */,
 				6358781016FA822200A831E1 /* Submodules */,
 				63F18DD616BDCD1E00A1EEE9 /* CoderNews */,
 				63F18DCD16BDCD1E00A1EEE9 /* Frameworks */,
@@ -582,8 +576,6 @@
 				63C17A9B17330205007C8F1D /* Icon-Small@2x.png in Resources */,
 				63C17A9E17330205007C8F1D /* iTunesArtwork.png in Resources */,
 				63C17A9F17330205007C8F1D /* iTunesArtwork@2x.png in Resources */,
-				63C17AA517330FD2007C8F1D /* Icon.png in Resources */,
-				63C17AA717330FD6007C8F1D /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +690,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoderNews/Supporting Files/CoderNews-Prefix.pch";
 				INFOPLIST_FILE = "CoderNews/Supporting Files/CoderNews-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -711,6 +704,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoderNews/Supporting Files/CoderNews-Prefix.pch";
 				INFOPLIST_FILE = "CoderNews/Supporting Files/CoderNews-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
