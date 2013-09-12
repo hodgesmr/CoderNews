@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26FBA8A517E266F40044FAC8 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FBA8A317E266F40044FAC8 /* Icon-80.png */; };
+		26FBA8A617E266F40044FAC8 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 26FBA8A417E266F40044FAC8 /* Icon-120.png */; };
 		6317B1981725FBC600580514 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317B1971725FBC600580514 /* MessageUI.framework */; };
 		631AD03D16BEBB2A00D0036A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 631AD03C16BEBB2A00D0036A /* InfoPlist.strings */; };
 		631AD03E16BEBB7B00D0036A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F73FB616BEBA9A00FCB221 /* AppDelegate.m */; };
@@ -88,6 +90,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26FBA8A317E266F40044FAC8 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
+		26FBA8A417E266F40044FAC8 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		6317B1971725FBC600580514 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		631AD03C16BEBB2A00D0036A /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		631AD04016BEBF2600D0036A /* StoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryInfo.h; sourceTree = "<group>"; };
@@ -362,6 +366,8 @@
 				63C17A8F17330205007C8F1D /* Icon-Small-50@2x.png */,
 				63C17A9017330205007C8F1D /* Icon-Small.png */,
 				63C17A9117330205007C8F1D /* Icon-Small@2x.png */,
+				26FBA8A317E266F40044FAC8 /* Icon-80.png */,
+				26FBA8A417E266F40044FAC8 /* Icon-120.png */,
 				63C17A9217330205007C8F1D /* Icon.png */,
 				63C17A9317330205007C8F1D /* Icon@2x.png */,
 				63C17A9417330205007C8F1D /* iTunesArtwork.png */,
@@ -557,6 +563,7 @@
 				632C61E716E426A300FC8C68 /* menuIcon@2x.png in Resources */,
 				632C61E816E426A300FC8C68 /* menuIcon.png in Resources */,
 				632C61EB16E435A300FC8C68 /* homeIcon.png in Resources */,
+				26FBA8A517E266F40044FAC8 /* Icon-80.png in Resources */,
 				632C61EC16E435A300FC8C68 /* homeIcon@2x.png in Resources */,
 				63EBE9C516F3FA800086F773 /* navbarBackground@2x.png in Resources */,
 				63EBE9C616F3FA800086F773 /* navbarBackground.png in Resources */,
@@ -570,6 +577,7 @@
 				63C17A9717330205007C8F1D /* Icon-72@2x.png in Resources */,
 				63C17A9817330205007C8F1D /* Icon-Small-50.png in Resources */,
 				63C17A9917330205007C8F1D /* Icon-Small-50@2x.png in Resources */,
+				26FBA8A617E266F40044FAC8 /* Icon-120.png in Resources */,
 				63C17A9A17330205007C8F1D /* Icon-Small.png in Resources */,
 				63C17A9B17330205007C8F1D /* Icon-Small@2x.png in Resources */,
 				63C17A9E17330205007C8F1D /* iTunesArtwork.png in Resources */,
