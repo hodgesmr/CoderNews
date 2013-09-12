@@ -238,10 +238,8 @@
     NSString* urlString = [info.url stringByDecodingHTMLEntities]; // decode any shit data that got in
     NSURL* url = [NSURL URLWithString:urlString];
     NSString* domain = [self stripWWWFromURL:[url host]];
-    static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    CGSize maximumLabelSize = CGSizeMake(270, FLT_MAX);
+    CGSize maximumLabelSize = CGSizeMake(270.0, FLT_MAX);
     UIFont* labelFont;
     if([[NSNumber numberWithBool:NO] isEqualToNumber:info.visited]) {
         labelFont = notVisitedFont;
@@ -249,8 +247,13 @@
     else {
         labelFont = visitedFont;
     }
-    CGSize titleSize = [info.title sizeWithFont:labelFont constrainedToSize:maximumLabelSize lineBreakMode:cell.textLabel.lineBreakMode];
-    CGSize detailSize = [domain sizeWithFont:cell.detailTextLabel.font constrainedToSize:maximumLabelSize lineBreakMode:cell.detailTextLabel.lineBreakMode];
+    
+    NSDictionary* titleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:labelFont,NSFontAttributeName, nil];
+    CGSize titleSize = [info.title boundingRectWithSize:maximumLabelSize options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:titleAttributes context:nil].size;
+    
+    NSDictionary* detailAttributes = [NSDictionary dictionaryWithObjectsAndKeys:labelFont,NSFontAttributeName, nil];
+    CGSize detailSize = [domain boundingRectWithSize:maximumLabelSize options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading) attributes:detailAttributes context:nil].size;
+    
 
     return titleSize.height + detailSize.height + 10; // woop, hard code
 }
