@@ -39,7 +39,7 @@
     NSDictionary* defaultPreferences = [[NSDictionary alloc] initWithObjectsAndKeys:
                                         [NSNumber numberWithBool:YES], REQUIRES_HACKER_NEWS,
                                         [NSNumber numberWithBool:YES], REQUIRES_PROGGIT,
-                                        [NSNumber numberWithBool:YES], REQUIRES_SOUND,
+                                        [NSNumber numberWithBool:NO], REQUIRES_SOUND,
                                         [NSNumber numberWithInt:2], STORY_LIFETIME,
                                         nil];
     [[PreferencesManager sharedPreferencesManager] registerDefaults:defaultPreferences];
