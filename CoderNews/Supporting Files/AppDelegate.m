@@ -62,7 +62,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"applicationDidBecomeActive" object:nil];
+    
 }
 
 - (BOOL) application:(UIApplication *)application

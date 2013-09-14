@@ -75,7 +75,7 @@
     self.fetchedResultsController = [[CoreDataManager sharedManager] fetchStoryInfosById];
     [self refreshFeed];
     [[CoreDataManager sharedManager] setDelegate:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkForNewData) name:@"applicationDidBecomeActive" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkForNewData) name:UIApplicationDidBecomeActiveNotification object:nil];
     oldUid = [NSDecimalNumber decimalNumberWithString:@"0"];
     
     visitedFont = [UIFont fontWithName:@"HelveticaNeue" size:14.0];
@@ -102,6 +102,7 @@
 - (void) viewDidUnload {
     self.fetchedResultsController = nil;
     self.fetchedResultsController.delegate = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
