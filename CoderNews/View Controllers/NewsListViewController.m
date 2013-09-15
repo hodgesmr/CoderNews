@@ -148,7 +148,7 @@
         [[CoreDataManager sharedManager] setUrlVisited:si.url];
         
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
-                                       initWithTitle: NSLocalizedString(@"News", nil)
+                                       initWithTitle: @""
                                        style: UIBarButtonItemStyleBordered
                                        target: nil action: nil];
         [self.navigationItem setBackBarButtonItem: backButton];

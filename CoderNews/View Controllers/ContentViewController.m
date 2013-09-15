@@ -64,6 +64,8 @@
         // If something screwed up, no controls
         self.refreshButton.enabled = NO;
         self.shareButton.enabled = NO;
+        self.backButton.enabled = NO;
+        self.forwardButton.enabled = NO;
     }
 }
 
