@@ -17,8 +17,6 @@
 				<string>Icon-80</string>
 				<string>Icon-120</string>
 				<string>Icon-Small</string>
-				<string>Icon.png</string>
-				<string>Icon@2x.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
